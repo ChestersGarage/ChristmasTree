@@ -169,7 +169,7 @@ print('Starting LED Christmas tree scene: Flickering Candles.')
 stringLength = 3
 # Set all LEDs to off
 ledString = [ [0,0,0] ] * stringLength
-sequenceCounter = [ [0] ] * stringLength
+sequenceCounter = [0] * stringLength
 
 def burn_sine(burnSteps, bandWidth, offSet):
     """
