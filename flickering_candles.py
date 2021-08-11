@@ -216,38 +216,6 @@ def burn_flick(burnSteps, bandWidth, offSet):
     #exit()
     return burnSequence
 
-def run_sequence(burnSequence):
-    """
-    Runs through a sequence once.
-    """
-    for index,pixel in enumerate(ledString):
-        #print('index=' + str(index) +', pixel=' + str(pixel))
-        # print(str(type(index)))
-        # print(str(type(pixel)))
-        # print(str(burnSequence[0][ sequenceCounter[index] ]))
-        # print(candleMap[ burnSequence[index][ sequenceCounter[index] ] ][0])
-        # print(candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1])
-        # print(candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2])
-        # exit(0)
-        ledString[int(index)] = [ candleMap[ burnSequence[index][ sequenceCounter[index] ] ][0],
-                                  candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1],
-                                  candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
-        sequenceCounter[index] += 1
-        if sequenceCounter[index] == len(burnSequence[index]):
-            burnSequence[index] = pixelSequence()
-            sequenceCounter[index] = 0
-
-    #    for s,step in enumerate(burnSequence[p]):
-    #        i = 0
-    #        while i < stringLength:
-    #            ledString[i] = [ candleMap[step][0], candleMap[step][1]*1.15, (candleMap[step][2]/10)-1 ]
-    #            i += 1
-    #print(str(ledString))
-    #exit()
-    client.put_pixels(ledString)
-    # Sleep value = 1/FPS, i.e. 1/50 = .02
-    time.sleep(.02)
-
 def pixelSequence():
     burnSteps = random.randrange(20,250)
     flicker = random.randrange(30,50)
@@ -261,6 +229,23 @@ def newSequence():
         pixelSequence = pixelSequence()
         burnSequence.append(pixelSequence)
     return burnSequence
+
+def run_sequence(burnSequence):
+    """
+    Runs through a sequence once.
+    """
+    for index,pixel in enumerate(ledString):
+        ledString[int(index)] = [ candleMap[ burnSequence[index][ sequenceCounter[index] ] ][0],
+                                  candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1],
+                                  candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
+        sequenceCounter[index] += 1
+        if sequenceCounter[index] == len(burnSequence[index]):
+            burnSequence[index] = pixelSequence()
+            sequenceCounter[index] = 0
+
+    client.put_pixels(ledString)
+    # Sleep value = 1/FPS, i.e. 1/50 = .02
+    time.sleep(.02)
 
 sequenceDuration = 5
 burnSequence = newSequence()
