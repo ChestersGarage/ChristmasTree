@@ -166,7 +166,7 @@ candleMap = [
 print('Starting LED Christmas tree scene: Flickering Candles.')
 
 # Total addressable LEDs
-stringLength = 5
+stringLength = 265
 # Set all LEDs to off
 ledString = [ [0,0,0] ] * stringLength
 sequenceCounter = [0] * stringLength
