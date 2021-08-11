@@ -169,6 +169,7 @@ print('Starting LED Christmas tree scene: Flickering Candles.')
 stringLength = 265
 # Set all LEDs to off
 ledString = [ [0,0,0] ] * stringLength
+sequenceCounter = [ [0] ] * stringLength
 
 def burn_sine(burnSteps, bandWidth, offSet):
     """
@@ -219,12 +220,17 @@ def run_sequence(burnSequence):
     """
     Runs through a sequence once.
     """
-    for pixel in ledString:
-        for index,step in enumerate(burnSequence):
-            i = 0
-            while i < stringLength:
-                ledString[i] = [ candleMap[step][0], candleMap[step][1]*1.15, (candleMap[step][2]/10)-1 ]
-                i += 1
+    for p,pixel in enumerate(ledString):
+        ledString[p] = [ candleMap[burnSequence[p][sequenceCounter[p]]][0], candleMap[burnSequence[p][sequenceCounter[p]]][1]*1.15, (candleMap[burnSequence[p][sequenceCounter[p]]][2]/10)-1 ]
+        sequenceCounter[p] += 1
+        if sequenceCounter[p] > len(burnSequence[p]):
+            sequenceCounter[p] = 0
+
+    #    for s,step in enumerate(burnSequence[p]):
+    #        i = 0
+    #        while i < stringLength:
+    #            ledString[i] = [ candleMap[step][0], candleMap[step][1]*1.15, (candleMap[step][2]/10)-1 ]
+    #            i += 1
     #print(str(ledString))
     #exit()
     client.put_pixels(ledString)
@@ -234,7 +240,10 @@ def run_sequence(burnSequence):
 # Do things
 burnSequence = []
 for pixel in ledString:
-    burnSequence.append(burn_sine(random.randrange(20,250), 40, 116.5))
+    burnSteps = random.randrange(20,250)
+    bandwidth = random.randrange(30,50)
+    offset = random.randrange(157-bandwidth, 116.5)
+    burnSequence.append(burn_sine(burnSteps, bandwidth, offset))
 
 while True:
     run_sequence(burnSequence)
