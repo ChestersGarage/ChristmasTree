@@ -211,7 +211,7 @@ def makePixelSequence(type='jump'):
         sequenceIterations = random.randrange(1,4)
         pixelSequence = burn_sine(steps, flicker, brightness) * sequenceIterations
 
-    #print(str(pixelSequence))
+    print(str(pixelSequence))
     #exit(0)
 
     return pixelSequence
