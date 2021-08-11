@@ -224,7 +224,7 @@ def run_sequence(burnSequence):
         print('index=' + str(index) +', pixel=' + str(pixel))
         print(str(type(index)))
         print(str(type(pixel)))
-        print(str(burnSequence))
+        print(str(burnSequence[0][ sequenceCounter[index] ]))
         print(candleMap[ burnSequence[index][ sequenceCounter[index] ] ][0])
         print(candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1])
         print(candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2])
