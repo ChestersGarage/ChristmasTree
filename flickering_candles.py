@@ -1,4 +1,4 @@
-import opc, time, math, os
+import opc, time, math, os, random
 
 client = opc.Client('christmastree.home:7890')
 
@@ -219,20 +219,21 @@ def run_sequence(burnSequence):
     """
     Runs through a sequence once.
     """
-
-    for index,step in enumerate(burnSequence):
-        i = 0
-        while i < stringLength:
-            ledString[i] = [ candleMap[step][0], candleMap[step][1]*1.15, (candleMap[step][1]/10)-1 ]
-            i += 1
-        #print(str(ledString))
-        #exit()
-        client.put_pixels(ledString)
-        # Sleep value = 1/FPS, i.e. 1/50 = .02
-        time.sleep(.02)
+    for pixel in ledString:
+        for index,step in enumerate(burnSequence):
+            i = 0
+            while i < stringLength:
+                ledString[i] = [ candleMap[step][0], candleMap[step][1]*1.15, (candleMap[step][2]/10)-1 ]
+                i += 1
+    #print(str(ledString))
+    #exit()
+    client.put_pixels(ledString)
+    # Sleep value = 1/FPS, i.e. 1/50 = .02
+    time.sleep(.02)
 
 # Do things
-burnSequence = burn_sine(50, 40, 116.5)
+for pixel in ledString:
+    burnSequence[pixel] = burn_sine(random.randrange(20,250), 40, 116.5)
 
 while True:
     run_sequence(burnSequence)
