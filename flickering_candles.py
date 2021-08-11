@@ -221,7 +221,7 @@ def makePixelSequence(type=''):
     return pixelSequence
 
 def doNextSequence():
-    jump = random.randrange(5)
+    jump = random.randrange(10)
     if jump == 3:
         nextSequence = makePixelSequence('jump')
     else:
