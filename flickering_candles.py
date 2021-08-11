@@ -203,7 +203,7 @@ def makePixelSequence(type=''):
             flicker -= 5
 
     else:
-        steps = random.randrange(10,500)
+        steps = random.randrange(10,250)
         flicker = random.randrange(30,50)
         brightness = 106 # Centered on 50 flicker
         sequenceIterations = random.randrange(1,4)
