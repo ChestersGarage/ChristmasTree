@@ -216,7 +216,7 @@ def burn_flick(burnSteps, bandWidth, offSet):
     #exit()
     return burnSequence
 
-def pixelSequence():
+def makePixelSequence():
     burnSteps = random.randrange(20,250)
     flicker = random.randrange(30,50)
     brightness = random.randrange(flicker, 157-flicker) # 116.5
@@ -226,7 +226,7 @@ def pixelSequence():
 def newSequence():
     burnSequence = []
     for pixel in ledString:
-        pixelSequence = pixelSequence()
+        pixelSequence = makePixelSequence()
         burnSequence.append(pixelSequence)
     return burnSequence
 
