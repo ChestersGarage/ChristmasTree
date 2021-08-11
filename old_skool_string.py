@@ -15,7 +15,7 @@ colors = [
 
 print('Starting LED Christmas tree scene: Old Skool String.')
 
-delayTime = 3
+delayTime = 10
 stringLength = 265
 string = [ [0,0,0] ] * stringLength
 client.put_pixels(string)
