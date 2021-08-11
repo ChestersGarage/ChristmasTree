@@ -171,20 +171,20 @@ stringLength = 5
 ledString = [ [0,0,0] ] * stringLength
 sequenceCounter = [0] * stringLength
 
-def burn_sine(burnSteps, bandWidth, offSet):
+def burn_sine(steps, flicker, brightness):
     """
     Create one full sine wave within the number of steps provided, and return a pattern of brightness values.
 
-    Bandwidth - how bright and dim the flicker gets
-    Offset - average brightness, as a position from candleMap
+    Flicker - how bright and dim the flicker gets
+    Brightness - average brightness, as a position from candleMap
     """
 
     # Pre-calulate the color gradient values
     i = 0
     burnSequence = []
-    while i < burnSteps:
+    while i < steps:
         # Pre-calculate the sine wave values
-        burnSequence.append(int((bandWidth*math.sin(i*(math.pi*2)/burnSteps))+offSet))
+        burnSequence.append(int((flicker*math.sin(i*(math.pi*2)/steps))+brightness))
         i += 1
 
     #print(str(burnSequence))
@@ -230,8 +230,8 @@ def run_sequence(burnSequence):
         # print(candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2])
         # exit(0)
         ledString[int(index)] = [ candleMap[ burnSequence[index][ sequenceCounter[index] ] ][0],
-                             candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1]*1.15,
-                            (candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1]/10)-1 ]
+                                  candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1],
+                                  candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
         sequenceCounter[index] += 1
         if sequenceCounter[index] == len(burnSequence[index]):
             sequenceCounter[index] = 0
