@@ -206,10 +206,10 @@ def makePixelSequence(type=''):
         steps = random.randrange(10,500)
         flicker = random.randrange(30,50)
         brightness = 106 # Centered on 50 flicker
-        sequenceIterations = random.randrange(1,3)
+        sequenceIterations = random.randrange(1,4)
         pixelSequence = burn_sine(steps, flicker, brightness) * sequenceIterations
 
-    print(str(pixelSequence))
+    #print(str(pixelSequence))
     #exit(0)
 
     return pixelSequence
