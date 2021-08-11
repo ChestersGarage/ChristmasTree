@@ -237,9 +237,11 @@ def run_sequence(stringSequence):
     """
     print(str(stringSequence))
     for index,pixel in enumerate(ledString):
-        ledString[int(index)] = [ candleMap[ stringSequence[index][ sequenceCounter[index] ] ][0],
+        ledString[int(index)] = [
+                                  candleMap[ stringSequence[index][ sequenceCounter[index] ] ][0],
                                   candleMap[ stringSequence[index][ sequenceCounter[index] ] ][1],
-                                  candleMap[ stringSequence[index][ sequenceCounter[index] ] ][2] ]
+                                  candleMap[ stringSequence[index][ sequenceCounter[index] ] ][2]
+                                ]
         sequenceCounter[index] += 1
         if sequenceCounter[index] == len(stringSequence[index]):
             stringSequence[index] = doNextSequence()
