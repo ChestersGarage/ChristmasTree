@@ -190,7 +190,7 @@ def burn_sine(steps, flicker, brightness):
 
 def makePixelSequence(type=''):
     if type == "jump":
-        steps = 10
+        steps = 5
         flicker = 50
         brightness = 106 # Centered on 50 flicker
         pixelSequence = burn_sine(steps, flicker, brightness) * 10
@@ -219,8 +219,8 @@ def run_sequence(burnSequence):
                                   candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
         sequenceCounter[index] += 1
         if sequenceCounter[index] == len(burnSequence[index]):
-            jump = random.randrange(3)
-            if jump == 2:
+            jump = random.randrange(5)
+            if jump == 3:
                 burnSequence[index] = makePixelSequence('jump')
             else:
                 burnSequence[index] = makePixelSequence()
