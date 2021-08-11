@@ -192,16 +192,16 @@ def makePixelSequence(type=''):
     if type == "jump":
         pixelSequence = []
         steps = 5
-        flicker = 20
+        flicker = 10
         brightness = 106 # Centered on 50 flicker
         iterations = 0
         while iterations < 6:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
-            flicker += 5
+            flicker = flicker * 1.5
             iterations += 1
         while iterations < 12:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
-            flicker -= 5
+            flicker = flicker * .75
             iterations += 1
 
     else:
