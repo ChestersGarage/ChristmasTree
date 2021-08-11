@@ -258,5 +258,5 @@ def newSequence():
     return burnSequence
 
 while True:
-    newSequence()
-    run_sequence(newSequence())
+    burnSequence = newSequence()
+    run_sequence(burnSequence)
