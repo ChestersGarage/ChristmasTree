@@ -1,6 +1,6 @@
 import opc, time, math, os
 
-client = opc.Client('192.168.1.125:7890')
+client = opc.Client('christmastree.home:7890')
 
 candleMap = [
     (  99, 14, 0 ),
@@ -166,9 +166,9 @@ candleMap = [
 print('Starting LED Christmas tree scene: Flickering Candles.')
 
 # Total addressable LEDs
-stringLength = 5
+stringLength = 265
 # Set all LEDs to off
-string = [ [0,0,0] ] * stringLength
+ledString = [ [0,0,0] ] * stringLength
 
 def burn_sine(burnSteps, bandWidth, offSet):
     """
@@ -223,11 +223,11 @@ def run_sequence(burnSequence):
     for index,step in enumerate(burnSequence):
         i = 0
         while i < stringLength:
-            string[i] = [ candleMap[step][0], candleMap[step][1]*1.15, (candleMap[step][1]/10)-1 ]
+            ledString[i] = [ candleMap[step][0], candleMap[step][1]*1.15, (candleMap[step][1]/10)-1 ]
             i += 1
-        #print(str(string))
+        #print(str(ledString))
         #exit()
-        client.put_pixels(string)
+        client.put_pixels(ledString)
         # Sleep value = 1/FPS, i.e. 1/50 = .02
         time.sleep(.02)
 

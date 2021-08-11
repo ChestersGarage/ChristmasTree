@@ -1,6 +1,6 @@
 import opc, time, math, random
 
-client = opc.Client('192.168.1.125:7890')
+client = opc.Client('christmastree.home:7890')
 
 # 4700K, "White" and 9800K
 colors = [
@@ -17,7 +17,7 @@ ledString = [ [0,0,0] ] * totalPixels
 client.put_pixels(ledString)
 time.sleep(frameRate)
 
-print('Servicing ' + str(len(ledString)) + ' (' + str(totalPixels) + ') LED pixels.')
+print('Servicing ' + str(totalPixels) + ' LED pixels.')
 
 numPixToChange = int(totalPixels / 5)
 if numPixToChange <= 1:

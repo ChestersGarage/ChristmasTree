@@ -1,27 +1,7 @@
 import opc, time, math, random
 
-client = opc.Client('192.168.1.125:7890')
+client = opc.Client('christmastree.home:7890')
 
-"""
-12 colors
-colors = [
-    ( 255, 0, 0 ),
-    ( 255, 64, 0 ),
-    ( 255, 255, 0 ),
-    ( 127, 255, 0 ),
-    ( 0, 255, 0 ),
-    ( 0, 255, 127 ),
-    ( 0, 255, 255 ),
-    ( 0, 127, 255 ),
-    ( 0, 0, 255 ),
-    ( 127, 0, 255 ),
-    ( 255, 0, 255 ),
-    ( 255, 0, 64 )
-]
-# 12 colors
-"""
-
-# 7 colors
 # Red, blu, yel, cyn, mag, wht, grn
 colors = [
     ( 255,   0,   0 ),

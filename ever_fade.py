@@ -1,6 +1,6 @@
 import opc, time, math, random
 
-client = opc.Client('192.168.1.125:7890')
+client = opc.Client('christmastree.home:7890')
 
 """
 colors = [
@@ -31,20 +31,18 @@ colors = [
 
 print('Starting LED Christmas tree scene: Ever-Fade.')
 
-stringLength = 5
-string = [ [0,0,0] ] * stringLength
-client.put_pixels(string)
+stringLength = 265
+ledString = [ [0,0,0] ] * stringLength
+client.put_pixels(ledString)
 time.sleep(5)
 
 while True:
-    i = 0
-    while i < stringLength:
-        string[i] = colors[random.randrange(6)]
-        while string[i] == string[i-1]:
-            string[i] = colors[random.randrange(6)]
-        i += 1
+    for pixel in ledString:
+        ledString[pixel] = colors[random.randrange(len(colors))]
+        while ledString[pixel] == ledString[pixel-1]:
+            ledString[pixel] = colors[random.randrange(len(colors))]
 
-    client.put_pixels(string)
+    client.put_pixels(ledString)
     time.sleep(5)
-    client.put_pixels(string)
+    client.put_pixels(ledString)
     time.sleep(5)
