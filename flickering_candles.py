@@ -233,8 +233,10 @@ def run_sequence(burnSequence):
 
 # Do things
 burnSequence = []
+i = 0
 while i < len(ledString):
     burnSequence[i] = burn_sine(random.randrange(20,250), 40, 116.5)
+    i += 1
 
 while True:
     run_sequence(burnSequence)
