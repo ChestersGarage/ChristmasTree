@@ -194,12 +194,12 @@ def makePixelSequence(type='jump'):
         steps = 5
         flicker = 10
         brightness = 105 # Centered on 50 flicker
-        while flicker < 50:
+        while flicker < 49:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
-            flicker = int(flicker * 1.5)
+            flicker = flicker * 1.5
         while flicker > 8:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
-            flicker = int(flicker * .65)
+            flicker = flicker * .65
 
     else:
         steps = random.randrange(20,300)
