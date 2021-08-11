@@ -32,4 +32,4 @@ while True:
     while d <= holdTime:
         client.put_pixels(ledString)
         time.sleep(timeIncrement)
-        d +=
+        d += timeIncrement
