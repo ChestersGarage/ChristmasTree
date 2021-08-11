@@ -191,7 +191,7 @@ def burn_sine(steps, flicker, brightness):
 def makePixelSequence(type=''):
     if type == "jump":
         pixelSequence = []
-        steps = 5
+        steps = 7
         flicker = 10
         brightness = 105 # Centered on 50 flicker
         # Ramp up the flicker intensite
