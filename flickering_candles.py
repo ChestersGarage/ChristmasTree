@@ -166,7 +166,7 @@ candleMap = [
 print('Starting LED Christmas tree scene: Flickering Candles.')
 
 # Total addressable LEDs
-stringLength = 265
+stringLength = 5
 # Set all LEDs to off
 ledString = [ [0,0,0] ] * stringLength
 sequenceCounter = [0] * stringLength
@@ -209,9 +209,6 @@ def makePixelSequence(type='jump'):
         brightness = 106 # Centered on 50 flicker
         sequenceIterations = random.randrange(1,4)
         pixelSequence = burn_sine(steps, flicker, brightness) * sequenceIterations
-
-    #print(str(pixelSequence))
-    #exit(0)
 
     return pixelSequence
 
