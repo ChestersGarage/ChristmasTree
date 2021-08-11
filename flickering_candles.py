@@ -194,15 +194,18 @@ def makePixelSequence(type=''):
         steps = 5
         flicker = 10
         brightness = 105 # Centered on 50 flicker
+        # Ramp up the flicker intensite
         while flicker < 50:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
             flicker = flicker * 1.4
             if flicker > 50:
                 flicker = 50
+        # Sustain the intense flick for a moment
         iters = 0
-        while iters < random.randrange(4,10):
+        while iters < random.randrange(5,15):
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
             iters += 1
+        # ramp down the flicker intensity
         while flicker > 8:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
             flicker = flicker * .65
