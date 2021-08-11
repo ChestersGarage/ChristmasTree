@@ -189,12 +189,12 @@ def burn_sine(steps, flicker, brightness):
     return burnSequence
 
 def makePixelSequence(type=''):
-    if type == "jump":
+    if type == "bounce":
         pixelSequence = []
-        steps = 7
+        steps = random.randrange(5,10)
         flicker = 10
         brightness = 105 # Centered on 50 flicker
-        # Ramp up the flicker intensite
+        # Ramp up the flicker intensity
         while flicker < 50:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
             flicker = flicker * 1.1
@@ -223,7 +223,7 @@ def makePixelSequence(type=''):
 def doNextSequence():
     jump = random.randrange(10)
     if jump == 3:
-        nextSequence = makePixelSequence('jump')
+        nextSequence = makePixelSequence('bounce')
     else:
         nextSequence = makePixelSequence()
     return nextSequence
