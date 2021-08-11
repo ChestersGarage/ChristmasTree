@@ -219,8 +219,8 @@ def run_sequence(burnSequence):
                                   candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
         sequenceCounter[index] += 1
         if sequenceCounter[index] == len(burnSequence[index]):
-            jump = random.randrange(10)
-            if jump == 5:
+            jump = random.randrange(3)
+            if jump == 2:
                 burnSequence[index] = makePixelSequence('jump')
             else:
                 burnSequence[index] = makePixelSequence()
