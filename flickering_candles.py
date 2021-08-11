@@ -188,11 +188,18 @@ def burn_sine(steps, flicker, brightness):
 
     return burnSequence
 
-def makePixelSequence():
-    steps = random.randrange(10,500)
-    flicker = random.randrange(30,50)
-    brightness = 106 # Centered on 50 flicker
-    pixelSequence = burn_sine(steps, flicker, brightness)
+def makePixelSequence(type=''):
+    if type == "jump":
+        steps = 10
+        flicker = 50
+        brightness = 106 # Centered on 50 flicker
+        pixelSequence = burn_sine(steps, flicker, brightness) * 10
+    else:
+        steps = random.randrange(10,500)
+        flicker = random.randrange(30,50)
+        brightness = 106 # Centered on 50 flicker
+        pixelSequence = burn_sine(steps, flicker, brightness)
+
     return pixelSequence
 
 def makeStringSequence():
@@ -212,7 +219,11 @@ def run_sequence(burnSequence):
                                   candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
         sequenceCounter[index] += 1
         if sequenceCounter[index] == len(burnSequence[index]):
-            burnSequence[index] = makePixelSequence()
+            jump = random.randrange(10)
+            if jump == 5:
+                burnSequence[index] = makePixelSequence('jump')
+            else:
+                burnSequence[index] = makePixelSequence()
             sequenceCounter[index] = 0
 
     client.put_pixels(ledString)
