@@ -224,6 +224,7 @@ def run_sequence(burnSequence):
         print('index=' + str(index) +', pixel=' + str(pixel))
         type(index)
         type(pixel)
+        exit(0)
         ledString[int(index)] = [ candleMap[ burnSequence[index][ sequenceCounter[index] ] ][0],
                              candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1]*1.15,
                             (candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2]/10)-1 ]
