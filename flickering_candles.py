@@ -219,7 +219,7 @@ def burn_flick(burnSteps, bandWidth, offSet):
 def makePixelSequence():
     burnSteps = random.randrange(20,250)
     flicker = random.randrange(30,50)
-    brightness = random.randrange(flicker, 157-flicker) # 116.5
+    brightness = 106
     pixelSequence = burn_sine(burnSteps, flicker, brightness)
     return pixelSequence
 
