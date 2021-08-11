@@ -200,16 +200,18 @@ def makePixelSequence(type=''):
             flicker = flicker * 1.1
             if flicker > 50:
                 flicker = 50
+
         # Sustain the intense flick for a moment
         iters = 0
         maxIters = random.randrange(30)
         while iters < maxIters:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
             iters += 1
+
         # ramp down the flicker intensity
         while flicker > 8:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
-            flicker = flicker * .85
+            flicker = flicker * .95
 
     else:
         steps = random.randrange(100,300)
@@ -250,7 +252,7 @@ def run_sequence(stringSequence):
             stringSequence[index] = doNextSequence()
             sequenceCounter[index] = 0
 
-    client.put_pixels(ledString)
+    client.put_pixels(ledString,0)
     # Sleep value = 1/FPS, i.e. 1/50 = .02
     time.sleep(1/30)
 
