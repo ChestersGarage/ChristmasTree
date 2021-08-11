@@ -240,7 +240,7 @@ def run_sequence(burnSequence):
                                   candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
         sequenceCounter[index] += 1
         if sequenceCounter[index] == len(burnSequence[index]):
-            burnSequence[index] = pixelSequence()
+            burnSequence[index] = makePixelSequence()
             sequenceCounter[index] = 0
 
     client.put_pixels(ledString)
