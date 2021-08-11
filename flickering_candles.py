@@ -197,7 +197,7 @@ def makePixelSequence(type='jump'):
         iterations = 0
         while iterations < 5:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
-            flicker = int(flicker * 1.5)
+            flicker = int(flicker * 1.4)
             iterations += 1
         while iterations < 12:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
