@@ -248,13 +248,14 @@ def run_sequence(burnSequence):
     time.sleep(.02)
 
 # Do things
-burnSequence = []
-for pixel in ledString:
-    burnSteps = random.randrange(20,250)
-    bandwidth = random.randrange(30,50)
-    offset = random.randrange(bandwidth, 157-bandwidth) # 116.5
-    burnSequence.append(burn_sine(burnSteps, bandwidth, offset))
+def newSequence():
+    burnSequence = []
+    for pixel in ledString:
+        burnSteps = random.randrange(20,250)
+        bandwidth = random.randrange(30,50)
+        offset = random.randrange(bandwidth, 157-bandwidth) # 116.5
+        burnSequence.append(burn_sine(burnSteps, bandwidth, offset))
 
 while True:
+    newSequence()
     run_sequence(burnSequence)
-
