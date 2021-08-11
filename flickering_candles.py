@@ -188,7 +188,7 @@ def burn_sine(steps, flicker, brightness):
 
     return burnSequence
 
-def makePixelSequence(type=''):
+def makePixelSequence(type='jump'):
     if type == "jump":
         pixelSequence = []
         steps = 5
