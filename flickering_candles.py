@@ -195,7 +195,7 @@ def makePixelSequence(type='jump'):
         flicker = 10
         brightness = 105 # Centered on 50 flicker
         iterations = 0
-        while iterations < 6:
+        while iterations < 5:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
             flicker = int(flicker * 1.5)
             iterations += 1
