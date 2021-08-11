@@ -225,7 +225,7 @@ def doNextSequence():
 def makeStringSequence():
     stringSequence = []
     for pixel in ledString:
-        pixelSequence = doNextSequence()
+        pixelSequence = makePixelSequence()
         stringSequence.append(pixelSequence)
     return stringSequence
 
