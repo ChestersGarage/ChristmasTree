@@ -166,7 +166,7 @@ candleMap = [
 print('Starting LED Christmas tree scene: Flickering Candles.')
 
 # Total addressable LEDs
-stringLength = 5
+stringLength = 265
 # Set all LEDs to off
 ledString = [ [0,0,0] ] * stringLength
 sequenceCounter = [0] * stringLength
@@ -175,11 +175,10 @@ def burn_sine(steps, flicker, brightness):
     """
     Create one full sine wave within the number of steps provided, and return a pattern of brightness values.
 
-    Flicker - how bright and dim the flicker gets
-    Brightness - average brightness, as a position from candleMap
+    Flicker - how bright and dim the flicker gets (Range: 0 thru int(157/2), from candleMap)
+    Brightness - average brightness, (Range: bandWidth thru (157-bandWidth).n, from candleMap)
     """
 
-    # Pre-calulate the color gradient values
     i = 0
     burnSequence = []
     while i < steps:
@@ -187,48 +186,21 @@ def burn_sine(steps, flicker, brightness):
         burnSequence.append(int((flicker*math.sin(i*(math.pi*2)/steps))+brightness))
         i += 1
 
-    #print(str(burnSequence))
-    #print(len(burnSequence))
-    #exit()
-    return burnSequence
-
-def burn_flick(burnSteps, bandWidth, offSet):
-    """
-    Creates a pattern that tries to resemble a flickering and resuming.
-    Returns a pattern of brightness values.
-
-    Bandwidth - how bright and dim the flicker gets (Range: 0 thru int(157/2), from candleMap)
-    Offset - average brightness (Range: bandWidth thru (157-bandWidth).n, from candleMap)
-    """
-
-    # Pre-calulate the color gradient values
-    # By calculating a sine wave and averaging that with a saw-tooth
-    # Should result in a wave that increases in brightness slower than it decreases.
-    i = 0
-    burnSequence = []
-    while i < burnSteps:
-        # Pre-calculate the sine wave values
-        burnSequence.append(int((bandWidth*math.sin(i*(math.pi*2)/burnSteps))+offSet))
-        i += 1
-
-    #print(str(burnSequence))
-    #print(len(burnSequence))
-    #exit()
     return burnSequence
 
 def makePixelSequence():
-    burnSteps = random.randrange(20,250)
+    steps = random.randrange(10,500)
     flicker = random.randrange(30,50)
-    brightness = 106
-    pixelSequence = burn_sine(burnSteps, flicker, brightness)
+    brightness = 106 # Centered on 50 flicker
+    pixelSequence = burn_sine(steps, flicker, brightness)
     return pixelSequence
 
-def newSequence():
-    burnSequence = []
+def makeStringSequence():
+    stringSequence = []
     for pixel in ledString:
         pixelSequence = makePixelSequence()
-        burnSequence.append(pixelSequence)
-    return burnSequence
+        stringSequence.append(pixelSequence)
+    return stringSequence
 
 def run_sequence(burnSequence):
     """
@@ -245,15 +217,9 @@ def run_sequence(burnSequence):
 
     client.put_pixels(ledString)
     # Sleep value = 1/FPS, i.e. 1/50 = .02
-    time.sleep(.02)
+    time.sleep(1/30)
 
-sequenceDuration = 5
-burnSequence = newSequence()
-startTime = time.time()
+stringSequence = makeStringSequence()
 
 while True:
-    run_sequence(burnSequence)
-    # if time.time() >= (startTime + sequenceDuration):
-    #     sequenceCounter = [0] * stringLength
-    #     startTime = time.time()
-    #     burnSequence = newSequence()
+    run_sequence(stringSequence)
