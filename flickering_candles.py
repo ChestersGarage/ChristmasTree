@@ -191,7 +191,7 @@ def burn_sine(steps, flicker, brightness):
 def makePixelSequence(type=''):
     if type == "bounce":
         pixelSequence = []
-        steps = random.randrange(3,7)
+        steps = random.randrange(4,7)
         flicker = 10
         brightness = 106 # Centered on 50 flicker
         # Ramp up the flicker intensity
