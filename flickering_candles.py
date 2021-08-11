@@ -202,7 +202,7 @@ def makePixelSequence(type=''):
                 flicker = 50
         # Sustain the intense flick for a moment
         iters = 0
-        maxIters = random.randrange(100,150)
+        maxIters = random.randrange(10,30)
         while iters < maxIters:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
             iters += 1
