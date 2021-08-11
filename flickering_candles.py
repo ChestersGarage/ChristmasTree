@@ -198,9 +198,11 @@ def makePixelSequence(type=''):
         while iterations < 6:
             pixelSequence.append(burn_sine(steps, flicker, brightness))
             flicker += 5
-        while iterations > 0:
+            iterations += 1
+        while iterations < 12:
             pixelSequence.append(burn_sine(steps, flicker, brightness))
             flicker -= 5
+            iterations += 1
 
     else:
         steps = random.randrange(10,250)
