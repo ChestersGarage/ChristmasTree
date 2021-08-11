@@ -26,7 +26,7 @@ else:
 while True:
     p = 0
     while p < numPixToChange:
-        brightness = random.randrange(20, 30) / 100.0
+        brightness = random.randrange(60,80) / 100.0
         hue = colors[random.randrange(len(colors))]
         ledString[random.randrange(totalPixels)] = [ hue[0] * brightness, hue[1] * brightness, hue[2] * brightness ]
         p += 1
