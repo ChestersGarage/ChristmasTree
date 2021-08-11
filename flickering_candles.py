@@ -242,7 +242,7 @@ burnSequence = []
 for pixel in ledString:
     burnSteps = random.randrange(20,250)
     bandwidth = random.randrange(30,50)
-    offset = random.randrange(157-bandwidth, 116.5)
+    offset = random.randrange(bandwidth, 157-bandwidth) # 116.5
     burnSequence.append(burn_sine(burnSteps, bandwidth, offset))
 
 while True:
