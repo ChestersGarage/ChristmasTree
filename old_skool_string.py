@@ -15,9 +15,9 @@ colors = [
 
 print('Starting LED Christmas tree scene: Old Skool String.')
 
+stringLength = 200
 timeIncrement = 1
 holdTime = 5
-stringLength = 265
 ledString = [ [0,0,0] ] * stringLength
 
 while True:
@@ -29,6 +29,6 @@ while True:
         i += 1
     d = 0
     while d <= holdTime:
-        client.put_pixels(ledString)
+        client.put_pixels(ledString,0)
         time.sleep(timeIncrement)
         d += timeIncrement
