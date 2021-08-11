@@ -232,7 +232,7 @@ def run_sequence(burnSequence):
         time.sleep(.02)
 
 # Do things
-burnSequence = burn_sine(500, 40, 116.5)
+burnSequence = burn_sine(50, 40, 116.5)
 
 while True:
     run_sequence(burnSequence)
