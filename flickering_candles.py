@@ -209,6 +209,9 @@ def makePixelSequence(type=''):
         sequenceIterations = random.randrange(2,5)
         pixelSequence = burn_sine(steps, flicker, brightness) * sequenceIterations
 
+    print(str(pixelSequence))
+    exit(0)
+
     return pixelSequence
 
 def doNextSequence():
@@ -225,7 +228,6 @@ def makeStringSequence():
         pixelSequence = doNextSequence()
         stringSequence.append(pixelSequence)
     return stringSequence
-
 
 def run_sequence(stringSequence):
     """
