@@ -190,15 +190,24 @@ def burn_sine(steps, flicker, brightness):
 
 def makePixelSequence(type=''):
     if type == "jump":
+        pixelSequence = []
         steps = 5
-        flicker = 50
+        flicker = 20
         brightness = 106 # Centered on 50 flicker
-        pixelSequence = burn_sine(steps, flicker, brightness) * 10
+        iterations = 0
+        while iterations < 6:
+            pixelSequence.append(burn_sine(steps, flicker, brightness))
+            flicker += 5
+        while iterations > 0:
+            pixelSequence.append(burn_sine(steps, flicker, brightness))
+            flicker -= 5
+
     else:
         steps = random.randrange(10,500)
         flicker = random.randrange(30,50)
         brightness = 106 # Centered on 50 flicker
-        pixelSequence = burn_sine(steps, flicker, brightness)
+        sequenceIterations = random.randrange(2,5)
+        pixelSequence = burn_sine(steps, flicker, brightness) * sequenceIterations
 
     return pixelSequence
 
@@ -209,21 +218,26 @@ def makeStringSequence():
         stringSequence.append(pixelSequence)
     return stringSequence
 
-def run_sequence(burnSequence):
+def doNextSequence():
+    jump = random.randrange(5)
+    if jump == 3:
+        nextSequence = makePixelSequence('jump')
+    else:
+        nextSequence = makePixelSequence()
+    return nextSequence
+
+
+def run_sequence(stringSequence):
     """
     Runs through a sequence once.
     """
     for index,pixel in enumerate(ledString):
-        ledString[int(index)] = [ candleMap[ burnSequence[index][ sequenceCounter[index] ] ][0],
-                                  candleMap[ burnSequence[index][ sequenceCounter[index] ] ][1],
-                                  candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
+        ledString[int(index)] = [ candleMap[ stringSequence[index][ sequenceCounter[index] ] ][0],
+                                  candleMap[ stringSequence[index][ sequenceCounter[index] ] ][1],
+                                  candleMap[ stringSequence[index][ sequenceCounter[index] ] ][2] ]
         sequenceCounter[index] += 1
-        if sequenceCounter[index] == len(burnSequence[index]):
-            jump = random.randrange(5)
-            if jump == 3:
-                burnSequence[index] = makePixelSequence('jump')
-            else:
-                burnSequence[index] = makePixelSequence()
+        if sequenceCounter[index] == len(stringSequence[index]):
+            stringSequence[index] = doNextSequence()
             sequenceCounter[index] = 0
 
     client.put_pixels(ledString)
