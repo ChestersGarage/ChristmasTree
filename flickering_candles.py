@@ -244,7 +244,7 @@ def run_sequence(stringSequence):
 
     client.put_pixels(ledString)
     # Sleep value = 1/FPS, i.e. 1/50 = .02
-    time.sleep(1/50)
+    time.sleep(1/30)
 
 # Do it
 stringSequence = makeStringSequence()
