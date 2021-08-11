@@ -264,5 +264,6 @@ startTime = time.time()
 while True:
     run_sequence(burnSequence)
     if time.time() >= (startTime + sequenceDuration):
+        sequenceCounter = [0] * stringLength
         startTime = time.time()
         burnSequence = newSequence()
