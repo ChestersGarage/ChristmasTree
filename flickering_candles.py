@@ -255,7 +255,8 @@ def newSequence():
         bandwidth = random.randrange(30,50)
         offset = random.randrange(bandwidth, 157-bandwidth) # 116.5
         burnSequence.append(burn_sine(burnSteps, bandwidth, offset))
+    return burnSequence
 
 while True:
     newSequence()
-    run_sequence(burnSequence)
+    run_sequence(newSequence())
