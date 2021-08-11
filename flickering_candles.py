@@ -234,6 +234,7 @@ def run_sequence(burnSequence):
                                   candleMap[ burnSequence[index][ sequenceCounter[index] ] ][2] ]
         sequenceCounter[index] += 1
         if sequenceCounter[index] == len(burnSequence[index]):
+            burnSequence[index] = pixelSequence()
             sequenceCounter[index] = 0
 
     #    for s,step in enumerate(burnSequence[p]):
@@ -247,14 +248,18 @@ def run_sequence(burnSequence):
     # Sleep value = 1/FPS, i.e. 1/50 = .02
     time.sleep(.02)
 
-# Do things
+def pixelSequence():
+    burnSteps = random.randrange(20,250)
+    flicker = random.randrange(30,50)
+    brightness = random.randrange(flicker, 157-flicker) # 116.5
+    pixelSequence = burn_sine(burnSteps, flicker, brightness)
+    return pixelSequence
+
 def newSequence():
     burnSequence = []
     for pixel in ledString:
-        burnSteps = random.randrange(20,250)
-        bandwidth = random.randrange(30,50)
-        offset = random.randrange(bandwidth, 157-bandwidth) # 116.5
-        burnSequence.append(burn_sine(burnSteps, bandwidth, offset))
+        pixelSequence = pixelSequence()
+        burnSequence.append(pixelSequence)
     return burnSequence
 
 sequenceDuration = 5
