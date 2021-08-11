@@ -233,8 +233,8 @@ def run_sequence(burnSequence):
 
 # Do things
 burnSequence = []
-for index,pixel in ledString:
-    burnSequence[index] = burn_sine(random.randrange(20,250), 40, 116.5)
+while i < len(ledString):
+    burnSequence[i] = burn_sine(random.randrange(20,250), 40, 116.5)
 
 while True:
     run_sequence(burnSequence)
