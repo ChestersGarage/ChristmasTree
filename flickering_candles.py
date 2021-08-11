@@ -235,7 +235,6 @@ def run_sequence(stringSequence):
     """
     Runs through a sequence once.
     """
-    print(str(stringSequence))
     for index,pixel in enumerate(ledString):
         ledString[int(index)] = [
                                   candleMap[ stringSequence[index][ sequenceCounter[index] ] ][0],
