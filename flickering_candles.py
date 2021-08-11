@@ -221,6 +221,7 @@ def run_sequence(burnSequence):
     Runs through a sequence once.
     """
     for p,pixel in enumerate(ledString):
+        print('p=' + p +', pixel=' + pixel)
         ledString[p] = [ candleMap[burnSequence[p][sequenceCounter[p]]][0], candleMap[burnSequence[p][sequenceCounter[p]]][1]*1.15, (candleMap[burnSequence[p][sequenceCounter[p]]][2]/10)-1 ]
         sequenceCounter[p] += 1
         if sequenceCounter[p] > len(burnSequence[p]):
