@@ -257,6 +257,12 @@ def newSequence():
         burnSequence.append(burn_sine(burnSteps, bandwidth, offset))
     return burnSequence
 
+sequenceDuration = 5
+burnSequence = newSequence()
+startTime = time.time()
+
 while True:
-    burnSequence = newSequence()
     run_sequence(burnSequence)
+    if time.time() >= (startTime + sequenceDuration):
+        startTime = time.time()
+        burnSequence = newSequence()
