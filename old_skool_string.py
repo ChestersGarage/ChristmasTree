@@ -15,21 +15,21 @@ colors = [
 
 print('Starting LED Christmas tree scene: Old Skool String.')
 
-delayTime = 10
+timeIncrement = 1
+holdTime = 10
+fadeTime = 1
 stringLength = 265
-string = [ [0,0,0] ] * stringLength
-client.put_pixels(string)
-time.sleep(delayTime)
+ledString = [ [0,0,0] ] * stringLength
 
 while True:
     i = 0
     while i < stringLength:
-        string[i] = colors[random.randrange(len(colors))]
-        while string[i] == string[i-1]:
-            string[i] = colors[random.randrange(len(colors))]
+        ledString[i] = colors[random.randrange(len(colors))]
+        while ledString[i] == ledString[i-1]:
+            ledString[i] = colors[random.randrange(len(colors))]
         i += 1
 
-    client.put_pixels(string)
-    time.sleep(delayTime)
-    client.put_pixels(string)
-    time.sleep(delayTime)
+    while d <= holdTime:
+        client.put_pixels(ledString)
+        time.sleep(timeIncrement)
+        d +=
