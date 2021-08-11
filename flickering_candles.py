@@ -211,13 +211,6 @@ def makePixelSequence(type=''):
 
     return pixelSequence
 
-def makeStringSequence():
-    stringSequence = []
-    for pixel in ledString:
-        pixelSequence = makePixelSequence()
-        stringSequence.append(pixelSequence)
-    return stringSequence
-
 def doNextSequence():
     jump = random.randrange(5)
     if jump == 3:
@@ -225,6 +218,13 @@ def doNextSequence():
     else:
         nextSequence = makePixelSequence()
     return nextSequence
+
+def makeStringSequence():
+    stringSequence = []
+    for pixel in ledString:
+        pixelSequence = doNextSequence()
+        stringSequence.append(pixelSequence)
+    return stringSequence
 
 
 def run_sequence(stringSequence):
