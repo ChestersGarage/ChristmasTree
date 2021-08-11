@@ -199,6 +199,10 @@ def makePixelSequence(type=''):
             flicker = flicker * 1.4
             if flicker > 50:
                 flicker = 50
+        iters = 0
+        while iters < random.randrange(4,10):
+            pixelSequence.extend(burn_sine(steps, flicker, brightness))
+            iters += 1
         while flicker > 8:
             pixelSequence.extend(burn_sine(steps, flicker, brightness))
             flicker = flicker * .65
