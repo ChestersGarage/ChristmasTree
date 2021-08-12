@@ -19,6 +19,7 @@ fadeTime = 5
 ledString = [ [0,0,0] ] * stringLength
 
 while True:
+    p = 0
     while p < stringLength:
         ledString[p] = colors[random.randrange(len(colors))]
         while ledString[p] == ledString[p-1]:
