@@ -8,7 +8,8 @@ colors = [
     (   0,   0, 255 ),
     ( 192, 128,   0 ),
     ( 192,   0, 192 ),
-    ( 192,   0, 192 )
+    ( 192,   0, 192 ),
+    ( 192, 192, 192 )
 ]
 # 6 colors
 
@@ -24,6 +25,7 @@ while True:
         ledString[p] = colors[random.randrange(len(colors))]
         while ledString[p] == ledString[p-1]:
             ledString[p] = colors[random.randrange(len(colors))]
+        p += 1
 
     client.put_pixels(ledString,0)
     time.sleep(fadeTime)
