@@ -15,7 +15,7 @@ colors = [
 
 print('Starting LED Christmas tree scene: Ever-Fade.')
 
-stringLength = 265
+stringLength = 200
 fadeTime = 5
 ledString = [ [0,0,0] ] * stringLength
 
