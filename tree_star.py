@@ -1,16 +1,17 @@
 import random
 
-class Star(object):
+class Scene(object):
+    """
+    Twinkling warm, neutral and cool white pixels.
+    """
     def __init__(self,pixel_count,step_period):
-        # 4700K, "White" and 9800K
+        # ~4700K, "White" and ~9800K
         self._colors = [
             ( 255, 223, 194 ),
             ( 240, 240, 240 ),
             ( 206, 220, 255 )
             ]
-        #self.pixel_count = 65
         self._pixel_count = pixel_count
-        #self.step_period = 1 / 10
         self._step_period = step_period
         self._led_string = [ [0,0,0] ] * self._pixel_count
 

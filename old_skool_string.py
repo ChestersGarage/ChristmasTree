@@ -2,6 +2,10 @@ import opc, time, math, random
 
 client = opc.Client('christmastree.home:7890')
 
+
+###  All these get turned into a class called Tree
+
+
 # Red, blu, yel, cyn, mag, wht, grn
 colors = [
     ( 255,   0,   0 ),
