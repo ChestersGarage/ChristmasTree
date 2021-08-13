@@ -9,8 +9,8 @@ colors = [
     ( 255, 220,   0 ),
     (   0, 255, 255 ),
     ( 192,   0, 192 ),
-    ( 200, 200, 200 ),
-    (   0, 255,   0 )
+    (   0, 255,   0 ),
+    ( 200, 200, 200 )
 ]
 
 print('Starting LED Christmas tree scene: Old Skool String.')
