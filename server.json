@@ -10,6 +10,7 @@
     "devices": [
         {
             "type": "fadecandy",
+            "serial" : "QIURUUYAKOTALVKJ",
             "map": [
               [ 1,   0,   0,  50, "grb" ],
               [ 1,  50,  64,  50, "grb" ],
