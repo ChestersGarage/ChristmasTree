@@ -31,5 +31,5 @@ while True:
         ledString[random.randrange(totalPixels)] = [ hue[0] * brightness, hue[1] * brightness, hue[2] * brightness ]
         p += 1
 
-    client.put_pixels(ledString,1)
+    client.put_pixels(ledString,2)
     time.sleep(frameRate)
