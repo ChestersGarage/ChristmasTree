@@ -11,7 +11,7 @@ colors = [
 
 print('Starting LED Christmas tree scene: Tree Star.')
 
-totalPixels = 265
+totalPixels = 65
 frameRate = 1 / 60
 ledString = [ [0,0,0] ] * totalPixels
 
@@ -31,5 +31,5 @@ while True:
         ledString[random.randrange(totalPixels)] = [ hue[0] * brightness, hue[1] * brightness, hue[2] * brightness ]
         p += 1
 
-    client.put_pixels(ledString,0)
+    client.put_pixels(ledString,1)
     time.sleep(frameRate)
