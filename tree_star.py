@@ -5,7 +5,7 @@ client = opc.Client('christmastree.home:7890')
 # 4700K, "White" and 9800K
 colors = [
     ( 255, 223, 194 ),
-    ( 226, 226, 226 ),
+    ( 240, 240, 240 ),
     ( 206, 220, 255 )
     ]
 
