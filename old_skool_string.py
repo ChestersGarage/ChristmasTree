@@ -15,7 +15,7 @@ colors = [
 
 print('Starting LED Christmas tree scene: Old Skool String.')
 
-stringLength = 200
+stringLength = 265
 timeIncrement = 1
 holdTime = 5
 ledString = [ [0,0,0] ] * stringLength
