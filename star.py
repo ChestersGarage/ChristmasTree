@@ -1,29 +1,31 @@
-class Star:
-    def __init__:
+import random
+
+class Star(object):
+    def __init__(self,pixel_count,step_period):
         # 4700K, "White" and 9800K
-        self.colors = [
+        self._colors = [
             ( 255, 223, 194 ),
             ( 240, 240, 240 ),
             ( 206, 220, 255 )
             ]
-        self.totalPixels = 65
-        self.frameRate = 1 / 10
-        self.ledString = [ [0,0,0] ] * totalPixels
-        self.startMsg = 'Servicing ' + str(totalPixels) + ' LED pixels.'
+        #self.pixel_count = 65
+        self._pixel_count = pixel_count
+        #self.step_period = 1 / 10
+        self._step_period = step_period
+        self._led_string = [ [0,0,0] ] * self._pixel_count
 
-    def __main__():
-        numPixToChange = int(totalPixels / 5)
-        if numPixToChange <= 1:
-            numPixToChange = 1
+    def led_values(self):
+        pixels_to_change = int(self._pixel_count / 5)
+        if pixels_to_change <= 1:
+            pixels_to_change = 1
         else:
-            numPixToChange = random.randrange(numPixToChange * 2)
+            pixels_to_change = random.randrange(pixels_to_change * 2)
 
         p = 0
-        while p < numPixToChange:
+        while p < pixels_to_change:
             brightness = random.randrange(60,80) / 100.0
-            hue = colors[random.randrange(len(colors))]
-            ledString[random.randrange(totalPixels)] = [ hue[0] * brightness, hue[1] * brightness, hue[2] * brightness ]
+            hue = colors[random.randrange(len(self.colors))]
+            self.led_string[random.randrange(self.pixel_count)] = [ hue[0] * brightness, hue[1] * brightness, hue[2] * brightness ]
             p += 1
 
-        #client.put_pixels(ledString,2)
-        return ledString
+        return led_string
