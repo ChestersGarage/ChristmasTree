@@ -166,7 +166,7 @@ candleMap = [
 print('Starting LED Christmas tree scene: Flickering Candles.')
 
 # Total addressable LEDs
-stringLength = 265
+stringLength = 200
 # Set all LEDs to off
 ledString = [ [0,0,0] ] * stringLength
 sequenceCounter = [0] * stringLength
@@ -252,7 +252,7 @@ def run_sequence(stringSequence):
             stringSequence[index] = doNextSequence()
             sequenceCounter[index] = 0
 
-    client.put_pixels(ledString,0)
+    client.put_pixels(ledString,1)
     # Sleep value = 1/FPS, i.e. 1/50 = .02
     time.sleep(1/30)
 
