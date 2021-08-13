@@ -12,7 +12,7 @@ colors = [
 print('Starting LED Christmas tree scene: Tree Star.')
 
 totalPixels = 65
-frameRate = 1 / 60
+frameRate = 1 / 30
 ledString = [ [0,0,0] ] * totalPixels
 
 print('Servicing ' + str(totalPixels) + ' LED pixels.')
