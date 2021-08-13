@@ -4,7 +4,7 @@ class Scene(object):
     """
     Twinkling warm, neutral and cool white pixels.
     """
-    def __init__(self,pixel_count,step_period):
+    def __init__(self,pixel_count,step_period,star_pixel_edge_count=0,star_pixel_fold_count=0):
         # ~4700K, "White" and ~9800K
         self._colors = [
             ( 255, 223, 194 ),
@@ -12,6 +12,8 @@ class Scene(object):
             ( 206, 220, 255 )
             ]
         self._pixel_count = pixel_count
+        self._star_pixel_edge_count = star_pixel_edge_count
+        self._star_pixel_fold_count = star_pixel_fold_count
         self._step_period = step_period
         self._led_string = [ [0,0,0] ] * self._pixel_count
 
