@@ -59,7 +59,7 @@ while True:
     # Build up the set of LED color values
     led_colors = []
     for segment_label in _led_layout['segments']:
-        led_colors.append(globals()[segment_label].led_values())
+        led_colors.extend(globals()[segment_label].led_values())
         print(str(led_colors))
 
     # Wait until it's time to update the LEDs
