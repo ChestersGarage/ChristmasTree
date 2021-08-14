@@ -66,7 +66,7 @@ while True:
         # Sleep for however long we have left until next LED string update.
     prep_time = monotonic_ns() - step_last_update
     sleep_time = ( step_last_update + _step_period ) - monotonic_ns()
-    print(str(prep_time) + ' ' +str(sleep_time))
+    print(str(_step_period) + ' ' + str(prep_time) + ' ' +str(sleep_time))
     if sleep_time < 0:
         sleep_time = 0
     sleep( sleep_time // 1000000000 )
