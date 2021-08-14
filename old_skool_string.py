@@ -35,7 +35,7 @@ class Scene(object):
             time.sleep(timeIncrement)
             d += timeIncrement
         """
-        return self.led_colors
+        return self._led_colors
 
     def startup_msg(self,segment):
         print('Running scene "old_skool_string" on segment "' + segment + '".')
