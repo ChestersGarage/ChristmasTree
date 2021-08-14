@@ -178,8 +178,6 @@ class Scene(object):
     def led_values(self):
         # Do it
         stringSequence = makeStringSequence()
-
-
         return run_sequence(stringSequence)
 
     def burn_sine(steps, flicker, brightness):
@@ -241,7 +239,7 @@ class Scene(object):
             nextSequence = makePixelSequence()
         return nextSequence
 
-    def makeStringSequence():
+    def makeStringSequence(self):
         stringSequence = []
         for pixel in self._led_colors:
             pixelSequence = makePixelSequence()
