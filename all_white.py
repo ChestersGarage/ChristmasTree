@@ -10,7 +10,7 @@ class Scene(object):
             ]
         self._pixel_count = pixel_count
         self._step_period = step_period
-        self._led_colors = [ [255,255,255] ] * self._pixel_count
+        self._led_colors = [ [255,255,255] ] * pixel_count
 
     def led_values(self):
         self._led_colors = [ [255,255,255] ] * self._pixel_count
