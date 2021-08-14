@@ -38,14 +38,9 @@ _led_layout = {
     "star_edge_scene": "all_white",
     "star_fold_scene": "all_gold"
     }
-# 30 FPS, in nanoseconds
+# 30 FPS, in nanoseconds (1e+09 ns per second)
 _step_period = 1/30*1000000000
 ## End of config vars
-
-
-
-# LED layout: 50, 50, 50, 50, 45, 20
-led_colors = [ [0,0,0] ] * ( (_led_layout['tree_1_count'] * 4) + _led_layout['star_edge_count'] + _led_layout['star_fold_count'] )
 
 
 # Begin
@@ -61,17 +56,20 @@ for segment_label in _led_layout['segments']:
 step_last_update = monotonic_ns()
 
 while True:
+    # Build up the set of LED color values
+    led_colors = []
     for segment_label in _led_layout['segments']:
+        led_colors.append(globals()[segment_label].led_values())
 
-        led_colors.extend(tree.led_values())
+    # Wait until it's time to update the LEDs
+    if monotonic_ns() < ( step_last_update + _step_period ):
+        # Sleep for however long we have left until next LED string update.
+        sleep( ( _step_last_update + _step_period ) - monotonic_ns() )
+    else:
+        # If we've already passed the period, it affects the visual appeal.
+        overshoot = monotonic_ns() - ( _step_last_update + _step_period )
+        print('Took too long to process LED string values.')
+        print('Increase _step_period by ' + overshoot + ' nanoseconds.')
 
-        if monotonic_ns() < ( _step_last_update + _step_period ):
-            # Sleep for however long we have left until next LED string update.
-            sleep( ( _step_last_update + _step_period ) - monotonic_ns() )
-        else:
-            overshoot = monotonic_ns() - ( _step_last_update + _step_period )
-            print('Took too long to process LED string values.')
-            print('Increase _step_period by ' + overshoot + ' nanoseconds.')
-
-        step_last_update = monotonic_ns()
-        xmas_tree.put_pixels(led_string,0)
+    step_last_update = monotonic_ns()
+    xmas_tree.put_pixels(led_colors,0)
