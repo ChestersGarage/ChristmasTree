@@ -24,9 +24,9 @@ class Scene(object):
         self._led_colors = [ [255,255,255] ] * self._pixel_count
         i = 0
         while i <= self._pixel_count:
-            self._led_colors[i] = self.colors[random.randrange(len(colors))]
+            self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
             while self._led_colors[i] == self._led_colors[i-1]:
-                self._led_colors[i] = self.colors[random.randrange(len(colors))]
+                self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
             i += 1
         """
         d = 0

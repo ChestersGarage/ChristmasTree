@@ -18,4 +18,4 @@ class Scene(object):
         return self.led_colors
 
     def startup_msg(self,segment):
-        print('Running scene "all_white" on segment "' + segment + '".')
+        print('Running scene "all_gold" on segment "' + segment + '".')
