@@ -69,7 +69,7 @@ while True:
     print(str(_step_period) + ' ' + str(prep_time) + ' ' +str(sleep_time))
     if sleep_time < 0:
         sleep_time = 0
-    sleep( sleep_time // 1000000000 )
+    sleep( sleep_time / 1000000000 )
     #else:
         # If we've already passed the period, it affects the visual appeal.
         #overshoot = monotonic_ns() - ( step_last_update + _step_period )
