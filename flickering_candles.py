@@ -261,4 +261,4 @@ class Scene(object):
     def led_values(self):
         # Do it
         stringSequence = self.makeStringSequence()
-        return self.run_sequence(self.stringSequence)
+        return self.run_sequence(stringSequence)
