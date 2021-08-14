@@ -1,15 +1,3 @@
-import opc, math, random
-from time import monotonic_ns,sleep
-
-xmas_tree_address = 'christmastree.home:7890'
-
-scene_list = [
-    "old_skool_string",
-    "flickering_candles",
-    "ever_fade",
-    "twinkling_stars"
-    ]
-
 """
 The LED strings are split out per string for more flexibility.
 In particualr, the star has two sections:
@@ -18,29 +6,46 @@ In particualr, the star has two sections:
 The tree has 4 strings of 50 LEDs, which would be placed on the tree like regular Christmas lights.
 """
 
+import opc, math, random
+from time import monotonic_ns,sleep
+
+xmas_tree_address = 'christmastree.home:7890'
+
+# These two next vars need to be provided as a JSON config file.
+scene_list = {
+    "old_skool_string":   "both",
+    "flickering_candles": "tree",
+    "ever_fade":          "both",
+    "twinkling_stars":    "both",
+    "all_white":          "both",
+    "all_gold":           "both"
+    }
+
 # Star has two sets of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
-_star_edge_count = 45
-_star_edge_scene = scene_list[3]
-_star_fold_count = 20
-_star_fold_scene = scene_list[3]
-
 # Tree has 4 strings of 50 LEDs for technical reasons.
-_tree_1_count = 50
-_tree_1_scene = scene_list[0]
-_tree_2_count = 50
-_tree_2_scene = scene_list[0]
-_tree_3_count = 50
-_tree_3_scene = scene_list[0]
-_tree_4_count = 50
-_tree_4_scene = scene_list[0]
+# BTW, this config matches how the LEDs are connected to the Fadecandy board.
+led_layout = {
+    "segments": [ "star_edge", "star_fold", "tree_1", "tree_2", "tree_3", "tree_4" ],
+    "tree_1_count":     "50",
+    "tree_2_count":     "50",
+    "tree_3_count":     "50",
+    "tree_4_count":     "50",
+    "star_edge_count" : "45",
+    "star_fold_count":  "20",
+    "tree_1_scene":    scene_list["old_skool_string"],
+    "tree_2_scene":    scene_list["old_skool_string"],
+    "tree_3_scene":    scene_list["old_skool_string"],
+    "tree_4_scene":    scene_list["old_skool_string"],
+    "star_edge_scene": scene_list["all_white"],
+    "star_fold_scene": scene_list["all_gold"]
+    }
 
-# LED string layout: 50, 50, 50, 50, 45, 20
-led_string = [ [0,0,0] ] * ( _star_edge_count + _star_fold_count + ( _tree_1_count * 4 ) )
+# LED layout: 50, 50, 50, 50, 45, 20
+led_colors = [ [0,0,0] ] * ( _tree_1_count * 4 + _star_edge_count + _star_fold_count )
 
 # Default to 30 FPS, in nanoseconds
 _step_period = 1/30*1000000000
 _step_last_update = monotonic_ns()
-
 
 # Begin
 xmas_tree = opc.Client(xmas_tree_address)
