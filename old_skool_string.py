@@ -29,6 +29,7 @@ class Scene(object):
                 while self._led_colors[i] == self._led_colors[i-1]:
                     self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
                 i += 1
+            self._init = False
         else:
             pass
         """
