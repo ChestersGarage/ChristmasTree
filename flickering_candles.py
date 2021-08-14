@@ -200,7 +200,7 @@ class Scene(object):
             brightness = 106 # Centered on 50 flicker
             # Ramp up the flicker intensity
             while flicker < 50:
-                pixelSequence.extend(burn_sine(steps, flicker, brightness))
+                pixelSequence.extend(self.burn_sine(steps, flicker, brightness))
                 flicker = flicker * 1.2
                 if flicker > 50:
                     flicker = 50
@@ -209,12 +209,12 @@ class Scene(object):
             iters = 0
             maxIters = random.randrange(30)
             while iters < maxIters:
-                pixelSequence.extend(burn_sine(steps, flicker, brightness))
+                pixelSequence.extend(self.burn_sine(steps, flicker, brightness))
                 iters += 1
 
             # ramp down the flicker intensity
             while flicker > 8:
-                pixelSequence.extend(burn_sine(steps, flicker, brightness))
+                pixelSequence.extend(self.burn_sine(steps, flicker, brightness))
                 flicker = flicker * .95
 
         else:
@@ -222,22 +222,22 @@ class Scene(object):
             flicker = random.randrange(30,50)
             brightness = 106 # Centered on 50 flicker
             sequenceIterations = random.randrange(1,4)
-            pixelSequence = burn_sine(steps, flicker, brightness) * sequenceIterations
+            pixelSequence = self.burn_sine(steps, flicker, brightness) * sequenceIterations
 
         return pixelSequence
 
     def doNextSequence():
         jump = random.randrange(10)
         if jump == 3:
-            nextSequence = makePixelSequence('bounce')
+            nextSequence = self.makePixelSequence('bounce')
         else:
-            nextSequence = makePixelSequence()
+            nextSequence = self.makePixelSequence()
         return nextSequence
 
     def makeStringSequence(self):
         stringSequence = []
         for pixel in self._led_colors:
-            pixelSequence = makePixelSequence()
+            pixelSequence = self.makePixelSequence()
             stringSequence.append(pixelSequence)
         return stringSequence
 
@@ -253,7 +253,7 @@ class Scene(object):
                                     ]
             sequenceCounter[index] += 1
             if sequenceCounter[index] == len(stringSequence[index]):
-                stringSequence[index] = doNextSequence()
+                stringSequence[index] = self.doNextSequence()
                 sequenceCounter[index] = 0
 
         return self._led_colors
@@ -261,4 +261,4 @@ class Scene(object):
     def led_values(self):
         # Do it
         stringSequence = self.makeStringSequence()
-        return run_sequence(stringSequence)
+        return self.run_sequence(self.stringSequence)
