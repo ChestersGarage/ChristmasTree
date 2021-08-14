@@ -23,7 +23,7 @@ class Scene(object):
     def led_values(self):
         self._led_colors = [ [255,255,255] ] * self._pixel_count
         i = 0
-        while i <= self._pixel_count:
+        while i < self._pixel_count:
             self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
             while self._led_colors[i] == self._led_colors[i-1]:
                 self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
