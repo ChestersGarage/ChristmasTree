@@ -60,6 +60,7 @@ while True:
     led_colors = []
     for segment_label in _led_layout['segments']:
         led_colors.append(globals()[segment_label].led_values())
+        print(str(led_colors))
 
     # Wait until it's time to update the LEDs
     if monotonic_ns() < ( step_last_update + _step_period ):
