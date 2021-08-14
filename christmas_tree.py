@@ -35,11 +35,11 @@ xmas_tree = opc.Client(xmas_tree_address)
 
 star_scene = __import__(_xmas_star_scene)
 star = star_scene.Scene(_star_pixel_count, _star_pixel_segments, _step_period)
-star.startup_msg()
+star.startup_msg('star')
 
 tree_scene = __import__(_xmas_tree_scene)
 tree = tree_scene.Scene(_tree_pixel_count, _tree_pixel_segments, _step_period)
-tree.startup_msg()
+tree.startup_msg('tree')
 
 while True:
     led_string = tree.led_values() + star.led_values()

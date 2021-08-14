@@ -32,3 +32,6 @@ class Scene(object):
             p += 1
 
         return led_string
+
+    def startup_msg(self,part):
+        print('Running scene "twinkling_stars" on the ' + part + '.')
