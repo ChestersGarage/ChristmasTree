@@ -69,11 +69,11 @@ while True:
             sleep_time = 0
         sleep( sleep_time // 1000000000 )
     else:
-        pass
+        continue
         # If we've already passed the period, it affects the visual appeal.
-        overshoot = monotonic_ns() - ( step_last_update + _step_period )
-        print('Took too long to process LED string values.')
-        print('Increase _step_period by ' + str(overshoot) + ' nanoseconds.')
+        #overshoot = monotonic_ns() - ( step_last_update + _step_period )
+        #print('Took too long to process LED string values.')
+        #print('Increase _step_period by ' + str(overshoot) + ' nanoseconds.')
 
     # Note the time and update the LEDs.
     step_last_update = monotonic_ns()
