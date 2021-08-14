@@ -30,7 +30,7 @@ class Scene(object):
             self._led_string[random.randrange(self._pixel_count)] = [ hue[0] * brightness, hue[1] * brightness, hue[2] * brightness ]
             p += 1
 
-        return led_string
+        return self._led_string
 
     def startup_msg(self,segment):
         print('Running scene "twinkling_stars" on segment "' + segment + '".')
