@@ -65,6 +65,7 @@ while True:
     if monotonic_ns() < ( step_last_update + _step_period ):
         # Sleep for however long we have left until next LED string update.
         sleep( ( _step_last_update + _step_period ) - monotonic_ns() )
+        print('x')
     else:
         # If we've already passed the period, it affects the visual appeal.
         overshoot = monotonic_ns() - ( _step_last_update + _step_period )
