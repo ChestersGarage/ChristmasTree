@@ -25,12 +25,12 @@ _scene_list = [
 # BTW, this config matches how the LEDs are connected to the Fadecandy board.
 _led_layout = {
     "segments": [ "tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold" ],
-    "tree_1_count":     "50",
-    "tree_2_count":     "50",
-    "tree_3_count":     "50",
-    "tree_4_count":     "50",
-    "star_edge_count" : "45",
-    "star_fold_count":  "20",
+    "tree_1_count":     50,
+    "tree_2_count":     50,
+    "tree_3_count":     50,
+    "tree_4_count":     50,
+    "star_edge_count" : 45,
+    "star_fold_count":  20,
     "tree_1_scene":    "old_skool_string",
     "tree_2_scene":    "old_skool_string",
     "tree_3_scene":    "old_skool_string",
