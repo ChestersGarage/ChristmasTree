@@ -45,7 +45,7 @@ _step_period = 1/30*1000000000
 
 
 # LED layout: 50, 50, 50, 50, 45, 20
-led_colors = [ [0,0,0] ] * ( (tree_1_count * 4) + star_edge_count + star_fold_count )
+led_colors = [ [0,0,0] ] * ( (_led_layout['tree_1_count'] * 4) + _led_layout['star_edge_count'] + _led_layout['star_fold_count'] )
 
 
 # Begin
