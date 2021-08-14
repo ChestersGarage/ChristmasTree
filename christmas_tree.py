@@ -69,6 +69,7 @@ while True:
         if sleep_time < 0:
             sleep_time = 0
         sleep( sleep_time )
+        print('x')
     else:
         # If we've already passed the period, it affects the visual appeal.
         overshoot = monotonic_ns() - ( step_last_update + _step_period )
