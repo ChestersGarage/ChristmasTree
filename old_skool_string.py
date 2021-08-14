@@ -19,15 +19,18 @@ class Scene(object):
         self._pixel_count = pixel_count
         self._step_period = step_period
         self._led_colors = [ [0,0,0] ] * pixel_count
+        self._init = True
 
     def led_values(self):
-        self._led_colors = [ [255,255,255] ] * self._pixel_count
-        i = 0
-        while i < self._pixel_count:
-            self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
-            while self._led_colors[i] == self._led_colors[i-1]:
+        if self._init:
+            i = 0
+            while i < self._pixel_count:
                 self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
-            i += 1
+                while self._led_colors[i] == self._led_colors[i-1]:
+                    self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
+                i += 1
+        else:
+            pass
         """
         d = 0
         while d <= holdTime:
