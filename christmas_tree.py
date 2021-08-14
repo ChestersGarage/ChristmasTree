@@ -31,11 +31,11 @@ _led_layout = {
     "tree_4_count":     50,
     "star_edge_count" : 45,
     "star_fold_count":  20,
-    "tree_1_scene":    "old_skool_string",
+    "tree_1_scene":    "flickering_candles",
     "tree_2_scene":    "old_skool_string",
     "tree_3_scene":    "old_skool_string",
     "tree_4_scene":    "old_skool_string",
-    "star_edge_scene": "all_white",
+    "star_edge_scene": "twinkling_stars",
     "star_fold_scene": "all_gold"
     }
 # 30 FPS, in nanoseconds (1e+09 ns per second)
@@ -47,7 +47,6 @@ _step_period = 1/15*1000000000
 xmas_tree = opc.Client(_xmas_tree_address)
 
 # Set up an instance of each scene for each LED segment
-# I don't really like using globals() like this, but I couldn't find a better way.
 for segment_label in _led_layout['segments']:
     segment_scene = __import__( _led_layout[segment_label + '_scene'] )
     globals()[segment_label] = segment_scene.Scene( _step_period, _led_layout[segment_label + '_count'] )
