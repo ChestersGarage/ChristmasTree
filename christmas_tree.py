@@ -9,7 +9,7 @@ The tree has 4 strings of 50 LEDs, which would be placed on the tree like regula
 import opc, math, random
 from time import monotonic_ns,sleep
 
-# These three next vars need to be provided as a JSON config file.
+# These config vars need to be provided as a JSON config file.
 _xmas_tree_address = 'christmastree.home:7890'
 # The list of available scenes and what the
 _scene_list = [
@@ -38,10 +38,11 @@ _led_layout = {
     "star_edge_scene": "all_white",
     "star_fold_scene": "all_gold"
     }
-
-# Default to 30 FPS, in nanoseconds
+# 30 FPS, in nanoseconds
 _step_period = 1/30*1000000000
-_step_last_update = monotonic_ns()
+## End of config vars
+
+
 
 # LED layout: 50, 50, 50, 50, 45, 20
 led_colors = [ [0,0,0] ] * ( (tree_1_count * 4) + star_edge_count + star_fold_count )
@@ -57,16 +58,20 @@ for segment_label in _led_layout['segments']:
     globals()[segment_label] = segment_scene.Scene( _step_period, _led_layout[segment_label + '_count'] )
     globals()[segment_label].startup_msg(segment_label)
 
+step_last_update = monotonic_ns()
+
 while True:
-    led_string = tree.led_values() + star.led_values()
+    for segment_label in _led_layout['segments']:
 
-    if monotonic_ns() < ( _step_last_update + _step_period ):
-        # Sleep for however long we have left until next LED string update.
-        sleep( ( _step_last_update + _step_period ) - monotonic_ns() )
-    else:
-        overshoot = monotonic_ns() - ( _step_last_update + _step_period )
-        print('Took too long to process LED string values.')
-        print('Increase _step_period by ' + overshoot + ' nanoseconds.')
+        led_colors.extend(tree.led_values())
 
-    _step_last_update = monotonic_ns()
-    xmas_tree.put_pixels(led_string,0)
+        if monotonic_ns() < ( _step_last_update + _step_period ):
+            # Sleep for however long we have left until next LED string update.
+            sleep( ( _step_last_update + _step_period ) - monotonic_ns() )
+        else:
+            overshoot = monotonic_ns() - ( _step_last_update + _step_period )
+            print('Took too long to process LED string values.')
+            print('Increase _step_period by ' + overshoot + ' nanoseconds.')
+
+        step_last_update = monotonic_ns()
+        xmas_tree.put_pixels(led_string,0)
