@@ -51,10 +51,11 @@ led_colors = [ [0,0,0] ] * ( (tree_1_count * 4) + star_edge_count + star_fold_co
 xmas_tree = opc.Client(_xmas_tree_address)
 
 # Set up an instance of each scene for each LED segment
+# I don't really like using globals() like this, but I couldn't find a better way.
 for segment_label in _led_layout['segments']:
     segment_scene = __import__( _led_layout[segment_label + '_scene'] )
-    segments[segment_label] = segment_scene.Scene( _step_period, _led_layout[segment_label + '_count'] )
-    segment.startup_msg(segment_label)
+    globals()[segment_label] = segment_scene.Scene( _step_period, _led_layout[segment_label + '_count'] )
+    globals()[segment_label].startup_msg(segment_label)
 
 while True:
     led_string = tree.led_values() + star.led_values()
