@@ -12,14 +12,14 @@ from time import monotonic_ns,sleep
 # These three next vars need to be provided as a JSON config file.
 _xmas_tree_address = 'christmastree.home:7890'
 # The list of available scenes and what the
-_scene_list = {
-    "old_skool_string":   "both",
-    "flickering_candles": "tree",
-    "ever_fade":          "both",
-    "twinkling_stars":    "both",
-    "all_white":          "both",
-    "all_gold":           "both"
-    }
+_scene_list = [
+    "old_skool_string",
+    "flickering_candles",
+    "ever_fade",
+    "twinkling_stars",
+    "all_white",
+    "all_gold"
+    ]
 # Star has two sets of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
 # Tree has 4 strings of 50 LEDs for technical reasons.
 # BTW, this config matches how the LEDs are connected to the Fadecandy board.
