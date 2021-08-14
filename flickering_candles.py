@@ -175,11 +175,6 @@ class Scene(object):
     def startup_msg(self,segment):
         print('Running scene "flickering_candles" on segment "' + segment + '".')
 
-    def led_values(self):
-        # Do it
-        stringSequence = makeStringSequence()
-        return run_sequence(stringSequence)
-
     def burn_sine(steps, flicker, brightness):
         """
         Create one full sine wave within the number of steps provided, and return a pattern of brightness values.
@@ -262,3 +257,8 @@ class Scene(object):
                 sequenceCounter[index] = 0
 
         return self._led_colors
+
+    def led_values(self):
+        # Do it
+        stringSequence = makeStringSequence()
+        return run_sequence(stringSequence)
