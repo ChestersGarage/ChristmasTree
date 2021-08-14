@@ -11,8 +11,8 @@ scene_list = [
     ]
 
 # Default scenes
-_xmas_star_scene = star_scene_list[3]
-_xmas_tree_scene = tree_scene_list[0]
+_xmas_star_scene = scene_list[3]
+_xmas_tree_scene = scene_list[0]
 
 # Star has two sets of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
 _star_pixel_count = 65
