@@ -171,16 +171,18 @@ class Scene(object):
         # 157 steps
         self._sequence_counter = [0] * pixel_count
         self._led_colors = [ [0,0,0] ] * pixel_count
+        self._init = True
 
-    def startup_msg(self,segment):
+    def startup_msg(self, segment):
         print('Running scene "flickering_candles" on segment "' + segment + '".')
 
     def led_values(self):
-        # Do it
-        stringSequence = self.makeStringSequence()
+        if self._init:
+            stringSequence = self.makeStringSequence()
+
         return self.run_sequence(stringSequence)
 
-    def burn_sine(self,steps, flicker, brightness):
+    def burn_sine(self, steps, flicker, brightness):
         """
         Create one full sine wave within the number of steps provided, and return a pattern of brightness values.
 
@@ -197,7 +199,7 @@ class Scene(object):
 
         return burnSequence
 
-    def makePixelSequence(self,type=''):
+    def makePixelSequence(self, type=''):
         if type == "bounce":
             pixelSequence = []
             steps = random.randrange(4,7)
@@ -246,7 +248,7 @@ class Scene(object):
             stringSequence.append(pixelSequence)
         return stringSequence
 
-    def run_sequence(self,stringSequence):
+    def run_sequence(self, stringSequence):
         """
         Runs through a sequence once.
         """
@@ -257,7 +259,7 @@ class Scene(object):
                                       self._candle_map[ stringSequence[index][ self._sequence_counter[index] ] ][2]
                                     ]
             self._sequence_counter[index] += 1
-            if self._sequence_counter[index] >= len(stringSequence[index])-1:
+            if self._sequence_counter[index] == len(stringSequence):
                 stringSequence[index] = self.doNextSequence()
                 self._sequence_counter[index] = 0
 
