@@ -39,7 +39,7 @@ _led_layout = {
     "star_fold_scene": "all_gold"
     }
 # 30 FPS, in nanoseconds (1e+09 ns per second)
-_step_period = 1/15*1000000000
+_step_period = 1/2*1000000000
 ## End of config vars
 
 
