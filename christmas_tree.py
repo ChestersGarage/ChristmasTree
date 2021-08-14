@@ -64,7 +64,10 @@ while True:
     # Wait until it's time to update the LEDs
     if monotonic_ns() < ( step_last_update + _step_period ):
         # Sleep for however long we have left until next LED string update.
-        sleep( ( step_last_update + _step_period ) - monotonic_ns() )
+        sleep_time = ( step_last_update + _step_period ) - monotonic_ns()
+        if sleep_time < 0:
+            sleep_time = 0
+        sleep( sleep_time )
         print('x')
     else:
         # If we've already passed the period, it affects the visual appeal.
