@@ -247,14 +247,14 @@ class Scene(object):
         """
         for index,pixel in enumerate(self._led_colors):
             self._led_colors[index] = [
-                                      self._candle_map[ stringSequence[index][ sequenceCounter[index] ] ][0],
-                                      self._candle_map[ stringSequence[index][ sequenceCounter[index] ] ][1],
-                                      self._candle_map[ stringSequence[index][ sequenceCounter[index] ] ][2]
+                                      self._candle_map[ stringSequence[index][ self._sequenceCounter[index] ] ][0],
+                                      self._candle_map[ stringSequence[index][ self._sequenceCounter[index] ] ][1],
+                                      self._candle_map[ stringSequence[index][ self._sequenceCounter[index] ] ][2]
                                     ]
-            sequenceCounter[index] += 1
-            if sequenceCounter[index] == len(stringSequence[index]):
+            self._sequenceCounter[index] += 1
+            if self._sequenceCounter[index] == len(stringSequence[index]):
                 stringSequence[index] = self.doNextSequence()
-                sequenceCounter[index] = 0
+                self._sequenceCounter[index] = 0
 
         return self._led_colors
 
