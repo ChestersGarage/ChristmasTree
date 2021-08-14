@@ -64,13 +64,14 @@ while True:
     # Wait until it's time to update the LEDs
     if monotonic_ns() < ( step_last_update + _step_period ):
         # Sleep for however long we have left until next LED string update.
-        sleep( ( _step_last_update + _step_period ) - monotonic_ns() )
+        sleep( ( step_last_update + _step_period ) - monotonic_ns() )
         print('x')
     else:
         # If we've already passed the period, it affects the visual appeal.
-        overshoot = monotonic_ns() - ( _step_last_update + _step_period )
+        overshoot = monotonic_ns() - ( step_last_update + _step_period )
         print('Took too long to process LED string values.')
         print('Increase _step_period by ' + overshoot + ' nanoseconds.')
 
+    # Note the time and update the LEDs.
     step_last_update = monotonic_ns()
     xmas_tree.put_pixels(led_colors,0)
