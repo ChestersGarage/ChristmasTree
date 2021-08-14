@@ -53,7 +53,7 @@ for segment_label in _led_layout['segments']:
     globals()[segment_label] = segment_scene.Scene( _step_period, _led_layout[segment_label + '_count'] )
     globals()[segment_label].startup_msg(segment_label)
 
-step_last_update = monotonic_ns()
+step_last_update = int(monotonic_ns())
 
 while True:
     # Build up the set of LED color values
@@ -68,7 +68,7 @@ while True:
         sleep_time = ( step_last_update + _step_period ) - monotonic_ns()
         if sleep_time < 0:
             sleep_time = 0
-        sleep( sleep_time )
+        sleep( sleep_time // 1000000000 )
         print('x')
     else:
         # If we've already passed the period, it affects the visual appeal.
