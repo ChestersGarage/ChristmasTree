@@ -201,47 +201,61 @@ class Scene(object):
         Ramp down again over 1-2 seconds.
         To-do: Create "windy" condition where the flame bounces but very fast and rough for about 1-2 seconds.
         """
-        # Ramp up  over .5-1.5 seconds
-        ramp_up_duration = random.randint(50,150)/100
-        ramp_up_frames = int(self._frame_rate*ramp_up_duration)
+        # Centered on 50 flicker, minus one extra to cover rounding/typing error
+        brightness = self._map_size - 50 -1
 
+        # Start with a fast,  flicker
+        # This value must be controlled well for smooth visual experience.
+        frames_per_flick = random.randint(4,7)
         # Start with small bounce
-        flicker = 10
-        brightness = 106 # Centered on 50 flicker
-        # Number of sine sequences in the ramp-up
-        flicks = random.randint(2,5)
-        frames_per_flick = int(ramp_up_frames / flicks)
+        flicker = random.randint(1,5)
+        flicker_multiplier = random.randint(110,200)/100
+        # Pre-calculate increasing flicker values
+        flicker_values = []
+        flicker_tmp = flicker
+        while flicker_tmp <= 50:
+            flicker_values.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
+            flicker_values = flicker_values * flicker_multiplier
+
+        pixel_sequence = []
 
         # Ramp up the flicker intensity
-        pixel_sequence = []
-        frame = 1
-        while frame <= flicks:
+        # Number of sine sequences in the ramp-up
+        ramp_up_flicks = random.randint(3,7)
+        flick = 1
+        while flick <= ramp_up_flicks:
             pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
-            flicker = flicker * 1.2
-            if flicker > 50:
-                flicker = 50
+            frames_per_flick = frames_per_flick * 1.5
+            flicker = flicker * 1.25
+            flick += 1
 
-        # Sustain the intense flick for a moment
-        iters = 0
-        maxIters = random.randint(30)
-        while iters < maxIters:
-            pixel_sequence.extend(self.make_sine_sequence(steps, flicker, brightness))
-            iters += 1
+        # Sustain the intense flick for 4-8 seconds
+        sustain_flicks = random.randint(4*frames_per_flick,8*frames_per_flick)
+        flick =1
+        while flick <= sustain_flicks:
+            pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
+            frame += 1
 
         # ramp down the flicker intensity
-        while flicker > 8:
-            pixel_sequence.extend(self.make_sine_sequence(steps, flicker, brightness))
+        ramp_down_flicks = random.randint(8,13)
+        flick = 1
+        while flick <= ramp_down_flicks:
+            pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
             flicker = flicker * .95
 
         return pixel_sequence
 
     def standard_glow(self):
         # Regular candle flame that gently changes brightness and color temperature.
-        steps = random.randint(60, 600)
+        steps = random.randint(60,600)
         flicker = random.randint(30,50)
-        brightness = 106 # Centered on 50 flicker
+        # Centered on 50 flicker, minus one extra to cover rounding/typing error
+        brightness = self._map_size - 50 -1
         sequenceIterations = random.randint(1,4)
         pixel_sequence = self.make_sine_sequence(steps, flicker, brightness) * sequenceIterations
+        return pixel_sequence
+
+    def near_blow_out(self):
         return pixel_sequence
 
     def choose_pixel_sequence_type(self):
