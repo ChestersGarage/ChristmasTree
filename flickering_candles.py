@@ -240,16 +240,21 @@ class Scene(object):
         return pixel_sequence
 
     def standard_glow(self):
-        # Regular candle flame that gently changes brightness and color temperature.
-        steps = random.randint(60,600)
+        """
+        Regular candle flame that gently changes brightness and color temperature.
+        """
+        # Each flame cycle is between 2 and 20 seconds
+        cycle = random.randint(2,20)
+        frames = cycle * self._frame_rate
         flicker = random.randint(30,50)
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
         brightness = self._map_size - 50 -1
-        sequenceIterations = random.randint(1,4)
-        pixel_sequence = self.make_sine_sequence(steps, flicker, brightness) * sequenceIterations
+        sequence_iterations = random.randint(1,4)
+        pixel_sequence = self.make_sine_sequence(frames, flicker, brightness) * sequence_iterations
         return pixel_sequence
 
     def near_blow_out(self):
+        pixel_sequence = [ [0,0,0] ] * self._pixel_count
         return pixel_sequence
 
     def choose_pixel_sequence_type(self):
@@ -263,16 +268,16 @@ class Scene(object):
             next_sequence = self.standard_glow()
         return next_sequence
 
-    def make_string_sequence(self):
+    def init_string_sequence(self):
         """
         Build the initial string sequence at startup.
         Only regualr pixel sequences - no bounce
         """
-        stringSequence = []
+        string_sequence = []
         for pixel in self._led_colors:
             pixel_sequence = self.standard_glow()
-            stringSequence.append(pixel_sequence)
-        return stringSequence
+            string_sequence.append(pixel_sequence)
+        return string_sequence
 
     def map_pixel_sequences_to_string(self, stringSequence):
         """
@@ -296,7 +301,7 @@ class Scene(object):
 
     def led_values(self):
         if self._init:
-            stringSequence = self.make_string_sequence()
+            stringSequence = self.init_string_sequence()
             self._init = False
 
         return self.map_pixel_sequences_to_string(stringSequence)
