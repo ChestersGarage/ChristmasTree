@@ -201,19 +201,22 @@ class Scene(object):
         Ramp down again over 1-2 seconds.
         To-do: Create "windy" condition where the flame bounces but very fast and rough for about 1-2 seconds.
         """
-        pixel_sequence = []
-
         # Ramp up  over .5-1.5 seconds
         ramp_up_duration = random.randint(50,150)/100
         ramp_up_frames = int(self._frame_rate*ramp_up_duration)
+
         # Start with small bounce
         flicker = 10
         brightness = 106 # Centered on 50 flicker
+        # Number of sine sequences in the ramp-up
         flicks = random.randint(2,5)
+        frames_per_flick = int(ramp_up_frames / flicks)
 
         # Ramp up the flicker intensity
-        while flicker < 50:
-            pixel_sequence.extend(self.make_sine_sequence(ramp_up_frames, flicker, brightness))
+        pixel_sequence = []
+        frame = 1
+        while frame <= flicks:
+            pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
             flicker = flicker * 1.2
             if flicker > 50:
                 flicker = 50
