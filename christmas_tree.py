@@ -32,14 +32,14 @@ _led_layout = {
     "star_edge_count" : 45,
     "star_fold_count":  20,
     "tree_1_scene":    "flickering_candles",
-    "tree_2_scene":    "old_skool_string",
-    "tree_3_scene":    "old_skool_string",
-    "tree_4_scene":    "old_skool_string",
+    "tree_2_scene":    "flickering_candles",
+    "tree_3_scene":    "flickering_candles",
+    "tree_4_scene":    "flickering_candles",
     "star_edge_scene": "twinkling_stars",
-    "star_fold_scene": "all_gold"
+    "star_fold_scene": "twinkling_stars"
     }
 # 30 FPS, in nanoseconds (1e+09 ns per second)
-_step_period = 1/2*1000000000
+_step_period = 1/15*1000000000
 ## End of config vars
 
 
@@ -51,6 +51,8 @@ for segment_label in _led_layout['segments']:
     segment_scene = __import__( _led_layout[segment_label + '_scene'] )
     globals()[segment_label] = segment_scene.Scene( _step_period, _led_layout[segment_label + '_count'] )
     globals()[segment_label].startup_msg(segment_label)
+
+sleep(1)
 
 step_last_update = int(monotonic_ns())
 
@@ -64,11 +66,8 @@ while True:
     # Wait until it's time to update the LEDs
     if monotonic_ns() < ( step_last_update + _step_period ):
         # Sleep for however long we have left until next LED string update.
-        prep_time = (monotonic_ns() - step_last_update) / 1000000000
         sleep_time = (step_last_update + _step_period - monotonic_ns()) / 1000000000
-        print(str(_step_period) + ' ' + str(prep_time) + ' ' +str(sleep_time))
-        if sleep_time < 0:
-            sleep_time = 0
+        #print(str(_step_period/1000000000) + ' ' + str(sleep_time))
         sleep( sleep_time )
     #else:
         # If we've already passed the period, it affects the visual appeal.

@@ -2,8 +2,7 @@ import opc, random
 
 class Scene(object):
     """
-    Twinkling warm, neutral and cool white pixels.
-    Sends fresh new values at each step_period.
+    Random basic colors without any changes, for now.
     """
     def __init__(self, step_period, pixel_count):
         # Red, blu, yel, cyn, mag, wht, grn

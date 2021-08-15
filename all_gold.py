@@ -11,9 +11,12 @@ class Scene(object):
         self._pixel_count = pixel_count
         self._step_period = step_period
         self._led_colors = [ self._colors[0] ] * pixel_count
+        self._init = True
 
     def led_values(self):
-        self._led_colors = [ self._colors[0] ] * self._pixel_count
+        if self._init:
+            self._led_colors = [ self._colors[0] ] * self._pixel_count
+            self._init = False
 
         return self._led_colors
 
