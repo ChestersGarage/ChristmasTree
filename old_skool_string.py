@@ -4,7 +4,7 @@ class Scene(object):
     """
     Random basic colors without any changes, for now.
     """
-    def __init__(self, step_period, pixel_count):
+    def __init__(self, frame_rate, pixel_count):
         # Red, blu, yel, cyn, mag, wht, grn
         self.colors = [
             ( 255,   0,   0 ),
@@ -16,7 +16,7 @@ class Scene(object):
             ( 200, 200, 200 )
         ]
         self._pixel_count = pixel_count
-        self._step_period = step_period
+        self._frame_rate = frame_rate
         self._led_colors = [ [0,0,0] ] * pixel_count
         self._init = True
 

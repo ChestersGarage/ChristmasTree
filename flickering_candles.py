@@ -3,12 +3,12 @@ import time, math, random
 class Scene(object):
     """
     Twinkling warm, neutral and cool white pixels.
-    Send new values at each step_period.
+    Send new values at each frame_rate.
     """
-    def __init__(self, step_period, pixel_count):
+    def __init__(self, frame_rate, pixel_count):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
-        self._step_period = step_period
+        self._frame_rate = frame_rate
         self._candle_map = [
             (  99, 14, 0 ),
             ( 100, 15, 0 ),
@@ -168,92 +168,99 @@ class Scene(object):
             ( 254, 125, 1 ),
             ( 255, 126, 1 )
         ]
-        # Candle map has 157 steps. This number is important when creating sine sequences
+        # Pre-calc the map size to save a few clocks on the CPU.
+        self._map_size = len(self._candle_map)
         self._sequence_counter = [0] * pixel_count
         self._led_colors = [ [0,0,0] ] * pixel_count
         self._init = True
-        self._frame_rate = 1 / step_period
 
     def startup_msg(self, segment):
         print('Running scene "flickering_candles" on segment "' + segment + '".')
 
-    def make_sine_sequence(self, steps, flicker, brightness):
+    def make_sine_sequence(self, frames, flicker, brightness):
         """
-        Create one full sine wave within the number of steps provided, and return a pattern of brightness values.
+        Create one full sine wave within the number of steps provided,
+        and return a pattern of brightness values for one pixel.
 
-        Flicker - how bright and dim the flicker gets (Range: 0 thru int(157/2), from candleMap)
-        Brightness - average brightness, (Range: bandWidth thru (157-bandWidth).n, from candleMap)
+        Flicker - (sine amplitude) how bright and dim the candle gets. Range: 0 thru int(len(self_candle_map)/2).
+        Brightness - (sine offset) median brightness of the candle. Range: flicker thru (len(self_candle_map)-flicker).
         """
-
         i = 0
         sine_sequence = []
-        while i < steps:
+        while i < frames:
             # Pre-calculate the sine wave values
-            sine_sequence.append(int((flicker*math.sin(i*(math.pi*2)/steps))+brightness))
+            sine_sequence.append(int((flicker*math.sin(i*(math.pi*2)/frames))+brightness))
             i += 1
-
         return sine_sequence
 
-    def make_pixel_sequence(self, type=''):
+    def bouncing_flame(self):
         """
-        Creates an animation sequence to be applied to a pixel over time.
+        Bounce the candle flame the way candles seem to do randomly.
+        Ramp up from a small bounce to higher.
+        Sustain the high bounce for a few seconds.
+        Ramp down again over 1-2 seconds.
+        To-do: Create "windy" condition where the flame bounces but very fast and rough for about 1-2 seconds.
         """
-        # Bounce means the candle flame is bouncing the way candles seem to do randomly
-        # To-do: Create "windy" condition where the flame bounces but very fast and rough for about 1-2 seconds.
-        if type == "bounce":
-            pixelSequence = []
-            # Steps are related to frame rate
-            steps = random.randrange(7,14)
-            flicker = 10
-            brightness = 106 # Centered on 50 flicker
-            # Ramp up the flicker intensity
-            while flicker < 50:
-                pixelSequence.extend(self.make_sine_sequence(steps, flicker, brightness))
-                flicker = flicker * 1.2
-                if flicker > 50:
-                    flicker = 50
+        pixel_sequence = []
 
-            # Sustain the intense flick for a moment
-            iters = 0
-            maxIters = random.randrange(30)
-            while iters < maxIters:
-                pixelSequence.extend(self.make_sine_sequence(steps, flicker, brightness))
-                iters += 1
+        # Ramp up  over .5-1.5 seconds
+        ramp_up_duration = random.randint(50,150)/100
+        ramp_up_frames = int(self._frame_rate*ramp_up_duration)
+        # Start with small bounce
+        flicker = 10
+        brightness = 106 # Centered on 50 flicker
+        flicks = random.randint(2,5)
 
-            # ramp down the flicker intensity
-            while flicker > 8:
-                pixelSequence.extend(self.make_sine_sequence(steps, flicker, brightness))
-                flicker = flicker * .95
+        # Ramp up the flicker intensity
+        while flicker < 50:
+            pixel_sequence.extend(self.make_sine_sequence(ramp_up_frames, flicker, brightness))
+            flicker = flicker * 1.2
+            if flicker > 50:
+                flicker = 50
+
+        # Sustain the intense flick for a moment
+        iters = 0
+        maxIters = random.randint(30)
+        while iters < maxIters:
+            pixel_sequence.extend(self.make_sine_sequence(steps, flicker, brightness))
+            iters += 1
+
+        # ramp down the flicker intensity
+        while flicker > 8:
+            pixel_sequence.extend(self.make_sine_sequence(steps, flicker, brightness))
+            flicker = flicker * .95
+
+        return pixel_sequence
+
+    def standard_glow(self):
         # Regular candle flame that gently changes brightness and color temperature.
-        else:
-            steps = random.randrange(60, 600)
-            flicker = random.randrange(30,50)
-            brightness = 106 # Centered on 50 flicker
-            sequenceIterations = random.randrange(1,4)
-            pixelSequence = self.make_sine_sequence(steps, flicker, brightness) * sequenceIterations
-
-        return pixelSequence
+        steps = random.randint(60, 600)
+        flicker = random.randint(30,50)
+        brightness = 106 # Centered on 50 flicker
+        sequenceIterations = random.randint(1,4)
+        pixel_sequence = self.make_sine_sequence(steps, flicker, brightness) * sequenceIterations
+        return pixel_sequence
 
     def choose_pixel_sequence_type(self):
         """
         Determines whether a new pixel sequence will be normal or "bounce" or ??
         """
-        jump = random.randrange(10)
+        jump = random.randint(10)
         if jump == 3:
-            nextSequence = self.make_pixel_sequence('bounce')
+            next_sequence = self.bouncing_flame()
         else:
-            nextSequence = self.make_pixel_sequence()
-        return nextSequence
+            next_sequence = self.standard_glow()
+        return next_sequence
 
     def make_string_sequence(self):
         """
-        Builds the initial string sequence, upon startup.
+        Build the initial string sequence at startup.
         Only regualr pixel sequences - no bounce
         """
         stringSequence = []
         for pixel in self._led_colors:
-            pixelSequence = self.make_pixel_sequence()
-            stringSequence.append(pixelSequence)
+            pixel_sequence = self.standard_glow()
+            stringSequence.append(pixel_sequence)
         return stringSequence
 
     def map_pixel_sequences_to_string(self, stringSequence):
