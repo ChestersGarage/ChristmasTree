@@ -262,9 +262,9 @@ class Scene(object):
         Determines whether a new pixel sequence will be normal or "bounce" or ??
         """
         dice = random.randint(100)
-        if dice >= 30 && dice < 40:
+        if dice >= 30 and dice < 40:
             return self.bouncing_flame()
-        elif dice >= 70 && dice < 80:
+        elif dice >= 70 and dice < 80:
         #elif dice == 70:
             return self.near_blow_out()
         else:

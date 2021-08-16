@@ -48,7 +48,7 @@ _frame_period = 1/_frame_rate*1000000000
 # Begin
 xmas_tree = opc.Client(_xmas_tree_address)
 
-# Set up an instance of each scene for each LED segment
+# Set up an instance of each scene for each LED string
 for segment_label in _led_layout['segments']:
     segment_scene = __import__( _led_layout[segment_label + '_scene'] )
     globals()[segment_label] = segment_scene.Scene( _frame_rate, _led_layout[segment_label + '_count'] )
