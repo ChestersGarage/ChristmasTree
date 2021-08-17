@@ -225,7 +225,7 @@ class Scene(object):
         flick =1
         while flick <= sustain_flicks:
             pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
-            frame += 1
+            flick += 1
 
         # ramp down the flicker intensity
         frames_multiplier = random.randint(75,90)/100
@@ -236,7 +236,6 @@ class Scene(object):
             pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
             frames_per_flick = int(frames_per_flick * frames_multiplier)
             flicker = int(flicker * flicker_multiplier)
-
         return pixel_sequence
 
     def standard_glow(self):
@@ -254,14 +253,15 @@ class Scene(object):
         return pixel_sequence
 
     def near_blow_out(self):
-        pixel_sequence = [ [0,0,0] ] * self._pixel_count
+        pixel_sequence = [ 0 ] * self._pixel_count
+
         return pixel_sequence
 
     def choose_pixel_scene(self):
         """
         Determines whether a new pixel sequence will be normal or "bounce" or ??
         """
-        dice = random.randint(100)
+        dice = random.randint(1,100)
         if dice >= 30 and dice < 40:
             return self.bouncing_flame()
         elif dice >= 70 and dice < 80:
@@ -275,36 +275,48 @@ class Scene(object):
         Apply the next pixel value to each pixel in the string.
         Upon reaching the end of any pixel sequence, request a new sequence for that pixel.
         """
+        next_frame = []
         # Loop through all the pixels in the string
-        for index,pixel in enumerate(self._string_sequence):
-            # Pull one pixel color value from the candle map
-            # Each item in self._string_sequence is a pixel_sequence of varying lengths
-            self._string_sequence[index] = [
-                self._candle_map[ self._string_sequence[index][ self._sequence_counter[index]] ][0],
-                self._candle_map[ self._string_sequence[index][ self._sequence_counter[index]] ][1],
-                self._candle_map[ self._string_sequence[index][ self._sequence_counter[index]] ][2]
-            ]
-            # This counter is the sliding window over self._string_sequence
-            self._sequence_counter[index] += 1
+        pixel = 0
+        while pixel < self._pixel_count:
+            #print(self._string_sequence[pixel][ self._sequence_counter[pixel] ])
+            #exit(0)
+            #print( str(pixel) )
+            #print(self._sequence_counter[pixel])
+            print(self._string_sequence[pixel][ self._sequence_counter[pixel] ])
+            print( str(self._candle_map[ self._string_sequence[pixel][ self._sequence_counter[pixel] ] ][0]) )
+
+            next_frame.append([
+                self._candle_map[ self._string_sequence[pixel][ self._sequence_counter[pixel] ] ][0],
+                self._candle_map[ self._string_sequence[pixel][ self._sequence_counter[pixel] ] ][1],
+                self._candle_map[ self._string_sequence[pixel][ self._sequence_counter[pixel] ] ][2]
+            ])
+           # This counter is the sliding window over self._string_sequence
+            self._sequence_counter[pixel] += 1
             # Check for the end of the pixel_sequence, and get a new one and reset the counter.
-            if self._sequence_counter[index] == len(self._string_sequence[index]):
-                self._string_sequence[index] = self.choose_pixel_scene()
-                self._sequence_counter[index] = 0
+            if self._sequence_counter[pixel] == len(self._string_sequence[pixel]):
+                self._string_sequence[pixel] = self.choose_pixel_scene()
+                self._sequence_counter[pixel] = 0
+            pixel += 1
+        return next_frame
 
     def init_string_sequence(self):
         """
         Build the initial string sequence at startup.
         """
-        for pixel in self._string_sequence:
+        pixel = 0
+        while pixel < self._pixel_count:
             pixel_sequence = self.standard_glow()
-            self._string_sequence.append(pixel_sequence)
+            self._string_sequence[pixel] = pixel_sequence
+            pixel += 1
+
+        #print(self._string_sequence)
+        #exit(0)
 
     def led_values(self):
         if self._init:
             self.init_string_sequence()
             self._init = False
-        else:
-            #self._string_sequence = self.map_pixel_sequences_to_string()
-            self.set_next_string_sequence()
 
-        return self._string_sequence
+        next_frame = self.set_next_string_sequence()
+        return next_frame

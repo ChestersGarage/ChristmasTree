@@ -54,9 +54,7 @@ for segment_label in _led_layout['segments']:
     globals()[segment_label] = segment_scene.Scene( _frame_rate, _led_layout[segment_label + '_count'] )
     globals()[segment_label].startup_msg(segment_label)
 
-sleep(1)
-
-step_last_update = int(monotonic_ns())
+step_last_update = monotonic_ns()
 
 while True:
     # Build up the set of LED color values
