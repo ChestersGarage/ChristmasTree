@@ -228,17 +228,18 @@ class Scene(object):
         # More frames per flick makes a slower, longer sine
         # Start with a fast, small flicker, and increase frames per flick
 
-        frames_per_flick = random.randint(4,7)
-        frames_multiplier = random.randint(150,200)/100
+        flick_duration = random.randint(10,25)/100
+        frames_per_flick = flick_duration * self._frame_rate
+        frames_multiplier = random.randint(110,125)/100
         # Start with small bounce and increase to 50
-        flicker = random.randint(1,5)
+        flicker = random.randint(5,10)
         flicker_multiplier = random.randint(150,200)/100
         target_flicker = 50
 
         try:
             while flicker <= target_flicker:
                 sine_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
-                frames_per_flick = int(frames_per_flick * frames_multiplier + 0.5)
+                #frames_per_flick = int(frames_per_flick * frames_multiplier + 0.5)
                 flicker = int(flicker * flicker_multiplier + 0.5)
 
             flicker = 50
@@ -256,7 +257,7 @@ class Scene(object):
 
             while flicker >= target_flicker:
                 sine_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
-                frames_per_flick = int(frames_per_flick * frames_multiplier - 0.5)
+                #frames_per_flick = int(frames_per_flick * frames_multiplier - 0.5)
                 flicker = int(flicker * flicker_multiplier - 0.5)
             pixel_sequence = self.make_pixel_sequence(sine_sequence)
         except:
@@ -269,7 +270,7 @@ class Scene(object):
         Regular candle flame that gently changes brightness and color temperature.
         """
         # Each flame cycle is between 2 and 20 seconds
-        cycle = random.randint(5,25)
+        cycle = random.randint(5,10)
         frames = cycle * self._frame_rate
         flicker = random.randint(30,50)
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
@@ -288,12 +289,13 @@ class Scene(object):
         """
         Determines whether a new pixel sequence will be normal or "bounce" or ??
         """
+
         dice = random.randint(1,100)
         if dice >= 30 and dice < 40:
             #print('bouncing_flame')
             return self.bouncing_flame()
-            """elif dice >= 70 and dice < 80:
-            return self.near_blow_out()"""
+            #elif dice >= 70 and dice < 80:
+            #return self.near_blow_out()"""
         else:
             #print('standard_glow')
             return self.standard_glow()
