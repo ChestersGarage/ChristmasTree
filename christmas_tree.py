@@ -39,7 +39,7 @@ _led_layout = {
     "star_fold_scene": "twinkling_stars"
     }
 # 30 FPS, in nanoseconds (1e+09 ns per second)
-_frame_rate = 15
+_frame_rate = 3
 ## End of config vars
 
 
@@ -66,7 +66,8 @@ while True:
     if monotonic_ns() < ( step_last_update + _frame_period ):
         # Sleep for however long we have left until next LED string update.
         sleep_time = (step_last_update + _frame_period - monotonic_ns()) / 1000000000
-        sleep( sleep_time )
+        sleep(sleep_time)
+        print(_frame_period)
     #else:
         # If we've already passed the period, it affects the visual appeal.
         #overshoot = monotonic_ns() - ( step_last_update + _frame_period )

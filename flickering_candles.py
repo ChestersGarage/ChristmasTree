@@ -269,7 +269,7 @@ class Scene(object):
         Regular candle flame that gently changes brightness and color temperature.
         """
         # Each flame cycle is between 2 and 20 seconds
-        cycle = random.randint(20,120)
+        cycle = random.randint(5,25)
         frames = cycle * self._frame_rate
         flicker = random.randint(30,50)
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
@@ -290,12 +290,12 @@ class Scene(object):
         """
         dice = random.randint(1,100)
         if dice >= 30 and dice < 40:
-            print('bouncing_flame')
+            #print('bouncing_flame')
             return self.bouncing_flame()
             """elif dice >= 70 and dice < 80:
             return self.near_blow_out()"""
         else:
-            print('standard_glow')
+            #print('standard_glow')
             return self.standard_glow()
 
     def get_next_frame(self):
@@ -331,6 +331,8 @@ class Scene(object):
         if self._init:
             self.init_string_sequence()
             self._init = False
+            #print(self._string_sequence)
+            #exit(0)
 
         next_frame = self.get_next_frame()
         return next_frame
