@@ -191,7 +191,26 @@ class Scene(object):
             # Pre-calculate the sine wave values
             sine_sequence.append(int((flicker*math.sin(i*(math.pi*2)/frames))+brightness))
             i += 1
+        #print(sine_sequence)
+        #exit(0)
         return sine_sequence
+
+    def make_pixel_sequence(self, sine_sequence):
+        """
+        Ingest a sine_sequence and map it to a pixel_sequence.
+        """
+        pixel_sequence = [ [0,0,0,] ] * len(sine_sequence)
+        for i,v in enumerate(sine_sequence):
+            try:
+                pixel_sequence[i] = [
+                    self._candle_map[v][0],
+                    self._candle_map[v][1],
+                    self._candle_map[v][2]
+                ]
+            except:
+                pass
+                print(sine_sequence)
+        return pixel_sequence
 
     def bouncing_flame(self):
         """
@@ -201,13 +220,14 @@ class Scene(object):
         Ramp down again over 1-2 seconds.
         To-do: Create "windy" condition where the flame bounces but very fast and rough for about 1-2 seconds.
         """
-        pixel_sequence = []
+        sine_sequence = []
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
-        brightness = self._map_size - 50 -1
+        brightness = 106
 
         # Ramp up the flicker intensity
         # More frames per flick makes a slower, longer sine
         # Start with a fast, small flicker, and increase frames per flick
+
         frames_per_flick = random.randint(4,7)
         frames_multiplier = random.randint(150,200)/100
         # Start with small bounce and increase to 50
@@ -215,27 +235,33 @@ class Scene(object):
         flicker_multiplier = random.randint(150,200)/100
         target_flicker = 50
 
-        while flicker <= target_flicker:
-            pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
-            frames_per_flick = int(frames_per_flick * frames_multiplier)
-            flicker = int(flicker * flicker_multiplier)
+        try:
+            while flicker <= target_flicker:
+                sine_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
+                frames_per_flick = int(frames_per_flick * frames_multiplier + 0.5)
+                flicker = int(flicker * flicker_multiplier + 0.5)
 
-        # Sustain the intense flick for 4-8 seconds
-        sustain_flicks = random.randint(int( 4 * self._frame_rate / frames_per_flick ),int( 8 * self._frame_rate / frames_per_flick ))
-        flick =1
-        while flick <= sustain_flicks:
-            pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
-            flick += 1
+            flicker = 50
+            # Sustain the intense flick for 4-8 seconds
+            sustain_flicks = random.randint(int( 4 * self._frame_rate / frames_per_flick ),int( 8 * self._frame_rate / frames_per_flick ))
+            flick =1
+            while flick <= sustain_flicks:
+                sine_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
+                flick += 1
 
-        # ramp down the flicker intensity
-        frames_multiplier = random.randint(75,90)/100
-        flicker_multiplier = random.randint(75,90)/100
-        target_flicker = random.randint(1,5)
+            # ramp down the flicker intensity
+            frames_multiplier = random.randint(75,90)/100
+            flicker_multiplier = random.randint(75,90)/100
+            target_flicker = random.randint(1,5)
 
-        while flicker >= target_flicker:
-            pixel_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
-            frames_per_flick = int(frames_per_flick * frames_multiplier)
-            flicker = int(flicker * flicker_multiplier)
+            while flicker >= target_flicker:
+                sine_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
+                frames_per_flick = int(frames_per_flick * frames_multiplier - 0.5)
+                flicker = int(flicker * flicker_multiplier - 0.5)
+            pixel_sequence = self.make_pixel_sequence(sine_sequence)
+        except:
+            print(pixel_sequence)
+            exit(0)
         return pixel_sequence
 
     def standard_glow(self):
@@ -243,18 +269,19 @@ class Scene(object):
         Regular candle flame that gently changes brightness and color temperature.
         """
         # Each flame cycle is between 2 and 20 seconds
-        cycle = random.randint(2,20)
+        cycle = random.randint(20,120)
         frames = cycle * self._frame_rate
         flicker = random.randint(30,50)
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
-        brightness = self._map_size - 50 -1
+        brightness = 106
         sequence_iterations = random.randint(1,4)
-        pixel_sequence = self.make_sine_sequence(frames, flicker, brightness) * sequence_iterations
+        sine_sequence = self.make_sine_sequence(frames, flicker, brightness) * sequence_iterations
+        pixel_sequence = self.make_pixel_sequence(sine_sequence)
         return pixel_sequence
 
     def near_blow_out(self):
-        pixel_sequence = [ 0 ] * self._pixel_count
-
+        sine_sequence = [ 0 ] * self._pixel_count
+        pixel_sequence = self.make_pixel_sequence(sine_sequence)
         return pixel_sequence
 
     def choose_pixel_scene(self):
@@ -263,35 +290,25 @@ class Scene(object):
         """
         dice = random.randint(1,100)
         if dice >= 30 and dice < 40:
+            print('bouncing_flame')
             return self.bouncing_flame()
-        elif dice >= 70 and dice < 80:
-        #elif dice == 70:
-            return self.near_blow_out()
+            """elif dice >= 70 and dice < 80:
+            return self.near_blow_out()"""
         else:
+            print('standard_glow')
             return self.standard_glow()
 
-    def set_next_string_sequence(self):
+    def get_next_frame(self):
         """
         Apply the next pixel value to each pixel in the string.
         Upon reaching the end of any pixel sequence, request a new sequence for that pixel.
         """
-        next_frame = []
+        next_frame = [[0,0,0]] * self._pixel_count
         # Loop through all the pixels in the string
         pixel = 0
         while pixel < self._pixel_count:
-            #print(self._string_sequence[pixel][ self._sequence_counter[pixel] ])
-            #exit(0)
-            #print( str(pixel) )
-            #print(self._sequence_counter[pixel])
-            print(self._string_sequence[pixel][ self._sequence_counter[pixel] ])
-            print( str(self._candle_map[ self._string_sequence[pixel][ self._sequence_counter[pixel] ] ][0]) )
-
-            next_frame.append([
-                self._candle_map[ self._string_sequence[pixel][ self._sequence_counter[pixel] ] ][0],
-                self._candle_map[ self._string_sequence[pixel][ self._sequence_counter[pixel] ] ][1],
-                self._candle_map[ self._string_sequence[pixel][ self._sequence_counter[pixel] ] ][2]
-            ])
-           # This counter is the sliding window over self._string_sequence
+            next_frame[pixel] = self._string_sequence[pixel][self._sequence_counter[pixel]]
+            # This counter is the sliding window over self._string_sequence
             self._sequence_counter[pixel] += 1
             # Check for the end of the pixel_sequence, and get a new one and reset the counter.
             if self._sequence_counter[pixel] == len(self._string_sequence[pixel]):
@@ -304,19 +321,16 @@ class Scene(object):
         """
         Build the initial string sequence at startup.
         """
-        pixel = 0
-        while pixel < self._pixel_count:
+        pixel_channel = 0
+        while pixel_channel < self._pixel_count:
             pixel_sequence = self.standard_glow()
-            self._string_sequence[pixel] = pixel_sequence
-            pixel += 1
-
-        #print(self._string_sequence)
-        #exit(0)
+            self._string_sequence[pixel_channel] = pixel_sequence
+            pixel_channel += 1
 
     def led_values(self):
         if self._init:
             self.init_string_sequence()
             self._init = False
 
-        next_frame = self.set_next_string_sequence()
+        next_frame = self.get_next_frame()
         return next_frame
