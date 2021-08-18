@@ -228,7 +228,7 @@ class Scene(object):
         # More frames per flick makes a slower, longer sine
         # Start with a fast, small flicker, and increase frames per flick
 
-        flick_duration = random.randint(20,35)/100
+        flick_duration = random.randint(15,25)/100
         frames_per_flick = flick_duration * self._frame_rate
         frames_multiplier = random.randint(110,125)/100
         # Start with small bounce and increase to 50
