@@ -70,7 +70,7 @@ class Scene(object):
         # More frames per flick makes a slower, longer sine
         # Start with a fast, small flicker, and increase frames per flick
 
-        flick_duration = random.randint(15,25)/100
+        flick_duration = random.randint(10,20)/100
         frames_per_flick = flick_duration * self._frame_rate
         frames_multiplier = random.randint(110,125)/100
         # Start with small bounce and increase to 50
@@ -93,7 +93,7 @@ class Scene(object):
                 flick += 1
 
             # ramp down the flicker intensity
-            frames_multiplier = random.randint(75,90)/100
+            frames_multiplier = random.randint(85,95)/100
             flicker_multiplier = random.randint(75,90)/100
             target_flicker = random.randint(1,5)
 
@@ -133,7 +133,7 @@ class Scene(object):
         """
 
         dice = random.randint(1,100)
-        if dice >= 30 and dice < 40:
+        if dice >= 30 and dice < 33:
             #print('bouncing_flame')
             return self.bouncing_flame()
             #elif dice >= 70 and dice < 80:
