@@ -39,7 +39,7 @@ _led_layout = {
     "star_fold_scene": "twinkling_stars"
     }
 # 30 FPS, in nanoseconds (1e+09 ns per second)
-_frame_rate = 60
+_frame_rate = 15
 ## End of config vars
 
 
