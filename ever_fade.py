@@ -100,7 +100,7 @@ class Scene(object):
         """
         pixel_channel = 0
         while pixel_channel < self._pixel_count:
-            pixel_sequence = self.ever_fade()
+            pixel_sequence = self.ever_fade(pixel_channel)
             self._string_sequence[pixel_channel] = pixel_sequence
             pixel_channel += 1
 
