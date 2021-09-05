@@ -3,13 +3,13 @@ The LED strings are split out per string for more flexibility.
 In particualr, the star has two sections:
     Edge: The LEDs which make the outline and center of the star
     Fold: The LEDs which line the center of the star points, where a paper star would be folded when cutting the shape.
-The tree has 4 strings of 50 LEDs, which would be placed on the tree like regular Christmas lights.
+The tree has 4 strings of 50 LEDs, which should be placed on the tree like regular Christmas lights.
 """
 
 import opc, math, random
 from time import monotonic_ns,sleep
 
-# These config vars need to be provided as a JSON config file.
+# These config vars need to be provided as a config file.
 _xmas_tree_address = 'christmastree.home:7890'
 # The list of available scenes and what the
 _scene_list = [
@@ -39,7 +39,7 @@ _led_layout = {
     "star_fold_scene": "twinkling_stars"
     }
 # 30 FPS, in nanoseconds (1e+09 ns per second)
-_frame_rate = 15
+_frame_rate = 10
 ## End of config vars
 
 
