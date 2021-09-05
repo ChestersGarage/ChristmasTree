@@ -37,11 +37,11 @@ class Scene(object):
 
         # Shift new to last
         self._last_color[pixel] = self._next_color[pixel]
-        # Grab a random new color
-        self._string_sequence[pixel] = self._colors[random.randrange(len(self._colors))]
+        # Pick a new color
+        self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
         # Make sure it's not the same color as the prior pixel
-        while self._string_sequence[pixel] == self._string_sequence[pixel-1]:
-            self._string_sequence[pixel] = self._colors[random.randrange(len(self._colors))]
+        while self._last_color[pixel] == self._next_color[pixel-1]:
+            self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
 
         # When the pixel color doesn't change,
         # we just pass back all the same values for the sequence
@@ -55,7 +55,7 @@ class Scene(object):
         frame = 0
         while frame < frame_count:
             component = 0
-            while component <= 2:
+            while component < 3:
                 # Next and prior color components are the same
                 if self._last_color[pixel][component] == self._next_color[pixel][component]:
                     pixel_sequence[frame][component] = self._next_color[pixel][component]
