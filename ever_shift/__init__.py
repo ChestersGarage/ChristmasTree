@@ -5,7 +5,7 @@ class Scene(object):
     Gradients between random colors that span several seconds.
     Each pixel on its own schedule that is randomized at each segment.
     """
-    def __init__(self, frame_rate, pixel_count, string):
+    def __init__(self, frame_rate, pixel_count, string_label):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
@@ -30,7 +30,7 @@ class Scene(object):
         while pixel < pixel_count:
             self._string_sequence.append(self.ever_shift(pixel))
             pixel += 1
-        print('Running scene "ever_shift" on string "' + string + '".')
+        print('Running scene "ever_shift" on string "' + string_label + '".')
 
     def ever_shift(self, pixel):
         """

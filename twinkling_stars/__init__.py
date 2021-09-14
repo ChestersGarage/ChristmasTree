@@ -5,7 +5,7 @@ class Scene(object):
     Twinkling warm, neutral and cool white pixels.
     Sends fresh new values at each step_period.
     """
-    def __init__(self, frame_rate, pixel_count):
+    def __init__(self, frame_rate, pixel_count, string_label):
         # ~4700K, "White" and ~9800K
         self._colors = [
             ( 255, 223, 194 ),
@@ -14,6 +14,7 @@ class Scene(object):
             ]
         self._pixel_count = pixel_count
         self._led_string = [ [0,0,0] ] * pixel_count
+        print('Running scene "twinkling_stars" on string "' + string_label + '".')
 
     def led_values(self):
         pixel = 0
@@ -24,6 +25,3 @@ class Scene(object):
             pixel += 1
 
         return self._led_string
-
-    def startup_msg(self,segment):
-        print('Running scene "twinkling_stars" on segment "' + segment + '".')

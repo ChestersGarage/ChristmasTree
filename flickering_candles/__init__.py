@@ -5,7 +5,7 @@ class Scene(object):
     Twinkling warm, neutral and cool white pixels.
     Send new values at each frame_rate.
     """
-    def __init__(self, frame_rate, pixel_count):
+    def __init__(self, frame_rate, pixel_count, string_label):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
@@ -19,9 +19,7 @@ class Scene(object):
             pixel_sequence = self.standard_glow()
             self._string_sequence[pixel] = pixel_sequence
             pixel += 1
-
-    def startup_msg(self, segment):
-        print('Running scene "flickering_candles" on segment "' + segment + '".')
+        print('Running scene "flickering_candles" on string "' + string_label + '".')
 
     def make_sine_sequence(self, frames, flicker, brightness):
         """

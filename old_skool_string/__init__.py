@@ -4,7 +4,7 @@ class Scene(object):
     """
     Random basic colors without any changes, for now.
     """
-    def __init__(self, frame_rate, pixel_count):
+    def __init__(self, frame_rate, pixel_count, string_label):
         # Red, blu, yel, cyn, mag, wht, grn
         self._colors = [
             (   0, 255,   0 ),
@@ -27,6 +27,7 @@ class Scene(object):
                 pixel += 1
                 if pixel >= pixel_count:
                     break
+        print('Running scene "old_skool_string" on string "' + string_label + '".')
 
     def blinkers(self):
         num_blinkers = random.randrange(int(self._pixel_count/10))
@@ -39,7 +40,3 @@ class Scene(object):
 
     def led_values(self):
         return self._string_sequence
-
-    def startup_msg(self,segment):
-        print('Running scene "old_skool_string" on segment "' + segment + '".')
-
