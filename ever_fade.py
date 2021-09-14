@@ -97,7 +97,7 @@ class Scene(object):
 
         return pixel_sequence
 
-    def get_next_frame(self):
+    def led_values(self):
         """
         Apply the next pixel value to each pixel in the string.
         Upon reaching the end of any pixel sequence, request a new sequence for that pixel.
@@ -115,6 +115,3 @@ class Scene(object):
                 self._sequence_counter[pixel] = 0
             pixel += 1
         return next_frame
-
-    def led_values(self):
-        return self.get_next_frame()

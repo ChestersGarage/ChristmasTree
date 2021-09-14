@@ -16,6 +16,7 @@ _scene_list = [
     "old_skool_string",
     "flickering_candles",
     "ever_fade",
+    "ever_shift",
     "twinkling_stars",
     "all_white",
     "all_gold"
@@ -31,10 +32,10 @@ _led_layout = {
     "tree_4_count":     50,
     "star_edge_count" : 45,
     "star_fold_count":  20,
-    "tree_1_scene":    "flickering_candles",
+    "tree_1_scene":    "ever_shift",
     "tree_2_scene":    "old_skool_string",
     "tree_3_scene":    "old_skool_string",
-    "tree_4_scene":    "ever_fade",
+    "tree_4_scene":    "flickering_candles",
     "star_edge_scene": "twinkling_stars",
     "star_fold_scene": "all_gold"
     }
@@ -53,8 +54,7 @@ xmas_tree = opc.Client(_xmas_tree_address)
 # Set up an instance of the selected scene for each LED string
 for string_label in _led_layout['strings']:
     string_scene = __import__( _led_layout[string_label + '_scene'] )
-    globals()[string_label] = string_scene.Scene( _frame_rate, _led_layout[string_label + '_count'] )
-    globals()[string_label].startup_msg(string_label)
+    globals()[string_label] = string_scene.Scene( _frame_rate, _led_layout[string_label + '_count'], string_label )
 
 # Mark the beginning of operation from the highest resolution*, non-varying** time source
 last_frame = monotonic_ns()
