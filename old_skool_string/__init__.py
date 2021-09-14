@@ -36,6 +36,9 @@ class Scene(object):
         while blinker < num_blinkers:
             blinker_list.append(random.randrange(self._pixel_count))
 
+        for blinker in blinker_list:
+
+
         return pixel_sequence
 
     def led_values(self):

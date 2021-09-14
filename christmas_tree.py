@@ -33,11 +33,11 @@ _led_layout = {
     "star_edge_count" : 45,
     "star_fold_count":  20,
     "tree_1_scene":    "flickering_candles",
-    "tree_2_scene":    "old_skool_string",
-    "tree_3_scene":    "old_skool_string",
-    "tree_4_scene":    "ever_change",
-    "star_edge_scene": "twinkling_stars",
-    "star_fold_scene": "all_gold"
+    "tree_2_scene":    "flickering_candles",
+    "tree_3_scene":    "flickering_candles",
+    "tree_4_scene":    "flickering_candles",
+    "star_edge_scene": "flickering_candles",
+    "star_fold_scene": "flickering_candles"
     }
 
 # Frames per second
@@ -73,7 +73,6 @@ while True:
             sleep_time = 0
 
         sleep(sleep_time)
-        #print(_frame_period)
     else:
         # If we've already passed the period, it affects the visual appeal.
         overshoot = monotonic_ns() - ( last_frame + _frame_period )
