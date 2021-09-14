@@ -37,9 +37,9 @@ class Scene(object):
         Gradient between two colors over a varying length of time per sequence.
         """
         # Duration in seconds
-        cycle = random.randint(10,30)
+        cycle = random.randint(100,300)/10
         # Convert to number of frames
-        frame_count = cycle * self._frame_rate
+        frame_count = int(cycle * self._frame_rate)
         pixel_sequence = []
 
         # Shift new to last

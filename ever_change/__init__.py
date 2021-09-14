@@ -37,9 +37,9 @@ class Scene(object):
         Gradient between two colors over a varying length of time per sequence.
         """
         # Duration in seconds
-        cycle = random.randint(10,30)
+        cycle = random.randint(40,300)/10
         # Convert to number of frames
-        frame_count = cycle * self._frame_rate
+        frame_count = int(cycle * self._frame_rate)
         pixel_sequence = []
 
         # Shift new to last
@@ -52,22 +52,7 @@ class Scene(object):
             while self._next_color[pixel] == self._next_color[pixel-1]:
                 self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
 
-        # When the pixel color doesn't change,
-        # we just pass back all the same values for the whole sequence
-        if self._last_color[pixel] == self._next_color[pixel]:
-            pixel_sequence = [ self._next_color[pixel] ] * frame_count
-            return pixel_sequence
-
-        # Change color
-        frame = 0
-        while frame < frame_count:
-            component = 0
-            # Next and prior color components are the same
-            pixel_temp = [ self._next_color[pixel] ] * frame_count
-            frame += 1
-        pixel_sequence.append(pixel_temp)
-
-        return pixel_sequence
+        return [ self._next_color[pixel] ] * frame_count
 
     def led_values(self):
         """

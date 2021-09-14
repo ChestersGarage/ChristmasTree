@@ -114,8 +114,8 @@ class Scene(object):
         Regular candle flame that gently changes brightness and color temperature.
         """
         # Each flame cycle is between 2 and 20 seconds
-        cycle = random.randint(5,10)
-        frames = cycle * self._frame_rate
+        cycle = random.randint(50,100)/10
+        frames = int(cycle * self._frame_rate)
         flicker = random.randint(30,50)
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
         brightness = 106

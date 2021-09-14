@@ -16,7 +16,7 @@ _scene_list = [
     "old_skool_string",
     "flickering_candles",
     "ever_fade",
-    "ever_shift",
+    "ever_change",
     "twinkling_stars",
     "all_white",
     "all_gold"
@@ -32,10 +32,10 @@ _led_layout = {
     "tree_4_count":     50,
     "star_edge_count" : 45,
     "star_fold_count":  20,
-    "tree_1_scene":    "ever_shift",
+    "tree_1_scene":    "flickering_candles",
     "tree_2_scene":    "old_skool_string",
     "tree_3_scene":    "old_skool_string",
-    "tree_4_scene":    "flickering_candles",
+    "tree_4_scene":    "ever_change",
     "star_edge_scene": "twinkling_stars",
     "star_fold_scene": "all_gold"
     }
