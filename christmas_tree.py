@@ -9,7 +9,7 @@ The tree has 4 strings of 50 LEDs, which should be placed on the tree like regul
 import opc, math, random
 from time import monotonic_ns,sleep
 
-# These config vars need to be provided as a config file.
+## These config vars need to be provided as a config file.
 _xmas_tree_address = 'christmastree.home:7890'
 # The list of available scenes and what the
 _scene_list = [
@@ -20,23 +20,23 @@ _scene_list = [
     "all_white",
     "all_gold"
     ]
-# Star has two sets of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
+# Star has two strings of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
 # Tree has 4 strings of 50 LEDs for technical reasons.
 # BTW, this config matches how the LEDs are connected to the Fadecandy board.
 _led_layout = {
-    "segments": [ "tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold" ],
+    "strings": [ "tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold" ],
     "tree_1_count":     50,
     "tree_2_count":     50,
     "tree_3_count":     50,
     "tree_4_count":     50,
     "star_edge_count" : 45,
     "star_fold_count":  20,
-    "tree_1_scene":    "twinkling_stars",
-    "tree_2_scene":    "twinkling_stars",
-    "tree_3_scene":    "twinkling_stars",
-    "tree_4_scene":    "twinkling_stars",
+    "tree_1_scene":    "flickering_candles",
+    "tree_2_scene":    "old_skool_string",
+    "tree_3_scene":    "old_skool_string",
+    "tree_4_scene":    "ever_fade",
     "star_edge_scene": "twinkling_stars",
-    "star_fold_scene": "twinkling_stars"
+    "star_fold_scene": "all_gold"
     }
 
 # Frames per second
@@ -51,19 +51,19 @@ _frame_period = 1/_frame_rate*1000000000
 xmas_tree = opc.Client(_xmas_tree_address)
 
 # Set up an instance of the selected scene for each LED string
-for segment_label in _led_layout['segments']:
-    segment_scene = __import__( _led_layout[segment_label + '_scene'] )
-    globals()[segment_label] = segment_scene.Scene( _frame_rate, _led_layout[segment_label + '_count'] )
-    globals()[segment_label].startup_msg(segment_label)
+for string_label in _led_layout['strings']:
+    string_scene = __import__( _led_layout[string_label + '_scene'] )
+    globals()[string_label] = string_scene.Scene( _frame_rate, _led_layout[string_label + '_count'] )
+    globals()[string_label].startup_msg(string_label)
 
-# Mark the beginning of operation from the highest resolution, non-varying time source
+# Mark the beginning of operation from the highest resolution*, non-varying** time source
 last_frame = monotonic_ns()
 
 while True:
     # Build up the set of LED color values
     led_colors = []
-    for segment_label in _led_layout['segments']:
-        led_colors.extend(globals()[segment_label].led_values())
+    for string_label in _led_layout['strings']:
+        led_colors.extend(globals()[string_label].led_values())
 
     # Wait until it's time to update the LEDs
     if monotonic_ns() < ( last_frame + _frame_period ):

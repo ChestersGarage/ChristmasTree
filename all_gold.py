@@ -8,17 +8,10 @@ class Scene(object):
         self._colors = [
             ( 255, 192, 0 )
             ]
-        self._pixel_count = pixel_count
-        self._frame_rate = frame_rate
-        self._led_colors = [ self._colors[0] ] * pixel_count
-        self._init = True
+        self._string_colors = [ self._colors[0] ] * pixel_count
 
     def led_values(self):
-        if self._init:
-            self._led_colors = [ self._colors[0] ] * self._pixel_count
-            self._init = False
-
-        return self._led_colors
+        return self._string_colors
 
     def startup_msg(self,segment):
         print('Running scene "all_gold" on segment "' + segment + '".')

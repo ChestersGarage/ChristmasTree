@@ -1,4 +1,4 @@
-import time, math, random, json
+import time, math, random
 
 class Scene(object):
     """
@@ -13,16 +13,23 @@ class Scene(object):
             ( 255,   0,   0 ),
             (   0, 255,   0 ),
             (   0,   0, 255 ),
-            ( 192, 128,   0 ),
-            ( 192,   0, 192 ),
-            ( 192,   0, 192 ),
-            ( 192, 192, 192 )
+            ( 255, 255,   0 ),
+            ( 240,   0, 255 ),
+            (   0, 255, 255 )
         )
         self._sequence_counter = [0] * pixel_count
         self._string_sequence = []
-        self._last_color =      [ [0,0,0] ] * pixel_count
-        self._next_color =      [ [0,0,0] ] * pixel_count
-        self._init = True
+        self._last_color = []
+        self._next_color = []
+        pixel=0
+        while pixel < pixel_count:
+            self._last_color.append( self._colors[random.randrange(len(self._colors))] )
+            self._next_color.append( self._colors[random.randrange(len(self._colors))] )
+            pixel += 1
+        pixel = 0
+        while pixel < pixel_count:
+            self._string_sequence.append(self.ever_fade(pixel))
+            pixel += 1
 
     def startup_msg(self, segment):
         print('Running scene "ever_fade" on segment "' + segment + '".')
@@ -31,9 +38,8 @@ class Scene(object):
         """
         Gradient between two colors over a varying length of time per sequence.
         """
-        #print('ever_fade')
         # Duration in seconds
-        cycle = random.randint(4,10)
+        cycle = random.randint(10,30)
         # Convert to number of frames
         frame_count = cycle * self._frame_rate
         pixel_sequence = []
@@ -96,12 +102,10 @@ class Scene(object):
         Apply the next pixel value to each pixel in the string.
         Upon reaching the end of any pixel sequence, request a new sequence for that pixel.
         """
-        #print('get_next_frame')
         next_frame = []
         # Loop through all the pixels in the string
         pixel = 0
         while pixel < self._pixel_count:
-            #next_frame[pixel] = [ self._string_sequence[pixel][0][self._sequence_counter[pixel]], self._string_sequence[pixel][1][self._sequence_counter[pixel]], self._string_sequence[pixel][2][self._sequence_counter[pixel]] ]
             next_frame.append(self._string_sequence[pixel][self._sequence_counter[pixel]])
             # This counter is the sliding window over self._string_sequence
             self._sequence_counter[pixel] += 1
@@ -112,21 +116,5 @@ class Scene(object):
             pixel += 1
         return next_frame
 
-    def init_string_sequence(self):
-        """
-        Build the initial string sequence at startup.
-        """
-        #print('init_string_sequence')
-        pixel = 0
-        while pixel < self._pixel_count:
-            pixel_sequence = self.ever_fade(pixel)
-            self._string_sequence.append(pixel_sequence)
-            pixel += 1
-
     def led_values(self):
-        if self._init:
-            self.init_string_sequence()
-            self._init = False
-
-        next_frame = self.get_next_frame()
-        return next_frame
+        return self.get_next_frame()

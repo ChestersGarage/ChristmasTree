@@ -6,39 +6,39 @@ class Scene(object):
     """
     def __init__(self, frame_rate, pixel_count):
         # Red, blu, yel, cyn, mag, wht, grn
-        self.colors = [
-            ( 255,   0,   0 ),
+        self._colors = [
+            (   0, 255,   0 ),
             (   0,   0, 255 ),
             ( 255, 220,   0 ),
+            ( 255,   0,   0 ),
             (   0, 255, 255 ),
-            ( 192,   0, 192 ),
-            (   0, 255,   0 ),
+            ( 220,   0, 220 ),
             ( 200, 200, 200 )
         ]
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
-        self._led_colors = [ [0,0,0] ] * pixel_count
-        self._init = True
+        self._string_sequence = []
+        pixel = 0
+        while pixel < pixel_count:
+            color = 0
+            while color < len(self._colors):
+                self._string_sequence.append(self._colors[color])
+                color += 1
+                pixel += 1
+                if pixel >= pixel_count:
+                    break
+
+    def blinkers(self):
+        num_blinkers = random.randrange(int(self._pixel_count/10))
+        blinker_list = []
+        blinker = 0
+        while blinker < num_blinkers:
+            blinker_list.append(random.randrange(self._pixel_count))
+
+        return pixel_sequence
 
     def led_values(self):
-        if self._init:
-            i = 0
-            while i < self._pixel_count:
-                self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
-                while self._led_colors[i] == self._led_colors[i-1]:
-                    self._led_colors[i] = self.colors[random.randrange(len(self.colors))]
-                i += 1
-            self._init = False
-        else:
-            pass
-        """
-        d = 0
-        while d <= holdTime:
-            client.put_pixels(ledString,1)
-            time.sleep(timeIncrement)
-            d += timeIncrement
-        """
-        return self._led_colors
+        return self._string_sequence
 
     def startup_msg(self,segment):
         print('Running scene "old_skool_string" on segment "' + segment + '".')

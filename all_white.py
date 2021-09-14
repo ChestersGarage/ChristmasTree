@@ -8,14 +8,10 @@ class Scene(object):
         self._colors = [
             ( 255, 255, 255 )
             ]
-        self._pixel_count = pixel_count
-        self._frame_rate = frame_rate
-        self._led_colors = [ self._colors[0] ] * pixel_count
+        self._string_colors = [ self._colors[0] ] * pixel_count
 
     def led_values(self):
-        self._led_colors = [ self._colors[0] ] * self._pixel_count
-
-        return self._led_colors
+        return self._string_colors
 
     def startup_msg(self,segment):
         print('Running scene "all_white" on segment "' + segment + '".')

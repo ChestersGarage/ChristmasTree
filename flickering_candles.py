@@ -14,7 +14,11 @@ class Scene(object):
         self._map_size = len(self._candle_map)
         self._sequence_counter = [0] * pixel_count
         self._string_sequence = [ [0,0,0] ] * pixel_count
-        self._init = True
+        pixel = 0
+        while pixel < pixel_count:
+            pixel_sequence = self.standard_glow()
+            self._string_sequence[pixel] = pixel_sequence
+            pixel += 1
 
     def startup_msg(self, segment):
         print('Running scene "flickering_candles" on segment "' + segment + '".')
@@ -161,22 +165,5 @@ class Scene(object):
             pixel += 1
         return next_frame
 
-    def init_string_sequence(self):
-        """
-        Build the initial string sequence at startup.
-        """
-        pixel_channel = 0
-        while pixel_channel < self._pixel_count:
-            pixel_sequence = self.standard_glow()
-            self._string_sequence[pixel_channel] = pixel_sequence
-            pixel_channel += 1
-
     def led_values(self):
-        if self._init:
-            self.init_string_sequence()
-            self._init = False
-            #print(self._string_sequence)
-            #exit(0)
-
-        next_frame = self.get_next_frame()
-        return next_frame
+        return self.get_next_frame()
