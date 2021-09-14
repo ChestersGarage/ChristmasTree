@@ -1,4 +1,4 @@
-import time, math, random
+import time, math, random, json
 
 class Scene(object):
     """
@@ -9,7 +9,7 @@ class Scene(object):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
-        self._colors = [
+        self._colors = (
             ( 255,   0,   0 ),
             (   0, 255,   0 ),
             (   0,   0, 255 ),
@@ -17,9 +17,9 @@ class Scene(object):
             ( 192,   0, 192 ),
             ( 192,   0, 192 ),
             ( 192, 192, 192 )
-        ]
+        )
         self._sequence_counter = [0] * pixel_count
-        self._string_sequence = [ [0,0,0] ] * pixel_count
+        self._string_sequence = []
         self._last_color =      [ [0,0,0] ] * pixel_count
         self._next_color =      [ [0,0,0] ] * pixel_count
         self._init = True
@@ -31,47 +31,63 @@ class Scene(object):
         """
         Gradient between two colors over a varying length of time per sequence.
         """
+        #print('ever_fade')
+        # Duration in seconds
         cycle = random.randint(4,10)
+        # Convert to number of frames
         frame_count = cycle * self._frame_rate
         pixel_sequence = []
 
         # Shift new to last
         self._last_color[pixel] = self._next_color[pixel]
+
         # Pick a new color
         self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
         # Make sure it's not the same color as the prior pixel
-        while self._last_color[pixel] == self._next_color[pixel-1]:
-            self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
+        if pixel > 0:
+            while self._next_color[pixel] == self._next_color[pixel-1]:
+                self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
 
         # When the pixel color doesn't change,
-        # we just pass back all the same values for the sequence
+        # we just pass back all the same values for the whole sequence
         if self._last_color[pixel] == self._next_color[pixel]:
             pixel_sequence = [ self._next_color[pixel] ] * frame_count
             return pixel_sequence
 
         # Otherwise, we have to map each color component value,
         # based on what frame of the sequence we are in,
-        # and loop for each pixel component
+        # and loop for each color component
         frame = 0
         while frame < frame_count:
             component = 0
+            pixel_temp = []
             while component < 3:
                 # Next and prior color components are the same
                 if self._last_color[pixel][component] == self._next_color[pixel][component]:
-                    pixel_sequence[frame][component] = self._next_color[pixel][component]
+                    pixel_temp.append(self._next_color[pixel][component])
+                    component += 1
+                    continue
 
                 # Next color component is lower value than prior
                 if self._last_color[pixel][component] > self._next_color[pixel][component]:
                     # Prior component value - (frame position as a percentage * difference between last and next)
-                    pixel_sequence[frame][component] = self._last_color[pixel][component] - ((float(frame) / float(frame_count)) * (self._last_color[pixel][component] - self._next_color[pixel][component]))
+                    pixel_temp.append(int(self._last_color[pixel][component] - ((float(frame) / float(frame_count)) * (self._last_color[pixel][component] - self._next_color[pixel][component]))))
+                    component += 1
+                    continue
 
                 # Next color component is higher value than prior
                 if self._last_color[pixel][component] < self._next_color[pixel][component]:
                     # Prior component value + (frame position as a percentage * difference between next and last)
-                    pixel_sequence[frame][component] = self._last_color[pixel][component] + ((float(frame) / float(frame_count)) * (self._next_color[pixel][component] - self._last_color[pixel][component]))
+                    pixel_temp.append(int(self._last_color[pixel][component] + ((float(frame) / float(frame_count)) * (self._next_color[pixel][component] - self._last_color[pixel][component]))))
+                    component += 1
+                    continue
 
-                component += 1
+            pixel_sequence.append(pixel_temp)
             frame += 1
+
+        # Add another frame_count of just self._next_color[pixel]
+        # to provide a period of the target color un-changing
+        pixel_temp = [ self._next_color[pixel] ] * frame_count
 
         return pixel_sequence
 
@@ -80,11 +96,13 @@ class Scene(object):
         Apply the next pixel value to each pixel in the string.
         Upon reaching the end of any pixel sequence, request a new sequence for that pixel.
         """
-        next_frame = [[0,0,0]] * self._pixel_count
+        #print('get_next_frame')
+        next_frame = []
         # Loop through all the pixels in the string
         pixel = 0
         while pixel < self._pixel_count:
-            next_frame[pixel] = self._string_sequence[pixel][self._sequence_counter[pixel]]
+            #next_frame[pixel] = [ self._string_sequence[pixel][0][self._sequence_counter[pixel]], self._string_sequence[pixel][1][self._sequence_counter[pixel]], self._string_sequence[pixel][2][self._sequence_counter[pixel]] ]
+            next_frame.append(self._string_sequence[pixel][self._sequence_counter[pixel]])
             # This counter is the sliding window over self._string_sequence
             self._sequence_counter[pixel] += 1
             # Check for the end of the pixel_sequence, and get a new one and reset the counter.
@@ -98,11 +116,12 @@ class Scene(object):
         """
         Build the initial string sequence at startup.
         """
-        pixel_channel = 0
-        while pixel_channel < self._pixel_count:
-            pixel_sequence = self.ever_fade(pixel_channel)
-            self._string_sequence[pixel_channel] = pixel_sequence
-            pixel_channel += 1
+        #print('init_string_sequence')
+        pixel = 0
+        while pixel < self._pixel_count:
+            pixel_sequence = self.ever_fade(pixel)
+            self._string_sequence.append(pixel_sequence)
+            pixel += 1
 
     def led_values(self):
         if self._init:

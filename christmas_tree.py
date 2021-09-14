@@ -31,30 +31,33 @@ _led_layout = {
     "tree_4_count":     50,
     "star_edge_count" : 45,
     "star_fold_count":  20,
-    "tree_1_scene":    "ever_fade",
-    "tree_2_scene":    "ever_fade",
-    "tree_3_scene":    "ever_fade",
-    "tree_4_scene":    "ever_fade",
+    "tree_1_scene":    "twinkling_stars",
+    "tree_2_scene":    "twinkling_stars",
+    "tree_3_scene":    "twinkling_stars",
+    "tree_4_scene":    "twinkling_stars",
     "star_edge_scene": "twinkling_stars",
     "star_fold_scene": "twinkling_stars"
     }
+
+# Frames per second
 # 30 FPS, in nanoseconds (1e+09 ns per second)
-_frame_rate = 10
+_frame_rate = 30
 ## End of config vars
 
-
+# Determine length of each frame
 _frame_period = 1/_frame_rate*1000000000
 
-# Begin
+# Instantiate the hardware interface
 xmas_tree = opc.Client(_xmas_tree_address)
 
-# Set up an instance of each scene for each LED string
+# Set up an instance of the selected scene for each LED string
 for segment_label in _led_layout['segments']:
     segment_scene = __import__( _led_layout[segment_label + '_scene'] )
     globals()[segment_label] = segment_scene.Scene( _frame_rate, _led_layout[segment_label + '_count'] )
     globals()[segment_label].startup_msg(segment_label)
 
-step_last_update = monotonic_ns()
+# Mark the beginning of operation from the highest resolution, non-varying time source
+last_frame = monotonic_ns()
 
 while True:
     # Build up the set of LED color values
@@ -63,18 +66,18 @@ while True:
         led_colors.extend(globals()[segment_label].led_values())
 
     # Wait until it's time to update the LEDs
-    if monotonic_ns() < ( step_last_update + _frame_period ):
+    if monotonic_ns() < ( last_frame + _frame_period ):
         # Sleep for however long we have left until next LED string update.
-        sleep_time = (step_last_update + _frame_period - monotonic_ns()) / 1000000000
+        sleep_time = (last_frame + _frame_period - monotonic_ns()) / 1000000000
 
         sleep(sleep_time)
         #print(_frame_period)
     else:
         # If we've already passed the period, it affects the visual appeal.
-        overshoot = monotonic_ns() - ( step_last_update + _frame_period )
+        overshoot = monotonic_ns() - ( last_frame + _frame_period )
         print('Took too long to process LED string values.')
         print('Increase _frame_period by ' + str(overshoot) + ' nanoseconds.')
 
     # Note the time and update the LEDs.
-    step_last_update = monotonic_ns()
+    last_frame = monotonic_ns()
     xmas_tree.put_pixels(led_colors,0)
