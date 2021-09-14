@@ -69,6 +69,8 @@ while True:
     if monotonic_ns() < ( last_frame + _frame_period ):
         # Sleep for however long we have left until next LED string update.
         sleep_time = (last_frame + _frame_period - monotonic_ns()) / 1000000000
+        if sleep_time <= 0:
+            sleep_time = 0
 
         sleep(sleep_time)
         #print(_frame_period)
