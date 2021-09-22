@@ -154,6 +154,9 @@ class Scene(object):
         pixel = 0
         while pixel < self._pixel_count:
             next_frame[pixel] = self._string_sequence[pixel][self._sequence_counter[pixel]]
+            #print(self._string_sequence)
+            #print(self._sequence_counter)
+            #exit(0)
             # This counter is the sliding window over self._string_sequence
             self._sequence_counter[pixel] += 1
             # Check for the end of the pixel_sequence, and get a new one and reset the counter.

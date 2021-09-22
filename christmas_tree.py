@@ -32,12 +32,12 @@ _led_layout = {
     "tree_4_count":     50,
     "star_edge_count" : 45,
     "star_fold_count":  20,
-    "tree_1_scene":    "flickering_candles",
-    "tree_2_scene":    "flickering_candles",
-    "tree_3_scene":    "flickering_candles",
-    "tree_4_scene":    "flickering_candles",
-    "star_edge_scene": "flickering_candles",
-    "star_fold_scene": "flickering_candles"
+    "tree_1_scene":    "old_skool_string",
+    "tree_2_scene":    "old_skool_string",
+    "tree_3_scene":    "old_skool_string",
+    "tree_4_scene":    "old_skool_string",
+    "star_edge_scene": "twinkling_stars",
+    "star_fold_scene": "all_gold"
     }
 
 # Frames per second

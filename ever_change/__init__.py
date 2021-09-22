@@ -9,13 +9,15 @@ class Scene(object):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
+        # Red, Green, Blue, Yellow, Purple, Orange, Aqua
         self._colors = (
             ( 255,   0,   0 ),
             (   0, 255,   0 ),
             (   0,   0, 255 ),
             ( 255, 255,   0 ),
-            ( 240,   0, 255 ),
-            (   0, 255, 255 )
+            ( 160,   0, 255 ),
+            ( 255, 127,   0 ),
+            (   0, 255, 192 )
         )
         self._sequence_counter = [0] * pixel_count
         self._string_sequence = []
@@ -26,11 +28,12 @@ class Scene(object):
             self._last_color.append( self._colors[random.randrange(len(self._colors))] )
             self._next_color.append( self._colors[random.randrange(len(self._colors))] )
             pixel += 1
-        pixel = 0
+        # Have to loop a second time, or we get index errors on next/last pixel
+        pixel=0
         while pixel < pixel_count:
-            self._string_sequence.append(self.ever_shift(pixel))
+            self._string_sequence.append( self.ever_shift(pixel) )
             pixel += 1
-        print('Running scene "ever_shift" on string "' + string_label + '".')
+        print('Running scene "ever_change" on string "' + string_label + '".')
 
     def ever_shift(self, pixel):
         """
@@ -47,9 +50,15 @@ class Scene(object):
 
         # Pick a new color
         self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
-        # Make sure it's not the same color as the prior pixel
-        if pixel > 0:
-            while self._next_color[pixel] == self._next_color[pixel-1]:
+        # Make sure it's not the same color as the prior or next pixel
+        if (pixel > 0) and (pixel < self._pixel_count - 1):
+            while (self._next_color[pixel] == self._next_color[pixel - 1]) or (self._next_color[pixel] == self._next_color[pixel + 1]):
+                self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
+        if (pixel == 0) :
+            while self._next_color[pixel] == self._next_color[pixel + 1]:
+                self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
+        if (pixel == self._pixel_count - 1):
+            while self._next_color[pixel] == self._next_color[pixel - 1]:
                 self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
 
         return [ self._next_color[pixel] ] * frame_count

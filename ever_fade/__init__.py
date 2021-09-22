@@ -14,8 +14,8 @@ class Scene(object):
             (   0, 255,   0 ),
             (   0,   0, 255 ),
             ( 255, 255,   0 ),
-            ( 240,   0, 255 ),
-            (   0, 255, 255 )
+            ( 160,   0, 255 ),
+            (   0, 255, 192 )
         )
         self._sequence_counter = [0] * pixel_count
         self._string_sequence = []
@@ -23,10 +23,11 @@ class Scene(object):
         self._next_color = []
         pixel=0
         while pixel < pixel_count:
-            self._last_color.append( self._colors[random.randrange(len(self._colors))] )
+            self._last_color.append( [ 0,0,0 ] )
             self._next_color.append( self._colors[random.randrange(len(self._colors))] )
             pixel += 1
-        pixel = 0
+        # Have to loop a second time, or ever_fade throws index errors on non-existent next pixel
+        pixel=0
         while pixel < pixel_count:
             self._string_sequence.append(self.ever_fade(pixel))
             pixel += 1
@@ -47,9 +48,15 @@ class Scene(object):
 
         # Pick a new color
         self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
-        # Make sure it's not the same color as the prior pixel
-        if pixel > 0:
-            while self._next_color[pixel] == self._next_color[pixel-1]:
+        # Make sure it's not the same color as the prior or next pixel
+        if (pixel > 0) and (pixel < self._pixel_count - 1):
+            while (self._next_color[pixel] == self._next_color[pixel - 1]) or (self._next_color[pixel] == self._next_color[pixel + 1]):
+                self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
+        if (pixel == 0) :
+            while self._next_color[pixel] == self._next_color[pixel + 1]:
+                self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
+        if (pixel == self._pixel_count - 1):
+            while self._next_color[pixel] == self._next_color[pixel - 1]:
                 self._next_color[pixel] = self._colors[random.randrange(len(self._colors))]
 
         # When the pixel color doesn't change,
