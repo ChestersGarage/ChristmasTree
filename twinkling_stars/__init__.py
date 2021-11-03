@@ -19,7 +19,7 @@ class Scene(object):
     def led_values(self):
         pixel = 0
         while pixel < self._pixel_count:
-            brightness = random.randrange(60,65) / 100.0
+            brightness = random.randrange(90,100) / 100.0
             hue = self._colors[random.randrange(len(self._colors))]
             self._led_string[random.randrange(self._pixel_count)] = [ hue[0] * brightness, hue[1] * brightness, hue[2] * brightness ]
             pixel += 1

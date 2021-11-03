@@ -1,7 +1,6 @@
 class Scene(object):
     """
-    Twinkling warm, neutral and cool white pixels.
-    Sends fresh new values at each step_period.
+    All white LEDs
     """
     def __init__(self, frame_rate, pixel_count, string_label):
         # ~4700K, "White" and ~9800K

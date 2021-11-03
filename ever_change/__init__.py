@@ -2,7 +2,7 @@ import time, math, random
 
 class Scene(object):
     """
-    Gradients between random colors that span several seconds.
+    Changes between random colors that span several seconds.
     Each pixel on its own schedule that is randomized at each segment.
     """
     def __init__(self, frame_rate, pixel_count, string_label):
@@ -14,7 +14,7 @@ class Scene(object):
             ( 255,   0,   0 ),
             (   0, 255,   0 ),
             (   0,   0, 255 ),
-            ( 255, 255,   0 ),
+            ( 255, 210,   0 ),
             ( 160,   0, 255 ),
             ( 255, 127,   0 ),
             (   0, 255, 192 )

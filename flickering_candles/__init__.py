@@ -2,8 +2,7 @@ import time, math, random
 
 class Scene(object):
     """
-    Twinkling warm, neutral and cool white pixels.
-    Send new values at each frame_rate.
+    Candles, each slowly drifting around and occasionally flicker
     """
     def __init__(self, frame_rate, pixel_count, string_label):
         # ~4700K, "White" and ~9800K
@@ -113,8 +112,8 @@ class Scene(object):
         """
         Regular candle flame that gently changes brightness and color temperature.
         """
-        # Each flame cycle is between 2 and 20 seconds
-        cycle = random.randint(50,100)/10
+        # Each flame cycle is between 1.5 and 15 seconds
+        cycle = random.randint(150,1500)/100
         frames = int(cycle * self._frame_rate)
         flicker = random.randint(30,50)
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
@@ -135,7 +134,7 @@ class Scene(object):
         """
 
         dice = random.randint(1,100)
-        if dice >= 30 and dice < 33:
+        if dice == 30:
             #print('bouncing_flame')
             return self.bouncing_flame()
             #elif dice >= 70 and dice < 80:
