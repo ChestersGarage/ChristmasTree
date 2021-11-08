@@ -36,7 +36,7 @@ _led_layout = {
     "star_edge_count" : 45,
     "star_fold_count":  20,
     "ui_count":          1,
-    "tree_1_scene":    "flickering_candles",
+    "tree_1_scene":    "twinkling_stars",
     "tree_2_scene":    "water_ripples",
     "tree_3_scene":    "water_ripples",
     "tree_4_scene":    "water_ripples",
