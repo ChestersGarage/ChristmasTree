@@ -20,29 +20,26 @@ _scene_list = [
     "ever_change",
     "twinkling_stars",
     "all_white",
-    "all_gold",
-    "ui"
+    "all_gold"
     ]
 # Star has two strings of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
 # Tree has 4 strings of 50 LEDs for technical reasons.
 # UI is the indicator LED on the project box, and has one scene.
 # BTW, this config matches how the LEDs are connected to the Fadecandy board.
 _led_layout = {
-    "strings": [ "tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold", "ui" ],
+    "strings": [ "tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold" ],
     "tree_1_count":     50,
     "tree_2_count":     50,
     "tree_3_count":     50,
     "tree_4_count":     50,
     "star_edge_count" : 45,
     "star_fold_count":  20,
-    "ui_count":          1,
-    "tree_1_scene":    "flickering_candles",
-    "tree_2_scene":    "old_skool_string",
+    "tree_1_scene":    "old_skool_string",
+    "tree_2_scene":    "flickering_candles",
     "tree_3_scene":    "water_ripples",
-    "tree_4_scene":    "old_skool_string",
+    "tree_4_scene":    "ever_fade",
     "star_edge_scene": "twinkling_stars",
-    "star_fold_scene": "twinkling_stars",
-    "ui_scene":        "ui"
+    "star_fold_scene": "twinkling_stars"
     }
 # To do: add _options section to this for setting colors in scenes that can take user input.
 
