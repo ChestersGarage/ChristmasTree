@@ -38,8 +38,8 @@ _led_layout = {
     "tree_2_scene":    "flickering_candles",
     "tree_3_scene":    "water_ripples",
     "tree_4_scene":    "ever_fade",
-    "star_edge_scene": "twinkling_stars",
-    "star_fold_scene": "twinkling_stars"
+    "star_edge_scene": "ever_change",
+    "star_fold_scene": "ever_change"
     }
 # To do: add _options section to this for setting colors in scenes that can take user input.
 
