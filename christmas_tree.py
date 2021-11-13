@@ -32,14 +32,14 @@ _led_layout = {
     "tree_2_count":     50,
     "tree_3_count":     50,
     "tree_4_count":     50,
-    "star_edge_count" : 45,
-    "star_fold_count":  20,
+    "star_edge_count" : 41,
+    "star_fold_count":  24,
     "tree_1_scene":    "old_skool_string",
     "tree_2_scene":    "old_skool_string",
     "tree_3_scene":    "old_skool_string",
     "tree_4_scene":    "old_skool_string",
-    "star_edge_scene": "twinkling_stars",
-    "star_fold_scene": "twinkling_stars"
+    "star_edge_scene": "all_white",
+    "star_fold_scene": "all_gold"
     }
 # To do: add _options section to this for setting colors in scenes that can take user input.
 
