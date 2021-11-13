@@ -34,7 +34,7 @@ _led_layout = {
     "tree_3_count":     50,
     "tree_4_count":     50,
     "star_edge_count" : 41,
-    "star_fold_count":  24,
+    "star_fold_count":  28,
     "tree_1_scene":    "old_skool_string",
     "tree_2_scene":    "old_skool_string",
     "tree_3_scene":    "old_skool_string",
