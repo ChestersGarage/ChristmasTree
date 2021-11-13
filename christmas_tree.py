@@ -20,7 +20,8 @@ _scene_list = [
     "ever_change",
     "twinkling_stars",
     "all_white",
-    "all_gold"
+    "all_gold",
+    "all_off"
     ]
 # Star has two strings of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
 # Tree has 4 strings of 50 LEDs for technical reasons.
@@ -38,7 +39,7 @@ _led_layout = {
     "tree_2_scene":    "old_skool_string",
     "tree_3_scene":    "old_skool_string",
     "tree_4_scene":    "old_skool_string",
-    "star_edge_scene": "all_white",
+    "star_edge_scene": "all_off",
     "star_fold_scene": "all_gold"
     }
 # To do: add _options section to this for setting colors in scenes that can take user input.
