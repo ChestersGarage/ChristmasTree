@@ -42,7 +42,7 @@ _led_layout = {
     "tree_2_scene":    "old_skool_string",
     "tree_3_scene":    "old_skool_string",
     "tree_4_scene":    "old_skool_string",
-    "star_edge_scene": "all_off",
+    "star_edge_scene": "all_gold",
     "star_fold_scene": "twinkling_stars",
     "tree_1_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
     "tree_2_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
