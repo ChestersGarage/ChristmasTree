@@ -29,6 +29,7 @@ _scene_list = [
 # Tree has 4 strings of 50 LEDs for technical reasons.
 # UI is the indicator LED on the project box, and has one scene.
 # BTW, this config matches how the LEDs are connected to the Fadecandy board.
+# These counts must match the configuration in server.json
 _led_layout = {
     "strings": [ "tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold" ],
     "tree_1_count":     50,
@@ -42,7 +43,7 @@ _led_layout = {
     "tree_3_scene":    "old_skool_string",
     "tree_4_scene":    "old_skool_string",
     "star_edge_scene": "water_ripples",
-    "star_fold_scene": "water_ripples",
+    "star_fold_scene": "flickering_candles",
     "tree_1_bright":    "1.0",
     "tree_2_bright":    "1.0",
     "tree_3_bright":    "1.0",
