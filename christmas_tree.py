@@ -39,13 +39,13 @@ _led_layout = {
     "tree_2_scene":    "solid_color",
     "tree_3_scene":    "solid_color",
     "tree_4_scene":    "solid_color",
-    "star_edge_scene": "twinkling_stars",
+    "star_edge_scene": "flickering_candles",
     "star_fold_scene": "water_ripples",
     "tree_1_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
     "tree_2_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
     "tree_3_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
     "tree_4_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
-    "star_edge_options": { "color_balance": [ 0.18, 0.20, 0.19], "scene": [] },
+    "star_edge_options": { "color_balance": [ 1, 1, 1], "scene": [] },
     "star_fold_options": { "color_balance": [ 0.18, 0.20, 0.19], "scene": [ 0, 255, 125 ] }
     }
 
@@ -74,10 +74,12 @@ while True:
         raw_led_values = globals()[string_label].led_values()
         temp_led_values = []
         for led_value in raw_led_values:
+            #print (led_value[0])
+            #exit(0)
             temp_led_values.append([
-                int(led_value[0]*_led_layout[string_label + '_options']['color_balance'][0]),
-                int(led_value[1]*_led_layout[string_label + '_options']['color_balance'][1]),
-                int(led_value[2]*_led_layout[string_label + '_options']['color_balance'][2])
+                int(led_value[0] * _led_layout[string_label + '_options']['color_balance'][0]),
+                int(led_value[1] * _led_layout[string_label + '_options']['color_balance'][1]),
+                int(led_value[2] * _led_layout[string_label + '_options']['color_balance'][2])
             ])
 
         led_colors.extend(temp_led_values)
@@ -86,10 +88,8 @@ while True:
     if monotonic_ns() < ( last_frame + _frame_period ):
         # Sleep for however long we have left until next LED string update.
         sleep_time = (last_frame + _frame_period - monotonic_ns()) / 1000000000
-        if sleep_time <= 0:
-            sleep_time = 0
-
-        sleep(sleep_time)
+        if sleep_time >= 1:
+            sleep(sleep_time)
     #else:
         # If we've already passed the period, it affects the visual appeal.
         #overshoot = monotonic_ns() - ( last_frame + _frame_period )

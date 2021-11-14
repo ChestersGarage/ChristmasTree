@@ -9,7 +9,7 @@ class Scene(object):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
-        self._water_map = [
+        self._color_map = [
             (0,0,255),
             (0,1,255),
             (0,2,255),
@@ -268,7 +268,7 @@ class Scene(object):
             (0,255,160)
         ]
         # Pre-calc the map size to save a few clocks on the CPU.
-        self._map_size = len(self._water_map)
+        self._map_size = len(self._color_map)
         self._sequence_counter = [0] * pixel_count
         self._string_sequence = [ [0,0,0] ] * pixel_count
         pixel = 0
@@ -278,40 +278,31 @@ class Scene(object):
             pixel += 1
         print('Running scene "flickering_candles" on string "' + string_label + '".')
 
-    def make_sine_sequence(self, frames, amplitude, voffset):
+    def make_sine_map(self, frames, amplitude, offset):
         """
         Create one full sine wave within the number of steps provided,
-        and return a pattern of brightness values for one pixel.
+        and return a pattern of sine map position values.
 
-        Amplitude - how bright and dim the sequence gets. Range: 0 thru int(len(self._water_map)/2).
-        Voffset - median brightness of the sequence. Range: amplitude thru (len(self._water_map)-flicker).
-        Amplitude + Voffset <= len(self._water_map)
+        amplitude - how bright and dim the sequence gets. Range: 0 thru int(len(self._color_map)/2).
+        offset - median brightness of the sequence. Range: amplitude thru (len(self._color_map)-flicker).
+        assert: amplitude + offset <= len(self._color_map)
         """
         i = 0
-        sine_sequence = []
+        sine_map = []
         while i < frames:
-            # Pre-calculate the sine wave values
-            sine_sequence.append(int((amplitude*math.sin(i*(math.pi*2)/frames))+voffset))
+            sine_map.append(int((amplitude*math.sin(i*(math.pi*2)/frames))+offset))
             i += 1
-        #print(sine_sequence)
-        #exit(0)
-        return sine_sequence
 
-    def make_pixel_sequence(self, sine_sequence):
+        return sine_map
+
+    def make_pixel_sequence(self, sine_map):
         """
-        Ingest a sine_sequence and map it to a pixel_sequence.
+        Ingest a sine_map and convert it to a pixel_sequence.
         """
-        pixel_sequence = [ [0,0,0,] ] * len(sine_sequence)
-        for i,v in enumerate(sine_sequence):
-            try:
-                pixel_sequence[i] = [
-                    self._water_map[v][0],
-                    self._water_map[v][1],
-                    self._water_map[v][2]
-                ]
-            except:
-                pass
-                print(sine_sequence)
+        pixel_sequence = []
+        for v in sine_map:
+            pixel_sequence.append(self._color_map[v])
+
         return pixel_sequence
 
     def ripples(self):
@@ -325,8 +316,8 @@ class Scene(object):
         # Stick to the middle because we never really want pure blue nor cyan (maybe?)
         brightness = 192 #int(self._map_size/2)
         sequence_iterations = random.randint(10,60)
-        sine_sequence = self.make_sine_sequence(frames, flicker, brightness) * sequence_iterations
-        pixel_sequence = self.make_pixel_sequence(sine_sequence)
+        sine_map = self.make_sine_map(frames, flicker, brightness) * sequence_iterations
+        pixel_sequence = self.make_pixel_sequence(sine_map)
         return pixel_sequence
 
     def choose_pixel_scene(self):
