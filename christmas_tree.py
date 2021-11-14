@@ -48,8 +48,8 @@ _led_layout = {
     "tree_2_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
     "tree_3_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
     "tree_4_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
-    "star_edge_options": { "bright": [0.25, 0.25, 0.25], "scene": {} },
-    "star_fold_options": { "bright": [0.25, 0.25, 0.25], "scene": {} }
+    "star_edge_options": { "bright": [0.50, 0.50, 0.50], "scene": {} },
+    "star_fold_options": { "bright": [0.50, 0.50, 0.50], "scene": {} }
     }
 
 # Frames per second
