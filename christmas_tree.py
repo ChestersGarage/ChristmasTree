@@ -44,7 +44,7 @@ _led_layout = {
     "tree_3_scene":    "solid_color",
     "tree_4_scene":    "solid_color",
     "star_edge_scene": "water_ripples",
-    "star_fold_scene": "solid_color",
+    "star_fold_scene": "twinkling_stars",
     "tree_1_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
     "tree_2_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
     "tree_3_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
