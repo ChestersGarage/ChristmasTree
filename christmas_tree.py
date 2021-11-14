@@ -21,7 +21,9 @@ _scene_list = [
     "twinkling_stars",
     "all_white",
     "all_gold",
-    "all_off"
+    "all_off",
+    "warm_white",
+    "cool_white"
     ]
 # Star has two strings of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
 # Tree has 4 strings of 50 LEDs for technical reasons.
@@ -35,12 +37,12 @@ _led_layout = {
     "tree_4_count":     50,
     "star_edge_count" : 41,
     "star_fold_count":  24,
-    "tree_1_scene":    "old_skool_string",
+    "tree_1_scene":    "flickering_candles",
     "tree_2_scene":    "flickering_candles",
-    "tree_3_scene":    "water_ripples",
-    "tree_4_scene":    "ever_fade",
-    "star_edge_scene": "all_gold",
-    "star_fold_scene": "twinkling_stars",
+    "tree_3_scene":    "flickering_candles",
+    "tree_4_scene":    "flickering_candles",
+    "star_edge_scene": "cool_white",
+    "star_fold_scene": "warm_ehite",
     "tree_1_bright":    "1.0",
     "tree_2_bright":    "1.0",
     "tree_3_bright":    "1.0",
