@@ -39,18 +39,18 @@ _led_layout = {
     "tree_4_count":     50,
     "star_edge_count" : 41,
     "star_fold_count":  24,
-    "tree_1_scene":    "old_skool_string",
-    "tree_2_scene":    "old_skool_string",
-    "tree_3_scene":    "old_skool_string",
-    "tree_4_scene":    "old_skool_string",
-    "star_edge_scene": "twinkling_stars",
-    "star_fold_scene": "water_ripples",
-    "tree_1_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": {} },
-    "tree_2_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": {} },
-    "tree_3_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": {} },
-    "tree_4_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": {} },
-    "star_edge_options": { "color_balance": [ 0.40, 0.45, 0.44], "scene": {} },
-    "star_fold_options": { "color_balance": [ 0.40, 0.45, 0.44], "scene": {} }
+    "tree_1_scene":    "solid_color",
+    "tree_2_scene":    "solid_color",
+    "tree_3_scene":    "solid_color",
+    "tree_4_scene":    "solid_color",
+    "star_edge_scene": "water_ripples",
+    "star_fold_scene": "solid_color",
+    "tree_1_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
+    "tree_2_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
+    "tree_3_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
+    "tree_4_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
+    "star_edge_options": { "color_balance": [ 0.18, 0.20, 0.19], "scene": [] },
+    "star_fold_options": { "color_balance": [ 0.18, 0.20, 0.19], "scene": [ 0, 255, 125 ] }
     }
 
 # Frames per second

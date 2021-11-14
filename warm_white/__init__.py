@@ -2,7 +2,7 @@ class Scene(object):
     """
     All white LEDs
     """
-    def __init__(self, frame_rate, pixel_count, string_label):
+    def __init__(self, frame_rate, pixel_count, string_label, options):
         # ~4700K, "White" and ~9800K
         self._colors = [
             ( 255, 223, 194 )
