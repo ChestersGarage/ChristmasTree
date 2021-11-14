@@ -7,23 +7,11 @@ class Scene(object):
     def __init__(self, frame_rate, pixel_count, string_label):
         # Green, Blue, Yellow, Red, Aqua, Magenta
         self._colors = [
-            (   9, 255,   9 ),
-            (   9,   9, 255 ),
-            ( 255, 210,   9 ),
-            (   9, 255, 192 ),
-            ( 255,   9,   9 ),
-            ( 160,   9, 255 )
-        ]
-        """
-        self._colors = [
-            (   0, 255,   0 ),
-            (   0,   0, 255 ),
-            ( 255, 255,   0 ),
-            (   0, 255, 255 ),
             ( 255,   0,   0 ),
-            ( 255,   0, 255 )
-        ]"""
-
+            ( 255, 210,   0 ),
+            (   0, 255,   0 ),
+            (   0,   0, 255 )
+        ]
         self._sequence_counter = [0] * pixel_count
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
