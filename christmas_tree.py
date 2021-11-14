@@ -42,7 +42,7 @@ _led_layout = {
     "tree_3_scene":    "flickering_candles",
     "tree_4_scene":    "flickering_candles",
     "star_edge_scene": "cool_white",
-    "star_fold_scene": "warm_ehite",
+    "star_fold_scene": "warm_white",
     "tree_1_bright":    "1.0",
     "tree_2_bright":    "1.0",
     "tree_3_bright":    "1.0",
