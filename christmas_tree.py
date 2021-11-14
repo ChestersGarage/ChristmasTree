@@ -11,7 +11,7 @@ from time import monotonic_ns,sleep
 
 ## These config vars need to be provided as a config file.
 _xmas_tree_address = 'christmastree.home:7890'
-# The list of available scenes and what the
+# The list of available scenes
 _scene_list = [
     "old_skool_string",
     "flickering_candles",
@@ -25,7 +25,7 @@ _scene_list = [
     "warm_white",
     "cool_white"
     ]
-# Star has two strings of LEDs: the edges (45px) and the folds(20px) for aesthetic reasons.
+# Star has two strings of LEDs: the edges (41px) and the folds (24px) for aesthetic reasons.
 # Tree has 4 strings of 50 LEDs for technical reasons.
 # UI is the indicator LED on the project box, and has one scene.
 # BTW, this config matches how the LEDs are connected to the Fadecandy board.
@@ -44,17 +44,15 @@ _led_layout = {
     "tree_4_scene":    "old_skool_string",
     "star_edge_scene": "twinkling_stars",
     "star_fold_scene": "water_ripples",
-    "tree_1_bright":    "1.0",
-    "tree_2_bright":    "1.0",
-    "tree_3_bright":    "1.0",
-    "tree_4_bright":    "1.0",
-    "star_edge_bright": "0.25",
-    "star_fold_bright": "0.25"
+    "tree_1_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
+    "tree_2_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
+    "tree_3_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
+    "tree_4_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
+    "star_edge_options": { "bright": [0.25, 0.25, 0.25], "scene": {} },
+    "star_fold_options": { "bright": [0.25, 0.25, 0.25], "scene": {} }
     }
-# To do: add _options section to this for setting colors in scenes that can take user input.
 
 # Frames per second
-# 30 FPS, in nanoseconds (1e+09 ns per second)
 _frame_rate = 20
 ## End of config vars
 
@@ -76,7 +74,16 @@ while True:
     # Build up the set of LED color values
     led_colors = []
     for string_label in _led_layout['strings']:
-        led_colors.extend(globals()[string_label].led_values())
+        raw_led_values = globals()[string_label].led_values()
+        temp_led_values = []
+        for led_value in raw_led_values:
+            temp_led_values.append([
+                led_value[0]*_led_layout[string_label + '_options']['bright'][0],
+                led_value[1]*_led_layout[string_label + '_options']['bright'][1],
+                led_value[1]*_led_layout[string_label + '_options']['bright'][2]
+            ])
+
+        led_colors.extend(temp_led_values)
 
     # Wait until it's time to update the LEDs
     if monotonic_ns() < ( last_frame + _frame_period ):
