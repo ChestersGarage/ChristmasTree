@@ -80,7 +80,7 @@ while True:
             temp_led_values.append([
                 int(led_value[0]*_led_layout[string_label + '_options']['bright'][0]),
                 int(led_value[1]*_led_layout[string_label + '_options']['bright'][1]),
-                int(led_value[1]*_led_layout[string_label + '_options']['bright'][2])
+                int(led_value[2]*_led_layout[string_label + '_options']['bright'][2])
             ])
 
         led_colors.extend(temp_led_values)
