@@ -38,18 +38,18 @@ _led_layout = {
     "tree_4_count":     50,
     "star_edge_count" : 41,
     "star_fold_count":  24,
-    "tree_1_scene":    "old_skool_string",
-    "tree_2_scene":    "old_skool_string",
-    "tree_3_scene":    "old_skool_string",
-    "tree_4_scene":    "old_skool_string",
-    "star_edge_scene": "all_gold",
-    "star_fold_scene": "twinkling_stars",
-    "tree_1_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
-    "tree_2_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
-    "tree_3_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
-    "tree_4_options":    { "bright": [ 1.0,  1.0,  1.0], "scene": {} },
-    "star_edge_options": { "bright": [0.50, 0.50, 0.50], "scene": {} },
-    "star_fold_options": { "bright": [0.50, 0.50, 0.50], "scene": {} }
+    "tree_1_scene":    "flickering_candles",
+    "tree_2_scene":    "flickering_candles",
+    "tree_3_scene":    "flickering_candles",
+    "tree_4_scene":    "flickering_candles",
+    "star_edge_scene": "twinkling_stars",
+    "star_fold_scene": "water_ripples",
+    "tree_1_options":    { "color_balance": [ 0.85,  1.0,  1.0], "scene": {} },
+    "tree_2_options":    { "color_balance": [ 0.85,  1.0,  1.0], "scene": {} },
+    "tree_3_options":    { "color_balance": [ 0.85,  1.0,  1.0], "scene": {} },
+    "tree_4_options":    { "color_balance": [ 0.85,  1.0,  1.0], "scene": {} },
+    "star_edge_options": { "color_balance": [0.50, 0.50, 0.50], "scene": {} },
+    "star_fold_options": { "color_balance": [0.50, 0.50, 0.50], "scene": {} }
     }
 
 # Frames per second
@@ -78,9 +78,9 @@ while True:
         temp_led_values = []
         for led_value in raw_led_values:
             temp_led_values.append([
-                int(led_value[0]*_led_layout[string_label + '_options']['bright'][0]),
-                int(led_value[1]*_led_layout[string_label + '_options']['bright'][1]),
-                int(led_value[2]*_led_layout[string_label + '_options']['bright'][2])
+                int(led_value[0]*_led_layout[string_label + '_options']['color_balance'][0]),
+                int(led_value[1]*_led_layout[string_label + '_options']['color_balance'][1]),
+                int(led_value[2]*_led_layout[string_label + '_options']['color_balance'][2])
             ])
 
         led_colors.extend(temp_led_values)
