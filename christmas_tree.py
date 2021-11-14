@@ -20,11 +20,7 @@ _scene_list = [
     "ever_fade",
     "ever_change",
     "twinkling_stars",
-    "all_white",
-    "all_gold",
-    "all_off",
-    "warm_white",
-    "cool_white"
+    "solid_color"
     ]
 # Star has two strings of LEDs: the edges (41px) and the folds (24px) for aesthetic reasons.
 # Tree has 4 strings of 50 LEDs for technical reasons.
