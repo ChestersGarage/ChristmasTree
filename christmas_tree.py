@@ -10,7 +10,7 @@ import opc, math, random, json
 from time import monotonic_ns,sleep
 
 # Load configs from file
-with open('config.json', 'r') as f:
+with open('/home/pi/ChristmasTree/config.json', 'r') as f:
     _config = json.loads(f.read())
     #print(_config)
     #exit()
