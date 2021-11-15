@@ -10,7 +10,7 @@ import opc, math, random, json
 from time import monotonic_ns,sleep
 
 # Load configs from file
-with open('config.json') as f:
+with open('config.json', 'r') as f:
     _config = json.loads(f.read())
     #print(_config)
     #exit()
@@ -24,7 +24,7 @@ xmas_tree = opc.Client(_config['xmas_tree_address'])
 # Set up an instance of the selected scene for each LED string
 for string_label in _config['led_layout']['strings']:
     string_scene = __import__( _config['scenes'][string_label][0] )
-    globals()[string_label] = string_scene.Scene( _config['frame_rate'], _config['led_layout'][string_label], string_label, _config["color_palettes"][_config['scenes'][string_label][1]] )
+    globals()[string_label] = string_scene.Scene( _config['frame_rate'], _config['led_layout'][string_label], _config["color_palettes"][_config['scenes'][string_label][1]] )
 
 # Mark the beginning of operation from the highest resolution*, non-varying** time source
 last_frame = monotonic_ns()

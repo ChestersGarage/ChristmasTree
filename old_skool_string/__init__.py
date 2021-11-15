@@ -4,7 +4,7 @@ class Scene(object):
     """
     Pattern of colors with some that blink like an old blinker bulb.
     """
-    def __init__(self, frame_rate, pixel_count, string_label, palette):
+    def __init__(self, frame_rate, pixel_count, palette):
         self._palette = palette
         self._sequence_counter = [0] * pixel_count
         self._pixel_count = pixel_count
@@ -41,8 +41,6 @@ class Scene(object):
             # Using a random length per pixel so that the entire string is not recalculated all at once.
             self._string_sequence.append([ self._pixel_colors[pixel] ] * int( self._frame_rate * (random.randrange(100,2000)/100) ) )
             pixel += 1
-
-        print('Running scene "old_skool_string" on string "' + string_label + '".')
 
     def new_pixel_sequence(self, pixel):
         """

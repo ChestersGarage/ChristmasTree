@@ -15,18 +15,27 @@
         "tree_2":    ["old_skool_string","basic_four"],
         "tree_3":    ["old_skool_string","basic_four"],
         "tree_4":    ["old_skool_string","basic_four"],
-        "star_edge": ["old_skool_string","concentric_rainbow_edge"],
-        "star_fold": ["old_skool_string","concentric_rainbow_fold"]
+        "star_edge": ["twinkling_stars","twinkling_stars"],
+        "star_fold": ["water_ripples","water_ripples"]
     },
     "tuning": {
         "tree_1":    {"color_balance": [ 0.85,  1.0, 0.95]},
         "tree_2":    {"color_balance": [ 0.85,  1.0, 0.95]},
         "tree_3":    {"color_balance": [ 0.85,  1.0, 0.95]},
         "tree_4":    {"color_balance": [ 0.85,  1.0, 0.95]},
-        "star_edge": {"color_balance": [ 0.35, 0.35, 0.35]},
-        "star_fold": {"color_balance": [ 0.35, 0.35, 0.35]}
+        "star_edge": {"color_balance": [ 0.31, 0.35, 0.33]},
+        "star_fold": {"color_balance": [ 0.31, 0.35, 0.33]}
     },
     "color_palettes": {
+        "red":     [[255,0,0]],
+        "green":   [[0,255,0]],
+        "blue":    [[0,0,255]],
+        "yellow":  [[255,255,0]],
+        "cyan":    [[0,255,255]],
+        "purple":  [[160,0,255]],
+        "magenta": [[255,0,255]],
+        "orange":  [[255,135,0]],
+        "off":     [[0,0,0]],
         "basic_six": [
             [   0, 255,   0 ],
             [   0,   0, 255 ],
@@ -212,7 +221,7 @@
             [254, 125, 1],
             [255, 126, 1]
         ],
-        "water_ripple": [
+        "water_ripples": [
             [ 0,0,255 ],
             [ 0,1,255 ],
             [ 0,2,255 ],
@@ -470,14 +479,7 @@
             [ 0,254,161 ],
             [ 0,255,160 ]
         ],
-        "red":     [[255,0,0]],
-        "green":   [[0,255,0]],
-        "blue":    [[0,0,255]],
-        "yellow":  [[255,255,0]],
-        "cyan":    [[0,255,255]],
-        "magenta": [[160,0,255]],
-        "orange": [[255,0,0]],
-        "plaid6": [
+        "plaid_fold": [
             [128,128,128],
             [255,0,0],
             [255,0,0],
@@ -485,7 +487,7 @@
             [128,128,128],
             [0,255,0]
         ],
-        "plaid5": [
+        "plaid_edge": [
             [128,128,128],
             [255,0,0],
             [255,0,0],
@@ -497,7 +499,7 @@
             [255,0,0],
             [255,0,0]
         ],
-        "concentric_rainbow_fold": [
+        "rainbow_fold": [
             [255,135,0],
             [255,255,0],
             [255,135,0],
@@ -505,9 +507,9 @@
             [0,255,0],
             [0,0,255]
         ],
-        "concentric_rainbow_edge": [
+        "rainbow_edge": [
             [255,0,0],
-            [255,0,255],
+            [160,0,255],
             [0,255,0],
             [255,255,0],
             [0,255,0],
@@ -515,7 +517,19 @@
             [0,255,0],
             [255,255,0],
             [0,255,0],
-            [255,0,255]
+            [160,0,255]
+        ],
+        "hanukkah_fold": [
+            [0,0,255],
+            [192,192,192],
+            [192,192,192],
+            [0,0,255],
+            [192,192,192],
+            [0,0,255]
+        ],
+        "hanukkah_edge": [
+            [192,192,192],
+            [0,0,255]
         ]
     }
 }
