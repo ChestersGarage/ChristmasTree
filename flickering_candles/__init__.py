@@ -8,9 +8,9 @@ class Scene(object):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
-        self._candle_map = [[1, 0, 0], [3, 0, 0], [4, 0, 0], [5, 0, 0], [6, 1, 0], [7, 1, 0], [8, 1, 0], [9, 1, 0], [10, 2, 0], [11, 2, 0], [13, 2, 0], [14, 3, 0], [15, 3, 0], [16, 3, 0], [18, 4, 0], [19, 4, 0], [20, 5, 0], [22, 5, 0], [23, 5, 0], [24, 6, 0], [26, 6, 0], [27, 7, 0], [29, 7, 0], [30, 8, 0], [31, 8, 0], [33, 9, 0], [35, 10, 0], [36, 10, 0], [38, 11, 0], [39, 11, 0], [41, 12, 0], [42, 12, 0], [44, 13, 0], [46, 14, 0], [47, 15, 0], [49, 15, 0], [51, 16, 0], [53, 17, 0], [54, 18, 0], [56, 18, 0], [58, 19, 0], [60, 20, 0], [62, 21, 0], [63, 22, 0], [65, 23, 0], [67, 23, 0], [69, 24, 0], [71, 25, 0], [73, 26, 0], [75, 27, 0], [77, 28, 0], [79, 29, 0], [81, 30, 0], [83, 31, 0], [85, 32, 0], [87, 33, 0], [89, 34, 0], [92, 34, 0], [94, 36, 0], [96, 36, 0], [98, 37, 0], [100, 38, 0], [103, 39, 0], [105, 40, 0], [107, 41, 0], [109, 42, 0], [112, 43, 0], [114, 44, 0], [116, 46, 0], [119, 46, 0], [121, 48, 0], [124, 48, 0], [126, 50, 0], [129, 51, 0], [131, 52, 0], [133, 53, 0], [136, 54, 0], [139, 56, 0], [141, 57, 0], [144, 59, 0], [146, 60, 0], [149, 62, 0], [152, 63, 0], [154, 65, 0], [157, 67, 0], [160, 67, 0], [162, 69, 0], [165, 70, 0], [168, 72, 0], [171, 72, 0], [173, 74, 0], [176, 75, 0], [179, 77, 0], [182, 77, 0], [185, 79, 0], [188, 80, 0], [191, 82, 0], [194, 83, 0], [197, 85, 0], [198, 85, 0], [199, 86, 0], [200, 87, 0], [201, 88, 0], [202, 89, 0], [203, 90, 0], [204, 91, 0], [205, 92, 0], [206, 93, 0], [207, 93, 0], [208, 94, 0], [209, 94, 0], [210, 95, 0], [211, 95, 0], [212, 96, 0], [213, 97, 0], [214, 98, 0], [215, 99, 0], [216, 99, 0], [217, 100, 0], [218, 100, 0], [219, 101, 1], [220, 101, 1], [221, 102, 1], [222, 102, 1], [223, 103, 1], [224, 104, 1], [225, 105, 1], [226, 106, 1], [227, 107, 1], [228, 108, 1], [229, 109, 1], [230, 109, 1], [231, 110, 1], [232, 110, 1], [233, 111, 1], [234, 112, 1], [235, 112, 1], [236, 113, 1], [237, 114, 1], [238, 114, 1], [239, 115, 1], [240, 116, 1], [241, 116, 1], [242, 117, 1], [243, 118, 1], [244, 119, 1], [245, 119, 1], [246, 120, 1], [247, 121, 1], [248, 121, 1], [249, 122, 1], [250, 123, 1], [251, 123, 1], [252, 124, 1], [253, 125, 1], [254, 125, 1], [255, 126, 1]]
+        self._color_map = [[1, 0, 0], [3, 0, 0], [4, 0, 0], [5, 0, 0], [6, 1, 0], [7, 1, 0], [8, 1, 0], [9, 1, 0], [10, 2, 0], [11, 2, 0], [13, 2, 0], [14, 3, 0], [15, 3, 0], [16, 3, 0], [18, 4, 0], [19, 4, 0], [20, 5, 0], [22, 5, 0], [23, 5, 0], [24, 6, 0], [26, 6, 0], [27, 7, 0], [29, 7, 0], [30, 8, 0], [31, 8, 0], [33, 9, 0], [35, 10, 0], [36, 10, 0], [38, 11, 0], [39, 11, 0], [41, 12, 0], [42, 12, 0], [44, 13, 0], [46, 14, 0], [47, 15, 0], [49, 15, 0], [51, 16, 0], [53, 17, 0], [54, 18, 0], [56, 18, 0], [58, 19, 0], [60, 20, 0], [62, 21, 0], [63, 22, 0], [65, 23, 0], [67, 23, 0], [69, 24, 0], [71, 25, 0], [73, 26, 0], [75, 27, 0], [77, 28, 0], [79, 29, 0], [81, 30, 0], [83, 31, 0], [85, 32, 0], [87, 33, 0], [89, 34, 0], [92, 34, 0], [94, 36, 0], [96, 36, 0], [98, 37, 0], [100, 38, 0], [103, 39, 0], [105, 40, 0], [107, 41, 0], [109, 42, 0], [112, 43, 0], [114, 44, 0], [116, 46, 0], [119, 46, 0], [121, 48, 0], [124, 48, 0], [126, 50, 0], [129, 51, 0], [131, 52, 0], [133, 53, 0], [136, 54, 0], [139, 56, 0], [141, 57, 0], [144, 59, 0], [146, 60, 0], [149, 62, 0], [152, 63, 0], [154, 65, 0], [157, 67, 0], [160, 67, 0], [162, 69, 0], [165, 70, 0], [168, 72, 0], [171, 72, 0], [173, 74, 0], [176, 75, 0], [179, 77, 0], [182, 77, 0], [185, 79, 0], [188, 80, 0], [191, 82, 0], [194, 83, 0], [197, 85, 0], [198, 85, 0], [199, 86, 0], [200, 87, 0], [201, 88, 0], [202, 89, 0], [203, 90, 0], [204, 91, 0], [205, 92, 0], [206, 93, 0], [207, 93, 0], [208, 94, 0], [209, 94, 0], [210, 95, 0], [211, 95, 0], [212, 96, 0], [213, 97, 0], [214, 98, 0], [215, 99, 0], [216, 99, 0], [217, 100, 0], [218, 100, 0], [219, 101, 1], [220, 101, 1], [221, 102, 1], [222, 102, 1], [223, 103, 1], [224, 104, 1], [225, 105, 1], [226, 106, 1], [227, 107, 1], [228, 108, 1], [229, 109, 1], [230, 109, 1], [231, 110, 1], [232, 110, 1], [233, 111, 1], [234, 112, 1], [235, 112, 1], [236, 113, 1], [237, 114, 1], [238, 114, 1], [239, 115, 1], [240, 116, 1], [241, 116, 1], [242, 117, 1], [243, 118, 1], [244, 119, 1], [245, 119, 1], [246, 120, 1], [247, 121, 1], [248, 121, 1], [249, 122, 1], [250, 123, 1], [251, 123, 1], [252, 124, 1], [253, 125, 1], [254, 125, 1], [255, 126, 1]]
         # Pre-calc the map size to save a few clocks on the CPU.
-        self._map_size = len(self._candle_map)
+        self._map_size = len(self._color_map)
         self._sequence_counter = [0] * pixel_count
         self._string_sequence = [ [0,0,0] ] * pixel_count
         pixel = 0
@@ -20,39 +20,32 @@ class Scene(object):
             pixel += 1
         print('Running scene "flickering_candles" on string "' + string_label + '".')
 
-    def make_sine_sequence(self, frames, flicker, brightness):
+    def make_sine_map(self, frames, flicker, brightness):
         """
         Create one full sine wave within the number of steps provided,
         and return a pattern of brightness values for one pixel.
 
-        Flicker - (sine amplitude) how bright and dim the candle gets. Range: 0 thru int(len(self_candle_map)/2).
-        Brightness - (sine offset) median brightness of the candle. Range: flicker thru (len(self_candle_map)-flicker).
+        Flicker - (sine amplitude) how bright and dim the candle gets. Range: 0 thru int(len(self_color_map)/2).
+        Brightness - (sine offset) median brightness of the candle. Range: flicker thru (len(self_color_map)-flicker).
         """
         i = 0
-        sine_sequence = []
+        sine_map = []
         while i < frames:
             # Pre-calculate the sine wave values
-            sine_sequence.append(int((flicker*math.sin(i*(math.pi*2)/frames))+brightness))
+            sine_map.append(int((flicker*math.sin(i*(math.pi*2)/frames))+brightness))
             i += 1
-        #print(sine_sequence)
+        #print(sine_map)
         #exit(0)
-        return sine_sequence
+        return sine_map
 
-    def make_pixel_sequence(self, sine_sequence):
+    def map_sine_to_pixel_sequence(self, sine_map):
         """
-        Ingest a sine_sequence and map it to a pixel_sequence.
+        Ingest a sine_map and map it to a pixel_sequence.
         """
-        pixel_sequence = [ [0,0,0,] ] * len(sine_sequence)
-        for i,v in enumerate(sine_sequence):
-            try:
-                pixel_sequence[i] = [
-                    self._candle_map[v][0],
-                    self._candle_map[v][1],
-                    self._candle_map[v][2]
-                ]
-            except:
-                pass
-                print(sine_sequence)
+        pixel_sequence = [ [0,0,0,] ] * len(sine_map)
+        for i,v in enumerate(sine_map):
+            pixel_sequence[i] = self._color_map[v]
+
         return pixel_sequence
 
     def bouncing_flame(self):
@@ -63,7 +56,7 @@ class Scene(object):
         Ramp down again over 1-2 seconds.
         To-do: Create "windy" condition where the flame bounces but very fast and rough for about 1-2 seconds.
         """
-        sine_sequence = []
+        sine_map = []
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
         brightness = 106
 
@@ -81,7 +74,7 @@ class Scene(object):
 
         try:
             while flicker <= target_flicker:
-                sine_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
+                sine_map.extend(self.make_sine_map(frames_per_flick, flicker, brightness))
                 #frames_per_flick = int(frames_per_flick * frames_multiplier + 0.5)
                 flicker = int(flicker * flicker_multiplier + 0.5)
 
@@ -90,7 +83,7 @@ class Scene(object):
             sustain_flicks = random.randint(int( 4 * self._frame_rate / frames_per_flick ),int( 8 * self._frame_rate / frames_per_flick ))
             flick =1
             while flick <= sustain_flicks:
-                sine_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
+                sine_map.extend(self.make_sine_map(frames_per_flick, flicker, brightness))
                 flick += 1
 
             # ramp down the flicker intensity
@@ -99,10 +92,10 @@ class Scene(object):
             target_flicker = random.randint(1,5)
 
             while flicker >= target_flicker:
-                sine_sequence.extend(self.make_sine_sequence(frames_per_flick, flicker, brightness))
+                sine_map.extend(self.make_sine_map(frames_per_flick, flicker, brightness))
                 #frames_per_flick = int(frames_per_flick * frames_multiplier - 0.5)
                 flicker = int(flicker * flicker_multiplier - 0.5)
-            pixel_sequence = self.make_pixel_sequence(sine_sequence)
+            pixel_sequence = self.map_sine_to_pixel_sequence(sine_map)
         except:
             print(pixel_sequence)
             exit(0)
@@ -119,13 +112,13 @@ class Scene(object):
         # Centered on 50 flicker, minus one extra to cover rounding/typing error
         brightness = 106
         sequence_iterations = random.randint(1,4)
-        sine_sequence = self.make_sine_sequence(frames, flicker, brightness) * sequence_iterations
-        pixel_sequence = self.make_pixel_sequence(sine_sequence)
+        sine_map = self.make_sine_map(frames, flicker, brightness) * sequence_iterations
+        pixel_sequence = self.map_sine_to_pixel_sequence(sine_map)
         return pixel_sequence
 
     def near_blow_out(self):
-        sine_sequence = [ 0 ] * self._pixel_count
-        pixel_sequence = self.make_pixel_sequence(sine_sequence)
+        sine_map = [ 0 ] * self._pixel_count
+        pixel_sequence = self.map_sine_to_pixel_sequence(sine_map)
         return pixel_sequence
 
     def choose_pixel_scene(self):

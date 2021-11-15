@@ -5,8 +5,8 @@ class Scene(object):
     """
     def __init__(self, frame_rate, pixel_count, string_label, options):
         # ~4700K, "White" and ~9800K
-        self._colors = [ options ]
-        self._string_colors = [ self._colors[0] ] * pixel_count
+        self._color_map = [ options ]
+        self._string_colors = [ self._color_map[0] ] * pixel_count
         print('Running scene "all_gold" on string "' + string_label + '".')
 
     def led_values(self):

@@ -5,7 +5,7 @@ class Scene(object):
     Gently shimmering blue to aqua.
     Copied from flickering_candles.
     """
-    def __init__(self, frame_rate, pixel_count, string_label, options):
+    def __init__(self, frame_rate, pixel_count, string_label, palette):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
@@ -295,7 +295,7 @@ class Scene(object):
 
         return sine_map
 
-    def make_pixel_sequence(self, sine_map):
+    def map_sine_to_pixel_sequence(self, sine_map):
         """
         Ingest a sine_map and convert it to a pixel_sequence.
         """
@@ -309,7 +309,7 @@ class Scene(object):
         """
         Ripply water with sine fades.
         """
-        # Each flame cycle is between 0.75 and 3 seconds
+        # Each wave cycle is between 0.5 and 1 seconds
         cycle = random.randint(50,100)/100
         frames = int(cycle * self._frame_rate)
         flicker = random.randint(32,63)
@@ -317,7 +317,7 @@ class Scene(object):
         brightness = 192 #int(self._map_size/2)
         sequence_iterations = random.randint(10,60)
         sine_map = self.make_sine_map(frames, flicker, brightness) * sequence_iterations
-        pixel_sequence = self.make_pixel_sequence(sine_map)
+        pixel_sequence = self.map_sine_to_pixel_sequence(sine_map)
         return pixel_sequence
 
     def choose_pixel_scene(self):

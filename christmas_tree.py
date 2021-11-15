@@ -6,63 +6,25 @@ In particualr, the star has two sections:
 The tree has 4 strings of 50 LEDs, which should be placed on the tree like regular Christmas lights.
 """
 
-import opc, math, random
+import opc, math, random, json
 from time import monotonic_ns,sleep
 
-## To-Do: These config vars need to be provided as a config file.
-_xmas_tree_address = 'christmastree.home:7890'
-# The list of available scenes
-_scene_list = [
-    "old_skool_string",
-    "old_skool_cheap",
-    "flickering_candles",
-    "water_ripples",
-    "ever_fade",
-    "ever_change",
-    "twinkling_stars",
-    "solid_color"
-    ]
-# Star has two strings of LEDs: the edges (41px) and the folds (24px) for aesthetic reasons.
-# Tree has 4 strings of 50 LEDs for technical reasons.
-# UI is the indicator LED on the project box, and has one scene.
-# BTW, this config matches how the LEDs are connected to the Fadecandy board.
-# These counts must match the configuration in server.json
-_led_layout = {
-    "strings": [ "tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold" ],
-    "tree_1_count":     50,
-    "tree_2_count":     50,
-    "tree_3_count":     50,
-    "tree_4_count":     50,
-    "star_edge_count" : 41,
-    "star_fold_count":  24,
-    "tree_1_scene":    "solid_color",
-    "tree_2_scene":    "solid_color",
-    "tree_3_scene":    "solid_color",
-    "tree_4_scene":    "solid_color",
-    "star_edge_scene": "flickering_candles",
-    "star_fold_scene": "water_ripples",
-    "tree_1_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
-    "tree_2_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
-    "tree_3_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
-    "tree_4_options":    { "color_balance": [ 0.85,  1.0, 0.95], "scene": [ 0, 0, 0 ] },
-    "star_edge_options": { "color_balance": [ 1, 1, 1], "scene": [] },
-    "star_fold_options": { "color_balance": [ 0.18, 0.20, 0.19], "scene": [ 0, 255, 125 ] }
-    }
-
-# Frames per second
-_frame_rate = 20
-## End of config vars
+# Load configs from file
+with open('config.json') as f:
+    _config = json.loads(f.read())
+    #print(_config)
+    #exit()
 
 # Determine length of each frame
-_frame_period = 1/_frame_rate*1000000000
+_frame_period = 1/_config['frame_rate']*1000000000
 
 # Instantiate the hardware interface
-xmas_tree = opc.Client(_xmas_tree_address)
+xmas_tree = opc.Client(_config['xmas_tree_address'])
 
 # Set up an instance of the selected scene for each LED string
-for string_label in _led_layout['strings']:
-    string_scene = __import__( _led_layout[string_label + '_scene'] )
-    globals()[string_label] = string_scene.Scene( _frame_rate, _led_layout[string_label + '_count'], string_label, _led_layout[string_label + '_options']['scene'] )
+for string_label in _config['led_layout']['strings']:
+    string_scene = __import__( _config['scenes'][string_label][0] )
+    globals()[string_label] = string_scene.Scene( _config['frame_rate'], _config['led_layout'][string_label], string_label, _config["color_palettes"][_config['scenes'][string_label][1]] )
 
 # Mark the beginning of operation from the highest resolution*, non-varying** time source
 last_frame = monotonic_ns()
@@ -70,16 +32,16 @@ last_frame = monotonic_ns()
 while True:
     # Build up the set of LED color values
     led_colors = []
-    for string_label in _led_layout['strings']:
+    for string_label in _config['led_layout']['strings']:
         raw_led_values = globals()[string_label].led_values()
         temp_led_values = []
         for led_value in raw_led_values:
             #print (led_value[0])
             #exit(0)
             temp_led_values.append([
-                int(led_value[0] * _led_layout[string_label + '_options']['color_balance'][0]),
-                int(led_value[1] * _led_layout[string_label + '_options']['color_balance'][1]),
-                int(led_value[2] * _led_layout[string_label + '_options']['color_balance'][2])
+                int(led_value[0] * _config['tuning'][string_label]['color_balance'][0]),
+                int(led_value[1] * _config['tuning'][string_label]['color_balance'][1]),
+                int(led_value[2] * _config['tuning'][string_label]['color_balance'][2])
             ])
 
         led_colors.extend(temp_led_values)
@@ -88,7 +50,7 @@ while True:
     if monotonic_ns() < ( last_frame + _frame_period ):
         # Sleep for however long we have left until next LED string update.
         sleep_time = (last_frame + _frame_period - monotonic_ns()) / 1000000000
-        if sleep_time >= 1:
+        if sleep_time > 0:
             sleep(sleep_time)
     #else:
         # If we've already passed the period, it affects the visual appeal.

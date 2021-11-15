@@ -4,26 +4,8 @@ class Scene(object):
     """
     Pattern of colors with some that blink like an old blinker bulb.
     """
-    def __init__(self, frame_rate, pixel_count, string_label, options):
-        # Green, Blue, Yellow, Red, Aqua, Magenta
-        self._colors = [
-            (   9, 255,   9 ),
-            (   9,   9, 255 ),
-            ( 255, 210,   9 ),
-            (   9, 255, 192 ),
-            ( 255,   9,   9 ),
-            ( 160,   9, 255 )
-        ]
-        """
-        self._colors = [
-            (   0, 255,   0 ),
-            (   0,   0, 255 ),
-            ( 255, 255,   0 ),
-            (   0, 255, 255 ),
-            ( 255,   0,   0 ),
-            ( 255,   0, 255 )
-        ]"""
-
+    def __init__(self, frame_rate, pixel_count, string_label, palette):
+        self._palette = palette
         self._sequence_counter = [0] * pixel_count
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
@@ -49,10 +31,10 @@ class Scene(object):
         # Stores the color of each pixel because they do not change in this
         self._pixel_colors = []
         color = 0
-        num_colors = len(self._colors)
+        num_colors = len(self._palette)
         pixel = 0
         while pixel < pixel_count:
-            self._pixel_colors.append(self._colors[color])
+            self._pixel_colors.append(self._palette[color])
             color += 1
             if color == num_colors:
                 color = 0
