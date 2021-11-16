@@ -16,7 +16,7 @@
         "tree_3":    ["old_skool_string","basic_four"],
         "tree_4":    ["old_skool_string","basic_four"],
         "star_edge": ["fireflies","basic_eight"],
-        "star_fold": ["twinkling_stars","twinkling_stars"]
+        "star_fold": ["water_ripples","water_ripples"]
     },
     "tuning": {
         "tree_1":    {"color_balance": [ 0.85,  1.0, 0.95]},
