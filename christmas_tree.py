@@ -6,14 +6,13 @@ In particualr, the star has two sections:
 The tree has 4 strings of 50 LEDs, which should be placed on the tree like regular Christmas lights.
 """
 
-import opc, math, random, json
+import opc, math, random, json, sys
 from time import monotonic_ns,sleep
 
 # Load configs from file
-with open('/home/pi/ChristmasTree/config.json', 'r') as f:
-    _config = json.loads(f.read())
-    #print(_config)
-    #exit()
+if sys.argv[1]:
+    with open(sys.argv[1], 'r') as f:
+        _config = json.loads(f.read())
 
 # Determine length of each frame
 _frame_period = 1/_config['frame_rate']*1000000000
