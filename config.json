@@ -12,9 +12,9 @@
     },
     "scenes": {
         "tree_1":    ["burning_candles","burning_candles"],
-        "tree_2":    ["burning_candles","burning_candles"],
+        "tree_2":    ["water_ripples","water_ripples"],
         "tree_3":    ["burning_candles","burning_candles"],
-        "tree_4":    ["burning_candles","burning_candles"],
+        "tree_4":    ["water_ripples","water_ripples"],
         "star_edge": ["fireflies","basic6"],
         "star_fold": ["twinkling_stars","twinkling_stars"]
     },
