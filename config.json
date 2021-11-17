@@ -11,12 +11,23 @@
         "star_fold": 24
     },
     "scenes": {
-        "tree_1":    ["old_skool_string","basic_four"],
-        "tree_2":    ["old_skool_string","basic_four"],
-        "tree_3":    ["old_skool_string","basic_four"],
-        "tree_4":    ["old_skool_string","basic_four"],
-        "star_edge": ["fireflies","basic_eight"],
+        "tree_1":    ["burning_candles","burning_candles"],
+        "tree_2":    ["burning_candles","burning_candles"],
+        "tree_3":    ["burning_candles","burning_candles"],
+        "tree_4":    ["burning_candles","burning_candles"],
+        "star_edge": ["fireflies","basic6"],
         "star_fold": ["twinkling_stars","twinkling_stars"]
+    },
+    "scene_options": {
+        "burning_candles":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
+        "chase":            {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4"]},
+        "ever_change":      {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
+        "ever_fade":        {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
+        "fireflies":        {"string_compat": ["star_edge"]},
+        "old_skool_string": {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
+        "static_pattern":   {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
+        "twinkling_stars":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
+        "water_ripples":    {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]}
     },
     "tuning": {
         "tree_1":    {"color_balance": [ 0.85,  1.0, 0.95]},
@@ -28,16 +39,29 @@
     },
     "color_palettes": {
         "red":     [[255,0,0]],
-        "green":   [[0,255,0]],
-        "blue":    [[0,0,255]],
-        "yellow":  [[255,255,0]],
-        "cyan":    [[0,255,255]],
-        "purple":  [[160,0,255]],
-        "magenta": [[255,0,255]],
         "orange":  [[255,135,0]],
+        "yellow":  [[255,255,0]],
+        "green":   [[0,255,0]],
+        "cyan":    [[0,255,255]],
+        "blue":    [[0,0,255]],
+        "purple":  [[160,0,255]],
+        "magenta": [[255,0,192]],
         "off":     [[0,0,0]],
         "white":   [[192,192,192]],
-        "basic_six": [
+        "basic4": [
+            [ 255,   0,   0 ],
+            [ 255, 210,   0 ],
+            [   0, 255,   0 ],
+            [   0,   0, 255 ]
+        ],
+        "basic5": [
+            [ 255,   0,   0 ],
+            [ 255, 210,   0 ],
+            [   0, 255,   0 ],
+            [   0,   0, 255 ],
+            [ 160,   0, 255 ]
+        ],
+        "basic6": [
             [   0, 255,   0 ],
             [   0,   0, 255 ],
             [ 255, 210,   0 ],
@@ -45,20 +69,7 @@
             [ 255,   0,   0 ],
             [ 160,   0, 255 ]
         ],
-        "basic_five": [
-            [ 255,   0,   0 ],
-            [ 255, 210,   0 ],
-            [   0, 255,   0 ],
-            [   0,   0, 255 ],
-            [ 160,   0, 255 ]
-        ],
-        "basic_four": [
-            [ 255,   0,   0 ],
-            [ 255, 210,   0 ],
-            [   0, 255,   0 ],
-            [   0,   0, 255 ]
-        ],
-        "basic_eight": [
+        "basic8": [
             [255,0,0],
             [255,135,0],
             [255,255,0],
@@ -73,7 +84,7 @@
             [ 225, 225, 225 ],
             [ 206, 220, 255 ]
         ],
-        "candle_flame": [
+        "burning_candles": [
             [1, 0, 0],
             [3, 0, 0],
             [4, 0, 0],
