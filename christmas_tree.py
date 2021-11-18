@@ -23,7 +23,7 @@ xmas_tree = opc.Client(_config['xmas_tree_address'])
 # Set up an instance of the selected scene for each LED string
 for string_label in _config['led_layout']['strings']:
     string_scene = __import__( _config['string_scenes'][string_label][0] )
-    globals()[string_label] = string_scene.Scene( string_label, _config['frame_rate'], _config['led_layout'][string_label], _config["color_palettes"][_config['string_scenes'][string_label][1]] )
+    globals()[string_label] = string_scene.Scene( string_label, _config['frame_rate'], _config['led_layout'][string_label], _config['color_palettes'][_config['string_scenes'][string_label][1]] )
 
 # Mark the beginning of operation from the highest resolution*, non-varying** time source
 last_frame = monotonic_ns()

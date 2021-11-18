@@ -11,12 +11,12 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["burning_candles","burning_candles"],
-        "tree_2":    ["water_ripples","water_ripples"],
-        "tree_3":    ["burning_candles","burning_candles"],
-        "tree_4":    ["water_ripples","water_ripples"],
-        "star_edge": ["static_pattern","plaid_edge"],
-        "star_fold": ["static_pattern","plaid_fold"]
+        "tree_1":    ["old_skool_string","old_string5"],
+        "tree_2":    ["old_skool_string","old_string5"],
+        "tree_3":    ["old_skool_string","old_string5"],
+        "tree_4":    ["old_skool_string","old_string5"],
+        "star_edge": ["twinkling_stars","twinkling_stars"],
+        "star_fold": ["water_ripples","water_ripples"]
     },
     "scene_options": {
         "burning_candles":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
@@ -31,10 +31,10 @@
         "water_ripples":    {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]}
     },
     "tuning": {
-        "tree_1":    {"color_balance": [ 0.85,  1.0, 0.95]},
-        "tree_2":    {"color_balance": [ 0.85,  1.0, 0.95]},
-        "tree_3":    {"color_balance": [ 0.85,  1.0, 0.95]},
-        "tree_4":    {"color_balance": [ 0.85,  1.0, 0.95]},
+        "tree_1":    {"color_balance": [ 1.0,  1.0, 0.95]},
+        "tree_2":    {"color_balance": [ 1.0,  1.0, 0.95]},
+        "tree_3":    {"color_balance": [ 1.0,  1.0, 0.95]},
+        "tree_4":    {"color_balance": [ 1.0,  1.0, 0.95]},
         "star_edge": {"color_balance": [ 0.35, 0.35, 0.35]},
         "star_fold": {"color_balance": [ 0.35, 0.35, 0.35]}
     },
@@ -55,13 +55,13 @@
         "white":    [[192,192,192]],
         "basic4": [
             [ 255,   0,   0 ],
-            [ 255, 210,   0 ],
+            [ 255, 255,   0 ],
             [   0, 255,   0 ],
             [   0,   0, 255 ]
         ],
         "basic5": [
             [ 255,   0,   0 ],
-            [ 255, 210,   0 ],
+            [ 255, 255,   0 ],
             [   0, 255,   0 ],
             [   0,   0, 255 ],
             [ 160,   0, 255 ]
@@ -83,6 +83,37 @@
             [0,0,255],
             [160,0,255],
             [255,0,192]
+        ],
+        "old_string5": [
+            [255,0,0],
+            [255,225,0],
+            [0,255,32],
+            [0,0,255],
+            [160,0,255],
+
+            [255,32,0],
+            [255,192,0],
+            [16,255,0],
+            [0,92,255],
+            [192,0,255],
+
+            [255,0,16],
+            [255,240,0],
+            [0,255,0],
+            [0,0,255],
+            [128,0,255],
+
+            [255,100,100],
+            [255,230,0],
+            [0,255,64],
+            [32,0,255],
+            [160,0,255],
+
+            [255,16,0],
+            [255,192,0],
+            [0,255,0],
+            [0,64,255],
+            [192,0,255]
         ],
         "twinkling_stars": [
             [ 255, 223, 194 ],
