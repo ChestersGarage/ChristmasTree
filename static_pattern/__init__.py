@@ -2,7 +2,7 @@ class Scene(object):
     """
     Static pattern or solid color.
     """
-    def __init__(self, frame_rate, pixel_count, palette):
+    def __init__(self, string_label, frame_rate, pixel_count, palette):
         self._palette = palette
         self._pixel_count = pixel_count
         self._color_count = len(self._palette)

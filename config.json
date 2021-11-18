@@ -1,6 +1,6 @@
 {
     "xmas_tree_address": "christmastree.home:7890",
-    "frame_rate": 20,
+    "frame_rate": 30,
     "led_layout": {
         "strings": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
         "tree_1":    50,
@@ -10,13 +10,13 @@
         "star_edge": 41,
         "star_fold": 24
     },
-    "scenes": {
+    "string_scenes": {
         "tree_1":    ["burning_candles","burning_candles"],
         "tree_2":    ["water_ripples","water_ripples"],
         "tree_3":    ["burning_candles","burning_candles"],
         "tree_4":    ["water_ripples","water_ripples"],
-        "star_edge": ["fireflies","basic6"],
-        "star_fold": ["twinkling_stars","twinkling_stars"]
+        "star_edge": ["static_pattern","plaid_edge"],
+        "star_fold": ["static_pattern","plaid_fold"]
     },
     "scene_options": {
         "burning_candles":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
@@ -25,6 +25,7 @@
         "ever_fade":        {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
         "fireflies":        {"string_compat": ["star_edge"]},
         "old_skool_string": {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
+        "pew_pew":          {"string_compat": ["star_fold"]},
         "static_pattern":   {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
         "twinkling_stars":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
         "water_ripples":    {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]}
@@ -38,16 +39,20 @@
         "star_fold": {"color_balance": [ 0.35, 0.35, 0.35]}
     },
     "color_palettes": {
-        "red":     [[255,0,0]],
-        "orange":  [[255,135,0]],
-        "yellow":  [[255,255,0]],
-        "green":   [[0,255,0]],
-        "cyan":    [[0,255,255]],
-        "blue":    [[0,0,255]],
-        "purple":  [[160,0,255]],
-        "magenta": [[255,0,192]],
-        "off":     [[0,0,0]],
-        "white":   [[192,192,192]],
+        "red":      [[255,0,0]],
+        "orange":   [[255,135,0]],
+        "yellow":   [[255,255,0]],
+        "lime":     [[192,255,0]],
+        "green":    [[0,255,0]],
+        "cyan":     [[0,255,255]],
+        "blue":     [[0,0,255]],
+        "purple1":  [[160,0,255]],
+        "purple2":  [[192,0,255]],
+        "magenta1": [[255,0,160]],
+        "magenta2": [[255,0,192]],
+        "magenta3": [[255,0,255]],
+        "off":      [[0,0,0]],
+        "white":    [[192,192,192]],
         "basic4": [
             [ 255,   0,   0 ],
             [ 255, 210,   0 ],
@@ -64,10 +69,10 @@
         "basic6": [
             [   0, 255,   0 ],
             [   0,   0, 255 ],
-            [ 255, 210,   0 ],
-            [   0, 255, 192 ],
+            [ 255, 255,   0 ],
+            [   0, 255, 255 ],
             [ 255,   0,   0 ],
-            [ 160,   0, 255 ]
+            [ 255,   0, 255 ]
         ],
         "basic8": [
             [255,0,0],
@@ -501,24 +506,50 @@
             [ 0,254,161 ],
             [ 0,255,160 ]
         ],
-        "plaid_fold": [
-            [128,128,128],
+        "xmas_fold": [
+            [192,192,192],
             [255,0,0],
             [255,0,0],
             [0,255,0],
-            [128,128,128],
+            [192,192,192],
+            [0,0,255],
+            [192,192,192],
+            [255,0,0],
+            [255,0,0],
+            [0,255,0],
+            [192,192,192],
+            [0,0,255]
+        ],
+        "xmas_edge": [
+            [192,192,192],
+            [0,255,0],
+            [255,0,0],
+            [192,192,192],
+            [255,0,0],
+            [0,0,255],
+            [255,0,0],
+            [192,192,192],
+            [255,0,0],
+            [0,255,0]
+        ],
+        "plaid_fold": [
+            [192,192,192],
+            [255,0,0],
+            [255,0,0],
+            [192,192,192],
+            [255,0,0],
             [0,255,0]
         ],
         "plaid_edge": [
-            [128,128,128],
+            [192,192,192],
             [255,0,0],
-            [255,0,0],
-            [128,128,128],
+            [192,192,192],
             [0,255,0],
-            [128,128,128],
-            [0,255,0],
-            [128,128,128],
+            [192,192,192],
             [255,0,0],
+            [192,192,192],
+            [0,255,0],
+            [192,192,192],
             [255,0,0]
         ],
         "rainbow_fold": [
@@ -531,7 +562,7 @@
         ],
         "rainbow_edge": [
             [255,0,0],
-            [160,0,255],
+            [192,0,255],
             [0,255,0],
             [255,255,0],
             [0,255,0],
@@ -539,7 +570,7 @@
             [0,255,0],
             [255,255,0],
             [0,255,0],
-            [160,0,255]
+            [192,0,255]
         ],
         "hanukkah_fold": [
             [0,0,255],

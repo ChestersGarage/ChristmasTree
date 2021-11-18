@@ -6,7 +6,7 @@ class Scene(object):
     A small number of pixels moves around on the string.
     This scene is specific to the star_edge and has hardcoded numbers for it.
     """
-    def __init__(self, frame_rate, pixel_count, palette):
+    def __init__(self, string_label, frame_rate, pixel_count, palette ):
         self._palette = palette
         self._pixel_count = pixel_count
         self._color_count = len(self._palette)
@@ -53,6 +53,14 @@ class Scene(object):
                     if self._fly_positions[fly][0] < 1:
                         self._fly_positions[fly][0] = 40
 
+                # Blank out the old fly pixel
+                if self._fly_positions[fly][1] >= 20:
+                    # Need to reverse pixel positions above 20 to make the effect contiguous
+                    new_pos = 40-self._fly_positions[fly][1]+20
+                    self._string_colors[new_pos] = [0,0,0]
+                else:
+                    self._string_colors[self._fly_positions[fly][1]] = [0,0,0]
+
             # Set the new fly pixel to its color
             if self._fly_positions[fly][0] >= 20:
                 # Need to reverse pixel positions above 20 to make the effect contiguous
@@ -64,13 +72,6 @@ class Scene(object):
             else:
                 self._string_colors[self._fly_positions[fly][0]] = self._fly_colors[fly]
 
-            # Blank out the old fly pixel
-            if self._fly_positions[fly][1] >= 20:
-                # Need to reverse pixel positions above 20 to make the effect contiguous
-                new_pos = 40-self._fly_positions[fly][1]+20
-                self._string_colors[new_pos] = [0,0,0]
-            else:
-                self._string_colors[self._fly_positions[fly][1]] = [0,0,0]
             fly += 1
 
         return self._string_colors
