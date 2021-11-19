@@ -74,4 +74,6 @@ class Scene(object):
 
             fly += 1
 
+        self._string_colors[0] = [255,255,255]
+
         return self._string_colors
