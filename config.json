@@ -16,7 +16,7 @@
         "tree_3":    ["old_skool_string","old_string5"],
         "tree_4":    ["old_skool_string","old_string5"],
         "star_edge": ["twinkling_stars","twinkling_stars"],
-        "star_fold": ["pew_pew","sabers"]
+        "star_fold": ["pew_pew","basic8"]
     },
     "scene_options": {
         "burning_candles":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
