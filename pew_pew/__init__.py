@@ -29,11 +29,14 @@ class Scene(object):
             self._swarm_size =    1       # Number of spinners is random 1-3
             init_position = random.randrange(0,self._pixel_count)
             self._spin_positions[spin] = [init_position,init_position,init_position]
-            self._spin_speed[spin] =     random.randint(50000,200000)
+            self._spin_speed[spin] = random.randint(50000,200000)
             self._spin_direction[spin] = not self._spin_direction[spin]
-            self._spin_time[spin] =      monotonic_ns()+self._spin_speed[spin]
-            self._spin_colors[spin] =    self._palette[random.randrange(0,len(self._palette))]
-            self._spin_rotations =       random.randint(2,5)
+            self._spin_time[spin] = monotonic_ns()+self._spin_speed[spin]
+            temp_spin_color = self._palette[random.randrange(0,len(self._palette))]
+            while temp_spin_color == self._spin_colors[spin]:
+                temp_spin_color = self._palette[random.randrange(0,len(self._palette))]
+            self._spin_colors[spin] = temp_spin_color
+            self._spin_rotations = random.randint(2,5)
             self._string_colors[self._spin_positions[spin][0]] = self._spin_colors[spin]
             spin += 1
 
