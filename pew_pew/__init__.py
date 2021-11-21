@@ -17,7 +17,7 @@ class Scene(object):
         init_position = random.randrange(0,self._pixel_count)
         self._spin_positions = [[init_position,init_position,init_position]] * self._swarm_size # Current and prior location within the string, of each spinner
         self._spin_speed =     [random.randint(50000,200000)] * self._swarm_size # The rate at which each spinner moves
-        self._spin_direction = [bool(random.getrandbits(1))] * self._swarm_size # Whether the spinner is coming or going on the string
+        self._spin_direction = [True] * self._swarm_size # Whether the spinner is coming or going on the string
         self._spin_time =      [monotonic_ns()] * self._swarm_size # The clock time when each spinner moves next
         self._spin_colors =    [self._palette[random.randrange(0,len(self._palette))]] * self._swarm_size # The color of each spinner
         self._spin_rotations = random.randint(2,5) # the number of spins
@@ -30,7 +30,7 @@ class Scene(object):
             init_position = random.randrange(0,self._pixel_count)
             self._spin_positions[spin] = [init_position,init_position,init_position]
             self._spin_speed[spin] =     random.randint(50000,200000)
-            self._spin_direction[spin] = bool(random.getrandbits(1))
+            self._spin_direction[spin] = not self._spin_direction[spin]
             self._spin_time[spin] =      monotonic_ns()+self._spin_speed[spin]
             self._spin_colors[spin] =    self._palette[random.randrange(0,len(self._palette))]
             self._spin_rotations =       random.randint(2,5)
