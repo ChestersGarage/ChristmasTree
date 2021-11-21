@@ -2,10 +2,10 @@
 
 SCENE=$1
 
-if [[ -z $SCENE ]]; then
-    echo "No scene specified, using default (flickering_candles)"
-    SCENE="flickering_candles"
-fi
+#if [[ -z $SCENE ]]; then
+#    echo "No scene specified, using default (flickering_candles)"
+#    SCENE="flickering_candles"
+#fi
 
 git commit -am "Improving things..."
 git push
