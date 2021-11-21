@@ -16,7 +16,7 @@
         "tree_3":    ["old_skool_string","old_string5"],
         "tree_4":    ["old_skool_string","old_string5"],
         "star_edge": ["fireflies","basic6"],
-        "star_fold": ["water_ripples","water_ripples"]
+        "star_fold": ["burning_candles","burning_candles"]
     },
     "scene_options": {
         "burning_candles":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
