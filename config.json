@@ -11,12 +11,12 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["burning_candles","burning_candles"],
-        "tree_2":    ["burning_candles","burning_candles"],
-        "tree_3":    ["burning_candles","burning_candles"],
-        "tree_4":    ["burning_candles","burning_candles"],
-        "star_edge": ["static_pattern","simplestar_edge"],
-        "star_fold": ["static_pattern","simplestar_fold"]
+        "tree_1":    ["old_skool_string","old_string5"],
+        "tree_2":    ["old_skool_string","old_string5"],
+        "tree_3":    ["old_skool_string","old_string5"],
+        "tree_4":    ["old_skool_string","old_string5"],
+        "star_edge": ["twinkling_stars","twinkling_stars"],
+        "star_fold": ["pew_pew","sabers"]
     },
     "scene_options": {
         "burning_candles":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
@@ -30,11 +30,14 @@
         "twinkling_stars":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
         "water_ripples":    {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]}
     },
+    "star_maps": {
+        "firework_launch": []
+    },
     "tuning": {
-        "tree_1":    {"color_balance": [ 1.0,  1.0, 0.95]},
-        "tree_2":    {"color_balance": [ 1.0,  1.0, 0.95]},
-        "tree_3":    {"color_balance": [ 1.0,  1.0, 0.95]},
-        "tree_4":    {"color_balance": [ 1.0,  1.0, 0.95]},
+        "tree_1":    {"color_balance": [ 0.98,  1.0, 0.95]},
+        "tree_2":    {"color_balance": [ 0.98,  1.0, 0.95]},
+        "tree_3":    {"color_balance": [ 0.98,  1.0, 0.95]},
+        "tree_4":    {"color_balance": [ 0.98,  1.0, 0.95]},
         "star_edge": {"color_balance": [ 0.35, 0.35, 0.35]},
         "star_fold": {"color_balance": [ 0.35, 0.35, 0.35]}
     },
@@ -616,7 +619,7 @@
         ],
         "rainbow_fold": [
             [255,135,0],
-            [255,255,0],
+            [0,255,0],
             [255,135,0],
             [255,255,0],
             [0,255,0],
@@ -625,14 +628,34 @@
         "rainbow_edge": [
             [255,0,0],
             [192,0,255],
-            [0,255,0],
+            [0,255,255],
             [255,255,0],
-            [0,255,0],
+            [0,255,255],
             [0,0,255],
+            [0,255,255],
+            [255,255,0],
+            [0,255,255],
+            [192,0,255]
+        ],
+        "rainbow2_fold": [
+            [0,255,255],
+            [192,0,255],
+            [0,255,127],
+            [0,192,255],
+            [192,0,255],
+            [255,127,0]
+        ],
+        "rainbow2_edge": [
             [0,255,0],
             [255,255,0],
-            [0,255,0],
-            [192,0,255]
+            [255,0,0],
+            [0,0,255],
+            [255,0,0],
+            [255,127,0],
+            [255,0,0],
+            [0,0,255],
+            [255,0,0],
+            [255,255,0]
         ],
         "hanukkah_fold": [
             [0,0,255],
@@ -645,6 +668,23 @@
         "hanukkah_edge": [
             [192,192,192],
             [0,0,255]
+        ],
+        "candy_fold": [
+            [255,0,255],
+            [0,255,255],
+            [255,127,0]
+        ],
+        "candy_edge": [
+            [0,255,255],
+            [255,0,255],
+            [255,127,0],
+            [0,255,255],
+            [255,0,255],
+            [192,192,192],
+            [255,0,255],
+            [0,255,255],
+            [255,127,0],
+            [255,0,255]
         ],
         "simplestar_fold": [
             [255,0,0],

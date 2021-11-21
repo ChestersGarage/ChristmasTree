@@ -36,7 +36,7 @@ class Scene(object):
             while temp_spin_color == self._spin_colors[spin]:
                 temp_spin_color = self._palette[random.randrange(0,len(self._palette))]
             self._spin_colors[spin] = temp_spin_color
-            self._spin_rotations = random.randint(2,5)
+            self._spin_rotations = random.randint(1,2)
             self._string_colors[self._spin_positions[spin][0]] = self._spin_colors[spin]
             spin += 1
 
