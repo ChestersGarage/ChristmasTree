@@ -11,10 +11,10 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["old_skool_string","old_string5"],
-        "tree_2":    ["old_skool_string","old_string5"],
-        "tree_3":    ["old_skool_string","old_string5"],
-        "tree_4":    ["old_skool_string","old_string5"],
+        "tree_1":    ["burning_candles","burning_candles"],
+        "tree_2":    ["burning_candles","burning_candles"],
+        "tree_3":    ["burning_candles","burning_candles"],
+        "tree_4":    ["burning_candles","burning_candles"],
         "star_edge": ["burning_candles","burning_candles"],
         "star_fold": ["burning_candles","burning_candles"]
     },
