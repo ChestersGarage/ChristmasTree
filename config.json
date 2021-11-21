@@ -15,8 +15,8 @@
         "tree_2":    ["burning_candles","burning_candles"],
         "tree_3":    ["burning_candles","burning_candles"],
         "tree_4":    ["burning_candles","burning_candles"],
-        "star_edge": ["burning_candles","burning_candles"],
-        "star_fold": ["burning_candles","burning_candles"]
+        "star_edge": ["static_pattern","simplestar_edge"],
+        "star_fold": ["static_pattern","simplestar_fold"]
     },
     "scene_options": {
         "burning_candles":  {"string_compat": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"]},
