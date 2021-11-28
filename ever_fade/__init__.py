@@ -24,7 +24,6 @@ class Scene(object):
         while pixel < pixel_count:
             self._string_sequence.append(self.ever_fade(pixel))
             pixel += 1
-        print('Running scene "ever_fade" on string "' + string_label + '".')
 
     def ever_fade(self, pixel):
         """

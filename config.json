@@ -11,10 +11,10 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["water_ripples","water_ripples"],
-        "tree_2":    ["water_ripples","water_ripples"],
-        "tree_3":    ["water_ripples","water_ripples"],
-        "tree_4":    ["water_ripples","water_ripples"],
+        "tree_1":    ["ever_change","basic4"],
+        "tree_2":    ["ever_change","basic4"],
+        "tree_3":    ["ever_change","basic4"],
+        "tree_4":    ["ever_change","basic4"],
         "star_edge": ["twinkling_stars","twinkling_stars"],
         "star_fold": ["static","gold"]
     },
