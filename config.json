@@ -11,10 +11,10 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["ever_change","basic4"],
-        "tree_2":    ["ever_change","basic4"],
-        "tree_3":    ["ever_change","basic4"],
-        "tree_4":    ["ever_change","basic4"],
+        "tree_1":    ["ever_change","basic5"],
+        "tree_2":    ["ever_change","basic5"],
+        "tree_3":    ["ever_change","basic5"],
+        "tree_4":    ["ever_change","basic5"],
         "star_edge": ["fireflies","64s"],
         "star_fold": ["pew_pew","rgb"]
     },
