@@ -5,18 +5,11 @@ class Scene(object):
     Gradients between random colors that span several seconds.
     Each pixel on its own schedule that is randomized at each segment.
     """
-    def __init__(self, string_label, frame_rate, pixel_count, string_label, options):
+    def __init__(self, string_label, frame_rate, pixel_count, palette):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
-        self._color_map = (
-            ( 255,   0,   0 ),
-            (   0, 255,   0 ),
-            (   0,   0, 255 ),
-            ( 255, 255,   0 ),
-            ( 160,   0, 255 ),
-            (   0, 255, 192 )
-        )
+        self._palette = palette
         self._sequence_counter = [0] * pixel_count
         self._string_sequence = []
         self._last_color = []
@@ -24,7 +17,7 @@ class Scene(object):
         pixel=0
         while pixel < pixel_count:
             self._last_color.append( [ 0,0,0 ] )
-            self._next_color.append( self._color_map[random.randrange(len(self._color_map))] )
+            self._next_color.append( self._palette[random.randrange(len(self._palette))] )
             pixel += 1
         # Have to loop a second time, or ever_fade throws index errors on non-existent next pixel
         pixel=0
@@ -47,17 +40,17 @@ class Scene(object):
         self._last_color[pixel] = self._next_color[pixel]
 
         # Pick a new color
-        self._next_color[pixel] = self._color_map[random.randrange(len(self._color_map))]
+        self._next_color[pixel] = self._palette[random.randrange(len(self._palette))]
         # Make sure it's not the same color as the prior or next pixel
         if (pixel > 0) and (pixel < self._pixel_count - 1):
             while (self._next_color[pixel] == self._next_color[pixel - 1]) or (self._next_color[pixel] == self._next_color[pixel + 1]):
-                self._next_color[pixel] = self._color_map[random.randrange(len(self._color_map))]
+                self._next_color[pixel] = self._palette[random.randrange(len(self._palette))]
         if (pixel == 0) :
             while self._next_color[pixel] == self._next_color[pixel + 1]:
-                self._next_color[pixel] = self._color_map[random.randrange(len(self._color_map))]
+                self._next_color[pixel] = self._palette[random.randrange(len(self._palette))]
         if (pixel == self._pixel_count - 1):
             while self._next_color[pixel] == self._next_color[pixel - 1]:
-                self._next_color[pixel] = self._color_map[random.randrange(len(self._color_map))]
+                self._next_color[pixel] = self._palette[random.randrange(len(self._palette))]
 
         # When the pixel color doesn't change,
         # we just pass back all the same values for the whole sequence
