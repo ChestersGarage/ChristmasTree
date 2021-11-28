@@ -51,8 +51,8 @@ class Scene(object):
         """
         Ripply water with sine fades.
         """
-        # Each wave cycle is between 0.5 and 1 seconds
-        cycle = random.randint(100,150)/100
+        # Each wave cycle is between 1 and 15 seconds
+        cycle = random.randint(100,1500)/100
         frames = int(cycle * self._frame_rate)
         offset = int(self._map_size/2)
         amplitude = random.randint(int(self._map_size/4),int(self._map_size/3))
