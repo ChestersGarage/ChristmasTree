@@ -5,7 +5,7 @@ class Scene(object):
     Gently shimmering blue to aqua.
     Copied from flickering_candles.
     """
-    def __init__(self, string_label, frame_rate, pixel_count, palette):
+    def __init__(self, string_label, frame_rate, pixel_count, palette, options ):
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate
         self._palette = palette

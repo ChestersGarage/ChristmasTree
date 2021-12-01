@@ -4,7 +4,7 @@ class Scene(object):
     """
     Candles, each slowly drifting around and occasionally flicker
     """
-    def __init__(self, string_label, frame_rate, pixel_count, palette):
+    def __init__(self, string_label, frame_rate, pixel_count, palette, options):
         # ~4700K, "White" and ~9800K
         self._pixel_count = pixel_count
         self._frame_rate = frame_rate

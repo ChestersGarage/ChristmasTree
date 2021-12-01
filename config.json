@@ -11,33 +11,64 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["ever_change","basic5"],
-        "tree_2":    ["ever_change","basic5"],
-        "tree_3":    ["ever_change","basic5"],
-        "tree_4":    ["ever_change","basic5"],
-        "star_edge": ["fireflies","24x64"],
+        "tree_1":    ["chase","48x32"],
+        "tree_2":    ["chase","48x32"],
+        "tree_3":    ["chase","48x32"],
+        "tree_4":    ["chase","48x32"],
+        "star_edge": ["chase","24x64"],
         "star_fold": ["twinkling_stars","twinkling_stars"]
     },
     "scene_options": {
-        "burning_candles":  {
+        "burning_candles": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
             "palette_compat": ["burning_candles"]
         },
-        "chase":            {
+        "chase": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4"],
-            "palette_compat": [""]
+            "palette_compat": ["any"],
+            "tree_1": {
+                "chase_dir": "f",
+                "color_dir": "f",
+                "chase_period": "0.2"
+            },
+            "tree_2": {
+                "chase_dir": "f",
+                "color_dir": "f",
+                "chase_period": "0.2"
+            },
+            "tree_3": {
+                "chase_dir": "f",
+                "color_dir": "f",
+                "chase_period": "0.2"
+            },
+            "tree_4": {
+                "chase_dir": "f",
+                "color_dir": "f",
+                "chase_period": "0.2"
+            },
+            "star_edge": {
+                "chase_dir": "f",
+                "color_dir": "f",
+                "chase_period": "0.05"
+            },
+            "star_fold": {
+                "chase_dir": "f",
+                "color_dir": "f",
+                "chase_period": "0.05"
+            }
         },
-        "ever_change":      {
+        "ever_change": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
             "palette_compat": ["basic8","basic4","basic5","basic6"]
         },
-        "ever_fade":        {
+        "ever_fade": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
             "palette_compat": ["basic8","basic4","basic5","basic6"]
         },
-        "fireflies":        {
+        "fireflies": {
             "string_compat":  ["star_edge"],
-            "palette_compat": ["basic6","rgb","basic4","basic5","sabers"]
+            "palette_compat": ["basic6","rgb","basic4","basic5","sabers"],
+            "flies": "default"
         },
         "old_skool_string": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
@@ -106,6 +137,10 @@
         "bw": [
             [0,0,255],
             [192,192,192]
+        ],
+        "bg": [
+            [0,0,255],
+            [255,192,0]
         ],
         "rgb": [
             [255,0,0 ],
@@ -188,6 +223,56 @@
             [255,0,191],
             [255,0,127],
             [255,0,63]
+        ],
+        "48x32": [
+            [255,0,0],
+            [255,31,0],
+            [255,63,0],
+            [255,95,0],
+            [255,127,0],
+            [255,159,0],
+            [255,191,0],
+            [255,223,0],
+            [255,255,0],
+            [223,255,0],
+            [191,255,0],
+            [159,255,0],
+            [127,255,0],
+            [95,255,0],
+            [63,255,0],
+            [31,255,0],
+            [0,255,0],
+            [0,255,31],
+            [0,255,63],
+            [0,255,95],
+            [0,255,127],
+            [0,255,159],
+            [0,255,191],
+            [0,255,223],
+            [0,255,255],
+            [0,223,255],
+            [0,191,255],
+            [0,159,255],
+            [0,127,255],
+            [0,96,255],
+            [0,63,255],
+            [0,31,255],
+            [0,0,255],
+            [31,0,255],
+            [63,0,255],
+            [95,0,255],
+            [127,0,255],
+            [159,0,255],
+            [191,0,255],
+            [223,0,255],
+            [255,0,255],
+            [255,0,223],
+            [255,0,191],
+            [255,0,159],
+            [255,0,127],
+            [255,0,95],
+            [255,0,63],
+            [255,0,31]
         ],
         "old_string5": [
             [255,0,0],

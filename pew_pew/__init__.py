@@ -6,7 +6,7 @@ class Scene(object):
     A small number of pixels spins around in the folds. Stolen from fireflies.
     This scene is specific to the star_fold and has hardcoded numbers for it.
     """
-    def __init__(self, string_label, frame_rate, pixel_count, palette ):
+    def __init__(self, string_label, frame_rate, pixel_count, palette, options ):
         self._palette = palette
         self._pixel_count = pixel_count
         self._color_count = len(self._palette)

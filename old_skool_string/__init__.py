@@ -4,7 +4,7 @@ class Scene(object):
     """
     Pattern of colors with some that blink like an old blinker bulb.
     """
-    def __init__(self, string_label, frame_rate, pixel_count, palette):
+    def __init__(self, string_label, frame_rate, pixel_count, palette, options):
         self._palette = palette
         self._sequence_counter = [0] * pixel_count
         self._pixel_count = pixel_count
