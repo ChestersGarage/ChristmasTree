@@ -16,7 +16,7 @@
         "tree_3":    ["chase","48x32"],
         "tree_4":    ["chase","48x32"],
         "star_edge": ["chase","24x64"],
-        "star_fold": ["twinkling_stars","twinkling_stars"]
+        "star_fold": ["chase","24x64"]
     },
     "scene_options": {
         "burning_candles": {
@@ -29,22 +29,22 @@
             "tree_1": {
                 "chase_dir": "f",
                 "color_dir": "f",
-                "chase_period": "0.2"
+                "chase_period": "0.05"
             },
             "tree_2": {
                 "chase_dir": "f",
                 "color_dir": "f",
-                "chase_period": "0.2"
+                "chase_period": "0.05"
             },
             "tree_3": {
                 "chase_dir": "f",
                 "color_dir": "f",
-                "chase_period": "0.2"
+                "chase_period": "0.05"
             },
             "tree_4": {
                 "chase_dir": "f",
                 "color_dir": "f",
-                "chase_period": "0.2"
+                "chase_period": "0.05"
             },
             "star_edge": {
                 "chase_dir": "f",
