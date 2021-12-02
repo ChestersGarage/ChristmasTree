@@ -11,12 +11,12 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["old_skool_string","old_string5"],
-        "tree_2":    ["old_skool_string","old_string5"],
-        "tree_3":    ["old_skool_string","old_string5"],
-        "tree_4":    ["old_skool_string","old_string5"],
-        "star_edge": ["twinkling_stars","twinkling_stars"],
-        "star_fold": ["water_ripples","water_ripples"]
+        "tree_1":    ["chase","48x32"],
+        "tree_2":    ["chase","48x32"],
+        "tree_3":    ["chase","48x32"],
+        "tree_4":    ["chase","48x32"],
+        "star_edge": ["fireflies","24x64"],
+        "star_fold": ["pew_pew","rgb"]
     },
     "scene_options": {
         "burning_candles": {
