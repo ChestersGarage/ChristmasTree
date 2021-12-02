@@ -11,12 +11,12 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["chase","48x32"],
-        "tree_2":    ["chase","48x32"],
-        "tree_3":    ["chase","48x32"],
-        "tree_4":    ["chase","48x32"],
-        "star_edge": ["chase","24x64"],
-        "star_fold": ["chase","24x64"]
+        "tree_1":    ["old_skool_string","old_string5"],
+        "tree_2":    ["old_skool_string","old_string5"],
+        "tree_3":    ["old_skool_string","old_string5"],
+        "tree_4":    ["old_skool_string","old_string5"],
+        "star_edge": ["twinkling_stars","twinkling_stars"],
+        "star_fold": ["water_ripples","water_ripples"]
     },
     "scene_options": {
         "burning_candles": {
@@ -72,7 +72,7 @@
         },
         "old_skool_string": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
-            "palette_compat": ["old_string5","basic4","basic5","basic6","old_string5"]
+            "palette_compat": ["any"]
         },
         "pew_pew":          {
             "string_compat":  ["star_fold"],
@@ -80,7 +80,7 @@
         },
         "static":   {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
-            "palette_compat": ["red", "orange",""]
+            "palette_compat": ["any"]
         },
         "twinkling_stars":  {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
@@ -129,10 +129,14 @@
         "magenta2": [[255,0,192]],
         "magenta3": [[255,0,255]],
         "off":      [[0,0,0]],
-        "white":    [[192,192,192]],
+        "white":    [[255,255,255]],
         "rg": [
             [255,0,0],
             [0,255,0]
+        ],
+        "rw": [
+            [255,0,0],
+            [255,255,255]
         ],
         "bw": [
             [0,0,255],
@@ -146,6 +150,11 @@
             [255,0,0 ],
             [0,255,0 ],
             [0,0,255 ]
+        ],
+        "rgw": [
+            [255,255,255],
+            [0,255,0],
+            [255,0,0]
         ],
         "basic4": [
             [ 255,   0,   0 ],
@@ -726,6 +735,46 @@
             [ 0,253,162 ],
             [ 0,254,161 ],
             [ 0,255,160 ]
+        ],
+        "rw_fold": [
+            [255,255,255],
+            [255,255,255],
+            [255,0,0],
+            [255,0,0],
+            [255,0,0],
+            [255,0,0]
+        ],
+        "rw_edge": [
+            [255,0,0],
+            [255,0,0],
+            [255,0,0],
+            [255,255,255],
+            [255,255,255],
+            [255,255,255],
+            [255,255,255],
+            [255,255,255],
+            [255,0,0],
+            [255,0,0]
+        ],
+        "wl_fold": [
+            [255,255,255],
+            [255,255,255],
+            [255,192,0],
+            [255,192,0],
+            [255,192,0],
+            [255,192,0]
+        ],
+        "wl_edge": [
+            [255,255,255],
+            [255,255,255],
+            [255,255,255],
+            [255,192,0],
+            [255,192,0],
+            [255,192,0],
+            [255,192,0],
+            [255,192,0],
+            [255,255,255],
+            [255,255,255]
         ],
         "xmas_fold": [
             [192,192,192],
