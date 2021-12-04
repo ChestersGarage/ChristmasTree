@@ -15,7 +15,7 @@
         "tree_2":    ["old_skool_string","basic8"],
         "tree_3":    ["old_skool_string","old_string5"],
         "tree_4":    ["old_skool_string","basic4"],
-        "star_edge": ["static","white"],
+        "star_edge": ["static","wl_edge"],
         "star_fold": ["static","rg_fold"]
     },
     "scene_options": {
