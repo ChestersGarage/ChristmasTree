@@ -12,9 +12,9 @@
     },
     "string_scenes": {
         "tree_1":    ["water_ripples","water_ripples"],
-        "tree_2":    ["burning_candles","water_ripples"],
+        "tree_2":    ["burning_candles","burning_candles"],
         "tree_3":    ["water_ripples","water_ripples"],
-        "tree_4":    ["burning_candles","water_ripples"],
+        "tree_4":    ["burning_candles","burning_candles"],
         "star_edge": ["static","red"],
         "star_fold": ["static","white"]
     },
