@@ -11,11 +11,11 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["old_skool_string","old_string5"],
-        "tree_2":    ["old_skool_string","basic8"],
+        "tree_1":    ["old_skool_string","basic4"],
+        "tree_2":    ["old_skool_string","old_string5"],
         "tree_3":    ["old_skool_string","old_string5"],
-        "tree_4":    ["old_skool_string","basic4"],
-        "star_edge": ["static","wl_edge"],
+        "tree_4":    ["old_skool_string","basic8"],
+        "star_edge": ["static","wb_edge"],
         "star_fold": ["static","rg_fold"]
     },
     "scene_options": {
@@ -781,6 +781,18 @@
             [255,192,0],
             [255,192,0],
             [255,192,0],
+            [255,255,255],
+            [255,255,255]
+        ],
+        "wb_edge": [
+            [255,255,255],
+            [255,255,255],
+            [255,255,255],
+            [0,0,255],
+            [0,0,255],
+            [0,0,255],
+            [0,0,255],
+            [0,0,255],
             [255,255,255],
             [255,255,255]
         ],
