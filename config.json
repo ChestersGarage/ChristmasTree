@@ -11,12 +11,12 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["chase","48x32"],
-        "tree_2":    ["chase","48x32"],
-        "tree_3":    ["chase","48x32"],
-        "tree_4":    ["chase","48x32"],
-        "star_edge": ["water_ripples","water_ripples"],
-        "star_fold": ["pew_pew","rgb"]
+        "tree_1":    ["water_ripples","water_ripples"],
+        "tree_2":    ["water_ripples","water_ripples"],
+        "tree_3":    ["water_ripples","water_ripples"],
+        "tree_4":    ["water_ripples","water_ripples"],
+        "star_edge": ["static","red"],
+        "star_fold": ["twinkling_stars","twinkling_stars"]
     },
     "scene_options": {
         "burning_candles": {
