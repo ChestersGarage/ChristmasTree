@@ -16,7 +16,7 @@
         "tree_3":    ["water_ripples","water_ripples"],
         "tree_4":    ["burning_candles","water_ripples"],
         "star_edge": ["static","red"],
-        "star_fold": ["twinkling_stars","twinkling_stars"]
+        "star_fold": ["static","white"]
     },
     "scene_options": {
         "burning_candles": {
