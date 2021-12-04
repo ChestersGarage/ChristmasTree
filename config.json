@@ -11,10 +11,10 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["old_skool_string","old_string5"],
-        "tree_2":    ["old_skool_string","old_string5"],
-        "tree_3":    ["old_skool_string","old_string5"],
-        "tree_4":    ["old_skool_string","old_string5"],
+        "tree_1":    ["chase","old_string5"],
+        "tree_2":    ["chase","old_string5"],
+        "tree_3":    ["chase","old_string5"],
+        "tree_4":    ["chase","old_string5"],
         "star_edge": ["fireflies","24x64"],
         "star_fold": ["pew_pew","rgb"]
     },
