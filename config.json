@@ -15,7 +15,7 @@
         "tree_2":    ["chase","48x32"],
         "tree_3":    ["chase","48x32"],
         "tree_4":    ["chase","48x32"],
-        "star_edge": ["fireflies","24x64"],
+        "star_edge": ["water_ripples","water_ripples"],
         "star_fold": ["pew_pew","rgb"]
     },
     "scene_options": {
