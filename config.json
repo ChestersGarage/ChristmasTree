@@ -11,7 +11,7 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "star_edge": ["old_skool_string","basic10"],
+        "star_edge": ["chase","basic10"],
         "star_fold": ["old_skool_string","basic6"],
         "tree_4":    ["old_skool_string","basic8"],
         "tree_3":    ["old_skool_string","basic8"],
