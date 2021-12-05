@@ -11,8 +11,8 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "star_edge": ["old_skool_string","simplestar_edge"],
-        "star_fold": ["old_skool_string","simplestar_fold"],
+        "star_edge": ["old_skool_string","basic10"],
+        "star_fold": ["old_skool_string","basic6"],
         "tree_4":    ["old_skool_string","basic8"],
         "tree_3":    ["old_skool_string","basic8"],
         "tree_2":    ["old_skool_string","basic8"],
@@ -207,6 +207,18 @@
             [255,255,0],
             [0,255,0],
             [0,255,255],
+            [0,0,255],
+            [160,0,255],
+            [255,0,192]
+        ],
+        "basic10": [
+            [255,255,255],
+            [255,0,0],
+            [255,135,0],
+            [255,255,0],
+            [0,255,0],
+            [0,255,192],
+            [0,128,255],
             [0,0,255],
             [160,0,255],
             [255,0,192]
