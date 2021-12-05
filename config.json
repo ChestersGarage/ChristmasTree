@@ -15,8 +15,8 @@
         "tree_2":    ["chase","48x32"],
         "tree_3":    ["chase","48x32"],
         "tree_4":    ["chase","48x32"],
-        "star_edge": ["static","wb_edge"],
-        "star_fold": ["static","rg_fold"]
+        "star_edge": ["twinkling_stars","twinkling_stars"],
+        "star_fold": ["pew_pew","sabers"]
     },
     "scene_options": {
         "burning_candles": {
