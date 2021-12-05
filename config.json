@@ -11,10 +11,10 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "tree_1":    ["old_skool_string","basic4"],
-        "tree_2":    ["old_skool_string","old_string5"],
-        "tree_3":    ["old_skool_string","old_string5"],
-        "tree_4":    ["old_skool_string","basic8"],
+        "tree_1":    ["chase","48x32"],
+        "tree_2":    ["chase","48x32"],
+        "tree_3":    ["chase","48x32"],
+        "tree_4":    ["chase","48x32"],
         "star_edge": ["static","wb_edge"],
         "star_fold": ["static","rg_fold"]
     },
@@ -74,11 +74,11 @@
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
             "palette_compat": ["any"]
         },
-        "pew_pew":          {
+        "pew_pew": {
             "string_compat":  ["star_fold"],
             "palette_compat": ["rgb"]
         },
-        "static":   {
+        "static": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
             "palette_compat": ["any"]
         },
@@ -86,7 +86,7 @@
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
             "palette_compat": ["twinkling_stars"]
         },
-        "water_ripples":    {
+        "water_ripples": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
             "palette_compat": ["water_ripples"]
         }
