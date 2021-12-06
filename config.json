@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["fireflies","old_string5"],
         "star_fold": ["twinkling_stars","twinkling_stars"],
-        "tree_4":    ["old_skool_string","old_string5"],
-        "tree_3":    ["old_skool_string","old_string5"],
-        "tree_2":    ["old_skool_string","old_string5"],
-        "tree_1":    ["old_skool_string","old_string5"]
+        "tree_4":    ["old_skool_string","old_string4x5"],
+        "tree_3":    ["old_skool_string","old_string4x5"],
+        "tree_2":    ["old_skool_string","old_string4x5"],
+        "tree_1":    ["old_skool_string","old_string4x5"]
     },
     "scene_options": {
         "burning_candles": {
@@ -313,7 +313,7 @@
             [255,0,63],
             [255,0,31]
         ],
-        "old_string5": [
+        "old_string5x5": [
             [255,0,0],
             [255,225,0],
             [0,255,32],
@@ -343,6 +343,32 @@
             [0,255,0],
             [0,64,255],
             [192,0,255]
+        ],
+        "old_string4x5": [
+            [255,0,0],
+            [0,255,32],
+            [0,0,255],
+            [127,0,255],
+
+            [255,32,0],
+            [255,128,0],
+            [16,255,0],
+            [0,92,255],
+
+            [255,0,16],
+            [0,255,0],
+            [0,255,255],
+            [0,0,255],
+
+            [255,64,64],
+            [0,255,64],
+            [32,0,255],
+            [255,0,127],
+
+            [255,16,0],
+            [255,127,0],
+            [0,255,0],
+            [0,64,255]
         ],
         "twinkling_stars": [
             [ 255, 223, 194 ],
