@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["chase","48x32"],
         "star_fold": ["chase","48x32"],
-        "tree_4":    ["chase","48x32"],
-        "tree_3":    ["chase","48x32"],
-        "tree_2":    ["chase","48x32"],
-        "tree_1":    ["chase","48x32"]
+        "tree_4":    ["old_skool_string","basic5"],
+        "tree_3":    ["old_skool_string","basic5"],
+        "tree_2":    ["old_skool_string","basic5"],
+        "tree_1":    ["old_skool_string","basic5"]
     },
     "scene_options": {
         "burning_candles": {
