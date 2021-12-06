@@ -26,33 +26,33 @@
         "chase": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4"],
             "palette_compat": ["any"],
-            "tree_1": {
-                "chase_dir": "f",
-                "color_dir": "f",
-                "chase_period": "0.05"
-            },
-            "tree_2": {
-                "chase_dir": "f",
-                "color_dir": "f",
-                "chase_period": "0.05"
-            },
-            "tree_3": {
-                "chase_dir": "f",
-                "color_dir": "f",
-                "chase_period": "0.05"
-            },
-            "tree_4": {
-                "chase_dir": "f",
-                "color_dir": "f",
-                "chase_period": "0.05"
-            },
             "star_edge": {
-                "chase_dir": "f",
+                "chase_dir": "r",
                 "color_dir": "f",
                 "chase_period": "0.05"
             },
             "star_fold": {
                 "chase_dir": "f",
+                "color_dir": "f",
+                "chase_period": "0.05"
+            },
+            "tree_4": {
+                "chase_dir": "r",
+                "color_dir": "f",
+                "chase_period": "0.05"
+            },
+            "tree_3": {
+                "chase_dir": "r",
+                "color_dir": "f",
+                "chase_period": "0.05"
+            },
+            "tree_2": {
+                "chase_dir": "r",
+                "color_dir": "f",
+                "chase_period": "0.05"
+            },
+            "tree_1": {
+                "chase_dir": "r",
                 "color_dir": "f",
                 "chase_period": "0.05"
             }
