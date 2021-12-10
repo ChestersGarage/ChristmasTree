@@ -11,7 +11,7 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "star_edge": ["water_ripples","water_ripples"],
+        "star_edge": ["static","rw"],
         "star_fold": ["pew_pew","old_string5x5"],
         "tree_4":    ["ever_change","old_string4x5"],
         "tree_3":    ["ever_change","old_string4x5"],
