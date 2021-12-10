@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["static","rw"],
         "star_fold": ["pew_pew","rgc"],
-        "tree_4":    ["ever_change","old_string4x5"],
-        "tree_3":    ["ever_change","old_string4x5"],
-        "tree_2":    ["ever_change","old_string4x5"],
-        "tree_1":    ["ever_change","old_string4x5"]
+        "tree_4":    ["ever_fade","rgbw"],
+        "tree_3":    ["ever_fade","rgbw"],
+        "tree_2":    ["ever_fade","rgbw"],
+        "tree_1":    ["ever_fade","rgbw"]
     },
     "scene_options": {
         "burning_candles": {
