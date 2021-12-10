@@ -12,7 +12,7 @@
     },
     "string_scenes": {
         "star_edge": ["static","rw"],
-        "star_fold": ["pew_pew","old_string5x5"],
+        "star_fold": ["pew_pew","rgc"],
         "tree_4":    ["ever_change","old_string4x5"],
         "tree_3":    ["ever_change","old_string4x5"],
         "tree_2":    ["ever_change","old_string4x5"],
@@ -150,6 +150,11 @@
             [255,0,0 ],
             [0,255,0 ],
             [0,0,255 ]
+        ],
+        "rgc": [
+            [255,0,0 ],
+            [0,255,0 ],
+            [0,64,255 ]
         ],
         "rgbw": [
             [255,0,0],
