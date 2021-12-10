@@ -11,7 +11,7 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "star_edge": ["static","rw"],
+        "star_edge": ["static","green"],
         "star_fold": ["pew_pew","rgc"],
         "tree_4":    ["ever_fade","rgbw"],
         "tree_3":    ["ever_fade","rgbw"],
