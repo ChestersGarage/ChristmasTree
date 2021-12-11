@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["chase","48x32"],
         "star_fold": ["pew_pew","rgb"],
-        "tree_4":    ["chase","old_string5x5"],
-        "tree_3":    ["chase","old_string5x5"],
-        "tree_2":    ["chase","old_string5x5"],
-        "tree_1":    ["chase","old_string5x5"]
+        "tree_4":    ["chase","rygbm"],
+        "tree_3":    ["chase","rygbm"],
+        "tree_2":    ["chase","rygbm"],
+        "tree_1":    ["chase","rygbm"]
     },
     "scene_options": {
         "burning_candles": {
