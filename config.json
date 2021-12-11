@@ -11,12 +11,12 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "star_edge": ["static","rw"],
-        "star_fold": ["static","green"],
-        "tree_4":    ["ever_fade","rgbw"],
-        "tree_3":    ["ever_fade","rgbw"],
-        "tree_2":    ["ever_fade","rgbw"],
-        "tree_1":    ["ever_fade","rgbw"]
+        "star_edge": ["static","simplestar_edge"],
+        "star_fold": ["static","simplestar_fold"],
+        "tree_4":    ["ever_fade","old_string4x5"],
+        "tree_3":    ["ever_fade","old_string4x5"],
+        "tree_2":    ["ever_fade","old_string4x5"],
+        "tree_1":    ["ever_fade","old_string4x5"]
     },
     "scene_options": {
         "burning_candles": {
