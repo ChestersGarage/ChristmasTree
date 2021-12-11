@@ -12,7 +12,7 @@
     },
     "string_scenes": {
         "star_edge": ["chase","48x32"],
-        "star_fold": ["pew_pew","rgb"],
+        "star_fold": ["chase","48x32"],
         "tree_4":    ["chase","48x32"],
         "tree_3":    ["chase","48x32"],
         "tree_2":    ["chase","48x32"],
