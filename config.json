@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["chase","48x32"],
         "star_fold": ["twinkling_stars","twinkling_stars"],
-        "tree_4":    ["chase","108x15"],
-        "tree_3":    ["chase","108x15"],
-        "tree_2":    ["chase","108x15"],
-        "tree_1":    ["chase","108x15"]
+        "tree_4":    ["static","rgbrgbw"],
+        "tree_3":    ["static","rgbrgbw"],
+        "tree_2":    ["static","rgbrgbw"],
+        "tree_1":    ["static","rgbrgbw"]
     },
     "scene_options": {
         "burning_candles": {
@@ -191,6 +191,15 @@
             [   0, 255,   0 ],
             [   0,   0, 255 ],
             [ 255,   0, 255 ]
+        ],
+        "rgbrgbw": [
+            [255,0,0],
+            [0,255,0],
+            [0,0,255],
+            [255,0,0],
+            [0,255,0],
+            [0,0,255],
+            [255,255,255],
         ],
         "sabers": [
             [ 255,   0,   0 ],
