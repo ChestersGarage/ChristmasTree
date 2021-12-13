@@ -11,8 +11,8 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "star_edge": ["chase","48x32"],
-        "star_fold": ["twinkling_stars","twinkling_stars"],
+        "star_edge": ["twinkling_stars","twinkling_stars"],
+        "star_fold": ["chase","48x32"],
         "tree_4":    ["static","rgbrgbw"],
         "tree_3":    ["static","rgbrgbw"],
         "tree_2":    ["static","rgbrgbw"],
