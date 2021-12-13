@@ -38,7 +38,7 @@
             },
             "tree_4": {
                 "chase_dir": "r",
-                "color_dir": "r",
+                "color_dir": "f",
                 "chase_period": "0.05"
             },
             "tree_3": {
@@ -48,7 +48,7 @@
             },
             "tree_2": {
                 "chase_dir": "r",
-                "color_dir": "r",
+                "color_dir": "f",
                 "chase_period": "0.05"
             },
             "tree_1": {
