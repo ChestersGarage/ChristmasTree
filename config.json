@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["chase","48x32"],
         "star_fold": ["twinkling_stars","twinkling_stars"],
-        "tree_4":    ["chase","blue_to_white"],
-        "tree_3":    ["chase","blue_to_white"],
-        "tree_2":    ["chase","blue_to_white"],
-        "tree_1":    ["chase","blue_to_white"]
+        "tree_4":    ["chase","rgb_chase"],
+        "tree_3":    ["chase","rgb_chase"],
+        "tree_2":    ["chase","rgb_chase"],
+        "tree_1":    ["chase","rgb_chase"]
     },
     "scene_options": {
         "burning_candles": {
@@ -27,7 +27,7 @@
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4"],
             "palette_compat": ["any"],
             "star_edge": {
-                "chase_dir": "r",
+                "chase_dir": "f",
                 "color_dir": "f",
                 "chase_period": "0.05"
             },
@@ -37,7 +37,7 @@
                 "chase_period": "0.05"
             },
             "tree_4": {
-                "chase_dir": "r",
+                "chase_dir": "f",
                 "color_dir": "f",
                 "chase_period": "0.05"
             },
@@ -47,7 +47,7 @@
                 "chase_period": "0.05"
             },
             "tree_2": {
-                "chase_dir": "r",
+                "chase_dir": "f",
                 "color_dir": "f",
                 "chase_period": "0.05"
             },
