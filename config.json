@@ -13,9 +13,9 @@
     "string_scenes": {
         "star_edge": ["chase","48x32"],
         "star_fold": ["twinkling_stars","twinkling_stars"],
-        "tree_4":    ["chase","red_to_white"],
+        "tree_4":    ["chase","blue_to_white"],
         "tree_3":    ["chase","red_to_white"],
-        "tree_2":    ["chase","red_to_white"],
+        "tree_2":    ["chase","blue_to_white"],
         "tree_1":    ["chase","red_to_white"]
     },
     "scene_options": {
