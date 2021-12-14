@@ -11,7 +11,7 @@
         "star_fold": 24
     },
     "string_scenes": {
-        "star_edge": ["fireflies","48x32"],
+        "star_edge": ["fireflies","rgb"],
         "star_fold": ["twinkling_stars","twinkling_stars"],
         "tree_4":    ["old_skool_string","old_string4x5"],
         "tree_3":    ["old_skool_string","old_string5x5"],
