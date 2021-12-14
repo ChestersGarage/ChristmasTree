@@ -43,8 +43,8 @@ while True:
             #print(desat_incr)
             desat_led_values.extend([
                 int(led_value[0] + desat_incr if (led_value[0] + desat_incr) <= 255 else 255),
-                int(led_value[1] + (desat_incr/2) if (led_value[1] + desat_incr) <= 255 else 255),
-                int(led_value[2] + (desat_incr/3) if (led_value[2] + desat_incr) <= 255 else 255)
+                int(led_value[1] + (int(desat_incr*0.85)) if (led_value[1] + (int(desat_incr*0.85))) <= 255 else 255),
+                int(led_value[2] + (int(desat_incr*0.75)) if (led_value[2] + (int(desat_incr*0.75))) <= 255 else 255)
 
             ])
             #print(desat_led_values)
