@@ -4,15 +4,18 @@ class Scene(object):
     """
     def __init__(self, string_label, frame_rate, pixel_count, palette, options):
         # Palette size will be exactly 65 colors if it should be mapped directly to the string
-        if len(string_label) == 65:
+        #print(len(palette))
+        if len(palette) == 65:
             if string_label == 'star_edge':
                 # Edge has 41 LEDs, including the very center LED
-                self._palette = palette[0:40]
+                self._palette = palette[0:41]
             elif string_label == 'star_fold':
                 # Fold has 24 LEDs
-                self._palette = palette[41:64]
+                self._palette = palette[41:]
         else:
             self._palette = palette
+
+        #print(self._palette)
 
         self._pixel_count = pixel_count
         self._color_count = len(self._palette)

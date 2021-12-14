@@ -34,16 +34,32 @@ while True:
     for string_label in _config['led_layout']['strings']:
         raw_led_values = globals()[string_label].led_values()
         temp_led_values = []
+
         for led_value in raw_led_values:
             #print (led_value[0])
             #exit(0)
-            temp_led_values.append([
-                int(led_value[0] * _config['tuning'][string_label]['color_balance'][0]),
-                int(led_value[1] * _config['tuning'][string_label]['color_balance'][1]),
-                int(led_value[2] * _config['tuning'][string_label]['color_balance'][2])
+            desat_led_values = []
+            desat_incr = int(max(led_value) * _config['tuning'][string_label]['desaturation'] / 100)
+            #print(desat_incr)
+            desat_led_values.extend([
+                int(led_value[0] + desat_incr if (led_value[0] + desat_incr) <= 255 else 255),
+                int(led_value[1] + desat_incr if (led_value[1] + desat_incr) <= 255 else 255),
+                int(led_value[2] + desat_incr if (led_value[2] + desat_incr) <= 255 else 255)
+
             ])
+            #print(desat_led_values)
+            #exit()
+            temp_led_values.append([
+                int(desat_led_values[0] * _config['tuning'][string_label]['color_balance'][0]),
+                int(desat_led_values[1] * _config['tuning'][string_label]['color_balance'][1]),
+                int(desat_led_values[2] * _config['tuning'][string_label]['color_balance'][2])
+            ])
+            #print(temp_led_values)
+            #exit()
 
         led_colors.extend(temp_led_values)
+        #Sprint(led_colors)
+        #exit()
 
     # Wait until it's time to update the LEDs
     if monotonic_ns() < ( last_frame + _frame_period ):
