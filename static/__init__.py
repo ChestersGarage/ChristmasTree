@@ -11,8 +11,8 @@ class Scene(object):
             elif string_label == 'star_fold':
                 # Fold has 24 LEDs
                 self._palette = palette[41:64]
-            else:
-                self._palette = palette
+        else:
+            self._palette = palette
 
         self._pixel_count = pixel_count
         self._color_count = len(self._palette)
