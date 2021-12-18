@@ -1,22 +1,22 @@
 {
     "xmas_tree_address": "christmastree.home:7890",
-    "frame_rate": 20,
+    "frame_rate": 4,
     "led_layout": {
         "strings": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
-        "tree_1":    50,
-        "tree_2":    50,
-        "tree_3":    50,
-        "tree_4":    50,
         "star_edge": 41,
-        "star_fold": 24
+        "star_fold": 24,
+        "tree_4":    50,
+        "tree_3":    50,
+        "tree_2":    50,
+        "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["chase","48x32"],
-        "star_fold": ["chase","48x32"],
-        "tree_4":    ["water_ripples","water_ripples"],
-        "tree_3":    ["water_ripples","water_ripples"],
-        "tree_2":    ["water_ripples","water_ripples"],
-        "tree_1":    ["water_ripples","water_ripples"]
+        "star_edge": ["chase","basic10"],
+        "star_fold": ["chase","basic10"],
+        "tree_4":    ["old_skool_string","old_string4x5"],
+        "tree_3":    ["old_skool_string","old_string4x5"],
+        "tree_2":    ["old_skool_string","old_string4x5"],
+        "tree_1":    ["old_skool_string","old_string4x5"]
     },
     "scene_options": {
         "burning_candles": {
@@ -37,7 +37,7 @@
                 "chase_period": "0.05"
             },
             "tree_4": {
-                "chase_dir": "f",
+                "chase_dir": "r",
                 "color_dir": "f",
                 "chase_period": "0.05"
             },
@@ -47,7 +47,7 @@
                 "chase_period": "0.05"
             },
             "tree_2": {
-                "chase_dir": "f",
+                "chase_dir": "r",
                 "color_dir": "f",
                 "chase_period": "0.05"
             },
@@ -161,6 +161,12 @@
             [0,255,0],
             [0,0,255],
             [255,255,255]
+        ],
+        "rgbm": [
+            [255,0,0],
+            [0,255,0],
+            [0,0,255],
+            [255,0,255]
         ],
         "rgw": [
             [255,255,255],
@@ -299,12 +305,12 @@
             [255,255,255]
         ],
         "basic6": [
-            [   0, 255,   0 ],
-            [   0,   0, 255 ],
-            [ 255, 255,   0 ],
-            [   0, 255, 255 ],
-            [ 255,   0,   0 ],
-            [ 255,   0, 255 ]
+            [0,255,0],
+            [0,0,255],
+            [255,255,0],
+            [0,255,255],
+            [255,0,0],
+            [255,0,255]
         ],
         "basic8": [
             [255,0,0],
