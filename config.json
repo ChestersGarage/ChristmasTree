@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["fireflies","old_string4x5"],
         "star_fold": ["twinkling_stars","twinkling_stars"],
-        "tree_4":    ["old_skool_string","old_string4x5"],
-        "tree_3":    ["old_skool_string","old_string4x5"],
-        "tree_2":    ["old_skool_string","old_string4x5"],
-        "tree_1":    ["old_skool_string","old_string4x5"]
+        "tree_4":    ["old_skool_string","white"],
+        "tree_3":    ["old_skool_string","white"],
+        "tree_2":    ["old_skool_string","white"],
+        "tree_1":    ["old_skool_string","white"]
     },
     "scene_options": {
         "burning_candles": {
@@ -129,7 +129,7 @@
         "magenta2": [[255,0,192]],
         "magenta3": [[255,0,255]],
         "off":      [[0,0,0]],
-        "white":    [[255,255,255]],
+        "white":    [[127,127,127]],
         "rg": [
             [255,0,0],
             [0,255,0]
