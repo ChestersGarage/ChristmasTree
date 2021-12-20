@@ -11,12 +11,12 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["fireflies","old_string4x5"],
-        "star_fold": ["twinkling_stars","twinkling_stars"],
-        "tree_4":    ["old_skool_string","white"],
-        "tree_3":    ["old_skool_string","white"],
-        "tree_2":    ["old_skool_string","white"],
-        "tree_1":    ["old_skool_string","white"]
+        "star_edge": ["old_skool_string","simplestar_edge"],
+        "star_fold": ["old_skool_string","simplestar_fold"],
+        "tree_4":    ["old_skool_string","rgbmrgbw"],
+        "tree_3":    ["old_skool_string","rgbmrgbw"],
+        "tree_2":    ["old_skool_string","rgbmrgbw"],
+        "tree_1":    ["old_skool_string","rgbmrgbw"]
     },
     "scene_options": {
         "burning_candles": {
@@ -129,7 +129,8 @@
         "magenta2": [[255,0,192]],
         "magenta3": [[255,0,255]],
         "off":      [[0,0,0]],
-        "white":    [[150,192,127]],
+        "white":    [[255,175,100]],
+        "wwhite":    [[255,175,100]],
         "rg": [
             [255,0,0],
             [0,255,0]
@@ -178,6 +179,12 @@
             [0,255,0],
             [255,0,0],
             [255,255,255]
+        ],
+        "rgcm": [
+            [255,0,0],
+            [0,255,0],
+            [0,255,255],
+            [255,0,255]
         ],
         "rwgw": [
             [255,0,0],
@@ -232,6 +239,7 @@
         ],
         "north_star": [
             [255,255,255],
+
             [0,0,0],
             [0,0,0],
             [0,0,0],
@@ -241,6 +249,9 @@
             [0,0,0],
             [0,0,0],
             [0,0,0],
+
+            [0,0,0],
+
             [0,0,0],
             [0,0,0],
             [0,0,0],
@@ -250,8 +261,9 @@
             [0,0,0],
             [0,0,0],
             [0,0,0],
-            [0,0,0],
+
             [255,255,255],
+
             [0,0,0],
             [0,0,0],
             [0,0,0],
@@ -261,6 +273,9 @@
             [0,0,0],
             [0,0,0],
             [0,0,0],
+
+            [0,0,0],
+
             [0,0,0],
             [0,0,0],
             [0,0,0],
@@ -270,8 +285,9 @@
             [0,0,0],
             [0,0,0],
             [0,0,0],
+
             [0,0,0],
-            [0,0,0],
+
             [255,255,255],
             [255,255,255],
 
