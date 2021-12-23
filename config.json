@@ -12,11 +12,11 @@
     },
     "string_scenes": {
         "star_edge": ["twinkling_stars","twinkling_stars"],
-        "star_fold": ["water_ripples","water_ripples"],
-        "tree_4":    ["ever_change","rgbmrgbw"],
-        "tree_3":    ["ever_change","rgbmrgbw"],
-        "tree_2":    ["ever_change","rgbmrgbw"],
-        "tree_1":    ["ever_change","rgbmrgbw"]
+        "star_fold": ["pew_pew","sabers"],
+        "tree_4":    ["ever_change","rgbm"],
+        "tree_3":    ["ever_change","rgbm"],
+        "tree_2":    ["ever_change","rgbm"],
+        "tree_1":    ["ever_change","rgbm"]
     },
     "scene_options": {
         "burning_candles": {
