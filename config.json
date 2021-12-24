@@ -1,6 +1,6 @@
 {
     "xmas_tree_address": "christmastree.home:7890",
-    "frame_rate": 5,
+    "frame_rate": 20,
     "led_layout": {
         "strings": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
         "star_edge": 41,
@@ -12,7 +12,7 @@
     },
     "string_scenes": {
         "star_edge": ["twinkling_stars","twinkling_stars"],
-        "star_fold": ["chase","12x128"],
+        "star_fold": ["chase","48x32"],
         "tree_4":    ["chase","48x32"],
         "tree_3":    ["chase","48x32"],
         "tree_2":    ["chase","48x32"],
