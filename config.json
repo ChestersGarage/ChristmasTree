@@ -11,8 +11,8 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["fireflies","48x32"],
-        "star_fold": ["pew_pew","sabers"],
+        "star_edge": ["static","simplestar_edge"],
+        "star_fold": ["static","simplestar_fold"],
         "tree_4":    ["old_skool_string","old_string4x5"],
         "tree_3":    ["old_skool_string","old_string4x5"],
         "tree_2":    ["old_skool_string","old_string4x5"],
