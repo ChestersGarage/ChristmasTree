@@ -14,9 +14,9 @@
         "star_edge": ["old_skool_string","simplestar_edge"],
         "star_fold": ["old_skool_string","simplestar_fold"],
         "tree_4":    ["old_skool_string","rw"],
-        "tree_3":    ["old_skool_string","rw"],
+        "tree_3":    ["old_skool_string","bw"],
         "tree_2":    ["old_skool_string","rw"],
-        "tree_1":    ["old_skool_string","rw"]
+        "tree_1":    ["old_skool_string","bw"]
     },
     "scene_options": {
         "burning_candles": {
