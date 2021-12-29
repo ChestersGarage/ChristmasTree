@@ -12,7 +12,7 @@
     },
     "string_scenes": {
         "star_edge": ["twinkling_stars","twinkling_stars"],
-        "star_fold": ["old_skool_string","blue"],
+        "star_fold": ["water_ripples","water_ripples"],
         "tree_4":    ["ever_change","basic8"],
         "tree_3":    ["ever_change","basic8"],
         "tree_2":    ["ever_change","basic8"],
@@ -37,7 +37,7 @@
                 "chase_period": "0.05"
             },
             "tree_4": {
-                "chase_dir": "f",
+                "chase_dir": "r",
                 "color_dir": "f",
                 "chase_period": "0.05"
             },
@@ -47,7 +47,7 @@
                 "chase_period": "0.05"
             },
             "tree_2": {
-                "chase_dir": "f",
+                "chase_dir": "r",
                 "color_dir": "f",
                 "chase_period": "0.05"
             },
