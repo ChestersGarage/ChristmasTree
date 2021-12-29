@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["twinkling_stars","twinkling_stars"],
         "star_fold": ["water_ripples","water_ripples"],
-        "tree_4":    ["ever_change","basic8"],
-        "tree_3":    ["ever_change","basic8"],
-        "tree_2":    ["ever_change","basic8"],
-        "tree_1":    ["ever_change","basic8"]
+        "tree_4":    ["ever_change","rgbcm"],
+        "tree_3":    ["ever_change","rgbcm"],
+        "tree_2":    ["ever_change","rgbcm"],
+        "tree_1":    ["ever_change","rgbcm"]
     },
     "scene_options": {
         "burning_candles": {
