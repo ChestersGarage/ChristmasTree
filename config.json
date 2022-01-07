@@ -12,7 +12,7 @@
     },
     "string_scenes": {
         "star_edge": ["twinkling_stars","twinkling_stars"],
-        "star_fold": ["fireflies","48x32"],
+        "star_fold": ["pew_pew","sabers"],
         "tree_4":    ["old_skool_string","old_string4x5"],
         "tree_3":    ["old_skool_string","old_string4x5"],
         "tree_2":    ["old_skool_string","old_string4x5"],
@@ -231,6 +231,16 @@
             [0,0,255],
             [255,255,255]
         ],
+        "rgbmrgbw": [
+            [255,0,0],
+            [0,255,0],
+            [0,0,255],
+            [255,0,255],
+            [255,0,0],
+            [0,255,0],
+            [0,0,255],
+            [255,255,255]
+        ],
         "sabers": [
             [ 255,   0,   0 ],
             [ 192, 0,   255 ],
@@ -326,6 +336,14 @@
             [255,255,0],
             [0,255,255],
             [255,0,0],
+            [255,0,255]
+        ],
+        "rainbow6": [
+            [255,0,0],
+            [255,255,0],
+            [0,255,0],
+            [0,255,255],
+            [0,0,255],
             [255,0,255]
         ],
         "basic8": [
