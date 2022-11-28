@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["fireflies","rgbm"],
         "star_fold": ["pew_pew","rgbm"],
-        "tree_4":    ["old_skool_string","rygbm"],
+        "tree_4":    ["burning_candles","burning_candles"],
         "tree_3":    ["water_ripples","water_ripples"],
         "tree_2":    ["burning_candles","burning_candles"],
-        "tree_1":    ["chase","48x32"]
+        "tree_1":    ["water_ripples","water_ripples"]
     },
     "scene_options": {
         "burning_candles": {
