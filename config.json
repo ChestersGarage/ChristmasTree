@@ -13,9 +13,9 @@
     "string_scenes": {
         "star_edge": ["old_skool_string","rgb"],
         "star_fold": ["twinkling_stars","twinkling_stars"],
-        "tree_4":    ["chase","48x32"],
-        "tree_3":    ["chase","48x32"],
-        "tree_2":    ["chase","48x32"],
+        "tree_4":    ["old_skool_string","rygbm"],
+        "tree_3":    ["water_ripples","water_ripples"],
+        "tree_2":    ["burning_candles","burning_candles"],
         "tree_1":    ["chase","48x32"]
     },
     "scene_options": {
