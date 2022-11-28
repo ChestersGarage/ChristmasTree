@@ -12,7 +12,7 @@
     },
     "string_scenes": {
         "star_edge": ["old_skool_string","rgb"],
-        "star_fold": ["twinkling_stars","twinkling_stars"],
+        "star_fold": ["pew_pew","rgbm"],
         "tree_4":    ["old_skool_string","rygbm"],
         "tree_3":    ["water_ripples","water_ripples"],
         "tree_2":    ["burning_candles","burning_candles"],
