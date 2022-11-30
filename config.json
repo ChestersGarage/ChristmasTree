@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["water_ripples","48x32"],
         "star_fold": ["water_ripples","48x32"],
-        "tree_4":    ["burning_candles","burning_candles"],
-        "tree_3":    ["water_ripples","water_ripples"],
-        "tree_2":    ["burning_candles","burning_candles"],
-        "tree_1":    ["water_ripples","water_ripples"]
+        "tree_4":    ["water_ripples","48x32"],
+        "tree_3":    ["water_ripples","48x32"],
+        "tree_2":    ["water_ripples","48x32"],
+        "tree_1":    ["water_ripples","48x32"]
     },
     "scene_options": {
         "burning_candles": {
