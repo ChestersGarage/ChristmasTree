@@ -11,8 +11,8 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["water_ripples","twinkling_stars"],
-        "star_fold": ["water_ripples","twinkling_stars"],
+        "star_edge": ["twinkling_stars","water_ripples"],
+        "star_fold": ["twinkling_stars","water_ripples"],
         "tree_4":    ["burning_candles","burning_candles"],
         "tree_3":    ["water_ripples","water_ripples"],
         "tree_2":    ["burning_candles","burning_candles"],
