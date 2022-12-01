@@ -14,7 +14,7 @@
         "star_edge": ["static","plaid_edge"],
         "star_fold": ["static","plaid_fold"],
         "tree_4":    ["chase","basic10"],
-        "tree_3":    ["old_skool_string","old_string4x5"],
+        "tree_3":    ["burning_candles","burning_candles"],
         "tree_2":    ["chase","basic10"],
         "tree_1":    ["old_skool_string","old_string4x5"]
     },
