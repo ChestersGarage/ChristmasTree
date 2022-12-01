@@ -11,7 +11,7 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["twinkling_stars","basic8"],
+        "star_edge": ["twinkling_stars","twinkling_stars"],
         "star_fold": ["pew_pew","sabers"],
         "tree_4":    ["chase","basic10"],
         "tree_3":    ["burning_candles","burning_candles"],
@@ -627,7 +627,11 @@
         ],
         "twinkling_stars": [
             [ 255, 223, 194 ],
+            [ 245, 223, 204 ],
+            [ 235, 224, 215 ],
             [ 225, 225, 225 ],
+            [ 219, 224, 235 ],
+            [ 213, 222, 245 ],
             [ 206, 220, 255 ]
         ],
         "burning_candles": [
