@@ -11,12 +11,12 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["water_ripples","108x15"],
-        "star_fold": ["water_ripples","108x15"],
-        "tree_4":    ["water_ripples","108x15"],
-        "tree_3":    ["water_ripples","108x15"],
-        "tree_2":    ["water_ripples","108x15"],
-        "tree_1":    ["water_ripples","108x15"]
+        "star_edge": ["static","plaid_edge"],
+        "star_fold": ["static","plaid_fold"],
+        "tree_4":    ["old_skool_string","old_string5x5"],
+        "tree_3":    ["old_skool_string","old_string4x5"],
+        "tree_2":    ["old_skool_string","old_string5x5"],
+        "tree_1":    ["old_skool_string","old_string4x5"]
     },
     "scene_options": {
         "burning_candles": {
