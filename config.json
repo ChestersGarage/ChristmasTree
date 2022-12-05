@@ -1,6 +1,6 @@
 {
     "xmas_tree_address": "christmastree.home:7890",
-    "frame_rate": 10,
+    "frame_rate": 1,
     "led_layout": {
         "strings": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
         "star_edge": 41,
