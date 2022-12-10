@@ -11,12 +11,12 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["chase","48x32"],
-        "star_fold": ["chase","24x64"],
-        "tree_4":    ["chase","48x32"],
-        "tree_3":    ["chase","48x32"],
-        "tree_2":    ["chase","48x32"],
-        "tree_1":    ["chase","48x32"]
+        "star_edge": ["static","plaid_edge"],
+        "star_fold": ["static","plaid_fold"],
+        "tree_4":    ["static","rgbmrgbw"],
+        "tree_3":    ["static","basic8"],
+        "tree_2":    ["static","rgbmrgbw"],
+        "tree_1":    ["static","basic6"]
     },
     "scene_options": {
         "burning_candles": {
