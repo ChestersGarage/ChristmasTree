@@ -11,8 +11,8 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["twinkling_stars","twinkling_stars"],
-        "star_fold": ["pew_pew","sabers"],
+        "star_edge": ["fireflies","sabers"],
+        "star_fold": ["twinkling_stars","twinkling_stars"],
         "tree_4":    ["ever_change","rgb"],
         "tree_3":    ["ever_change","rgbmrgby"],
         "tree_2":    ["ever_change","rgb"],
@@ -108,8 +108,8 @@
         }
     },
     "tuning": {
-        "star_edge": {"color_balance": [0.33,0.33,0.33], "desaturation": 0},
-        "star_fold": {"color_balance": [0.75,0.75,0.75], "desaturation": 0},
+        "star_edge": {"color_balance": [0.75,0.75,0.75], "desaturation": 0},
+        "star_fold": {"color_balance": [0.5,0.5,0.5], "desaturation": 0},
         "tree_4":    {"color_balance": [0.95,1.0,0.95], "desaturation": 10},
         "tree_3":    {"color_balance": [0.95,1.0,0.95], "desaturation": 10},
         "tree_2":    {"color_balance": [0.95,1.0,0.95], "desaturation": 10},
