@@ -11,8 +11,8 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["static","north_star"],
-        "star_fold": ["static","north_star"],
+        "star_edge": ["static","simplestar_edge"],
+        "star_fold": ["static","simplestar_fold"],
         "tree_4":    ["ever_change","rgb"],
         "tree_3":    ["ever_change","rgbmrgby"],
         "tree_2":    ["ever_change","rgb"],
