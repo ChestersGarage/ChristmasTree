@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["twinkling_stars","twinkling_stars"],
         "star_fold": ["static","north_star"],
-        "tree_4":    ["old_skool_string","rgbrgbw"],
-        "tree_3":    ["old_skool_string","rgbrgbw"],
-        "tree_2":    ["old_skool_string","rgbrgbw"],
-        "tree_1":    ["old_skool_string","rgbrgbw"]
+        "tree_4":    ["old_skool_string","rgbcm"],
+        "tree_3":    ["old_skool_string","rgbcm"],
+        "tree_2":    ["old_skool_string","rgbcm"],
+        "tree_1":    ["old_skool_string","rgbcm"]
     },
     "scene_options": {
         "burning_candles": {
