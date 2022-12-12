@@ -11,14 +11,18 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["old_skool_string","wb_edge"],
-        "star_fold": ["old_skool_string","wl_fold"],
-        "tree_4":    ["old_skool_string","rgbw"],
-        "tree_3":    ["old_skool_string","rgbw"],
-        "tree_2":    ["old_skool_string","rgbw"],
-        "tree_1":    ["old_skool_string","rgbw"]
+        "star_edge": ["all_blinkers","wb_edge"],
+        "star_fold": ["all_blinkers","wl_fold"],
+        "tree_4":    ["all_blinkers","rgbw"],
+        "tree_3":    ["all_blinkers","rgbw"],
+        "tree_2":    ["all_blinkers","rgbw"],
+        "tree_1":    ["all_blinkers","rgbw"]
     },
     "scene_options": {
+        "all_blinkers": {
+            "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
+            "palette_compat": ["any"]
+        },
         "burning_candles": {
             "string_compat":  ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
             "palette_compat": ["burning_candles"]
