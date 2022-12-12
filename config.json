@@ -11,8 +11,8 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["ever_change","bw"],
-        "star_fold": ["ever_change","rg"],
+        "star_edge": ["water_ripples","bw"],
+        "star_fold": ["water_ripples","rg"],
         "tree_4":    ["ever_change","rgbmrgbw"],
         "tree_3":    ["ever_change","rgbmrgbw"],
         "tree_2":    ["ever_change","rgbmrgbw"],
