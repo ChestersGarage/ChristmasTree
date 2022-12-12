@@ -12,7 +12,7 @@
     },
     "string_scenes": {
         "star_edge": ["twinkling_stars","bw"],
-        "star_fold": ["twinkling_stars","rg"],
+        "star_fold": ["static","off"],
         "tree_4":    ["ever_change","rgbmrgbw"],
         "tree_3":    ["ever_change","rgbmrgbw"],
         "tree_2":    ["ever_change","rgbmrgbw"],
