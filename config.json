@@ -1,6 +1,6 @@
 {
     "xmas_tree_address": "christmastree.home:7890",
-    "frame_rate": 3,
+    "frame_rate": 1,
     "led_layout": {
         "strings": ["tree_1", "tree_2", "tree_3", "tree_4", "star_edge", "star_fold"],
         "star_edge": 41,
@@ -11,12 +11,12 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["chase","rgw"],
-        "star_fold": ["chase","rgw"],
-        "tree_4":    ["chase","rgw"],
-        "tree_3":    ["chase","rgw"],
-        "tree_2":    ["chase","rgw"],
-        "tree_1":    ["chase","rgw"]
+        "star_edge": ["old_skool_string","wb_edge"],
+        "star_fold": ["old_skool_string","wl_fold"],
+        "tree_4":    ["old_skool_string","rgw"],
+        "tree_3":    ["old_skool_string","rgw"],
+        "tree_2":    ["old_skool_string","rgw"],
+        "tree_1":    ["old_skool_string","rgw"]
     },
     "scene_options": {
         "burning_candles": {
