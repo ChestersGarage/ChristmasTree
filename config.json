@@ -11,12 +11,12 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["all_blinkers","wb_edge"],
-        "star_fold": ["all_blinkers","wl_fold"],
-        "tree_4":    ["old_skool_string","rgbw"],
-        "tree_3":    ["old_skool_string","rgbw"],
-        "tree_2":    ["old_skool_string","rgbw"],
-        "tree_1":    ["old_skool_string","rgbw"]
+        "star_edge": ["old_skool_string","wb_edge"],
+        "star_fold": ["old_skool_string","wl_fold"],
+        "tree_4":    ["old_skool_string","rgbp"],
+        "tree_3":    ["old_skool_string","rgbp"],
+        "tree_2":    ["old_skool_string","rgbp"],
+        "tree_1":    ["old_skool_string","rgbp"]
     },
     "scene_options": {
         "all_blinkers": {
@@ -205,6 +205,12 @@
             [0,255,0],
             [0,0,255],
             [255,0,255]
+        ],
+        "rgbp": [
+            [255,0,0],
+            [0,255,0],
+            [0,0,255],
+            [160,0,255]
         ],
         "rgw": [
             [255,255,255],
