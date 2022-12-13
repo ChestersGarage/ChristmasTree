@@ -13,10 +13,10 @@
     "string_scenes": {
         "star_edge": ["static","rw_edge"],
         "star_fold": ["static","rw_fold"],
-        "tree_4":    ["old_skool_string","rgpb"],
-        "tree_3":    ["old_skool_string","rgpb"],
-        "tree_2":    ["old_skool_string","rgpb"],
-        "tree_1":    ["old_skool_string","rgpb"]
+        "tree_4":    ["water_ripples","blue_to_white"],
+        "tree_3":    ["water_ripples","green_to_white"],
+        "tree_2":    ["water_ripples","blue_to_white"],
+        "tree_1":    ["water_ripples","green_to_white"]
     },
     "scene_options": {
         "all_blinkers": {
