@@ -112,8 +112,8 @@
         }
     },
     "tuning": {
-        "star_edge": {"color_balance": [0.5,0.5,0.5], "desaturation": 0},
-        "star_fold": {"color_balance": [0.5,0.5,0.5], "desaturation": 0},
+        "star_edge": {"color_balance": [0.5,0.5,0.5], "desaturation": 10},
+        "star_fold": {"color_balance": [0.5,0.5,0.5], "desaturation": 10},
         "tree_4":    {"color_balance": [0.95,1.0,0.95], "desaturation": 25},
         "tree_3":    {"color_balance": [0.95,1.0,0.95], "desaturation": 25},
         "tree_2":    {"color_balance": [0.95,1.0,0.95], "desaturation": 25},
