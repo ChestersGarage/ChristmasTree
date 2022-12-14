@@ -12,7 +12,7 @@
     },
     "string_scenes": {
         "star_edge": ["static","wb_edge"],
-        "star_fold": ["static","rw_fold"],
+        "star_fold": ["static","rg_fold"],
         "tree_4":    ["old_skool_string","rgpb"],
         "tree_3":    ["old_skool_string","rgpb"],
         "tree_2":    ["old_skool_string","rgpb"],
