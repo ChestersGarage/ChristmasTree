@@ -6,7 +6,7 @@ In particualr, the star has two sections:
 The tree has 4 strings of 50 LEDs, which should be placed on the tree like regular Christmas lights.
 """
 
-import opc, math, random, json, sys
+import opc, math, random, json, sys, signal
 from time import monotonic_ns,sleep
 
 # Load configs from file
@@ -20,6 +20,18 @@ _frame_period = 1/_config['frame_rate']*1000000000
 # Instantiate the hardware interface
 xmas_tree = opc.Client(_config['xmas_tree_address'])
 
+# Set up a handelr to shut off the LEDs before exiting
+class GracefulKiller():
+    kill_now = False
+    def __init__(self):
+        signal.signal(signal.SIGINT, self.exit_gracefully)
+        signal.signal(signal.SIGTERM, self.exit_gracefully)
+
+    def exit_gracefully(self, *args):
+        self.kill_now = True
+        led_colors = [[0,0,0]] * 265
+        xmas_tree.put_pixels(led_colors,0)
+
 # Set up an instance of the selected scene for each LED string
 for string_label in _config['led_layout']['strings']:
     string_scene = __import__( _config['string_scenes'][string_label][0] )
@@ -28,7 +40,8 @@ for string_label in _config['led_layout']['strings']:
 # Mark the beginning of operation from the highest resolution*, non-varying** time source
 last_frame = monotonic_ns()
 
-while True:
+killer = GracefulKiller()
+while not killer.kill_now:
     # Build up the set of LED color values
     led_colors = []
     for string_label in _config['led_layout']['strings']:

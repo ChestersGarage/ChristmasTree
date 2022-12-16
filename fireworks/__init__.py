@@ -13,15 +13,10 @@ class Scene(object):
         self._string_colors = [[0,0,0]] * self._pixel_count
 
         self._frame_period =  (1/frame_rate)*1000000000 # Frame period in ns
-        self._swarm_size =    1       # Number of spinners is random 1-3
-        init_position = random.randrange(0,self._pixel_count)
-        self._spin_positions = [[init_position,init_position,init_position]] * self._swarm_size # Current and prior location within the string, of each spinner
-        self._spin_speed =     [random.randint(50000,200000)] * self._swarm_size # The rate at which each spinner moves
-        self._spin_direction = [bool(random.getrandbits(1))] * self._swarm_size # Whether the spinner is coming or going on the string
-        self._spin_time =      [monotonic_ns()] * self._swarm_size # The clock time when each spinner moves next
+
+
         self._spin_colors =    [self._palette[random.randrange(0,len(self._palette))]] * self._swarm_size # The color of each spinner
         self._spin_rotations = random.randint(2,5) # the number of spins
-        self._rotation = 0
 
     def get_spins(self):
         spin = 0
