@@ -29,6 +29,8 @@ class GracefulKiller():
 
     def exit_gracefully(self, *args):
         self.kill_now = True
+        last_frame = monotonic_ns() + ( _frame_period * 20 )
+        sleep(_frame_period / 1000000000)
         led_colors = [[0,0,0]] * 265
         xmas_tree.put_pixels(led_colors,0)
 
