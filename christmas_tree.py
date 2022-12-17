@@ -20,7 +20,7 @@ _frame_period = 1/_config['frame_rate']*1000000000
 # Instantiate the hardware interface
 xmas_tree = opc.Client(_config['xmas_tree_address'])
 
-# Set up a handelr to shut off the LEDs before exiting
+# Set up a handler to shut off the LEDs before exiting
 class GracefulKiller():
     kill_now = False
     def __init__(self):
@@ -29,7 +29,6 @@ class GracefulKiller():
 
     def exit_gracefully(self, *args):
         self.kill_now = True
-
 
 # Set up an instance of the selected scene for each LED string
 for string_label in _config['led_layout']['strings']:
@@ -89,6 +88,6 @@ while not killer.kill_now:
     last_frame = monotonic_ns()
     xmas_tree.put_pixels(led_colors,0)
 
-# Last thing
+# Shut off the LEDs before we go
 led_colors = [[0,0,0]] * 265
 xmas_tree.put_pixels(led_colors,0)
