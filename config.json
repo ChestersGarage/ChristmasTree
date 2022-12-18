@@ -14,10 +14,10 @@
     "string_scenes": {
         "star_edge": ["fireflies","24x64"],
         "star_fold": ["static","north_star"],
-        "tree_4":    ["chase","48x32"],
-        "tree_3":    ["chase","48x32"],
-        "tree_2":    ["chase","48x32"],
-        "tree_1":    ["chase","48x32"]
+        "tree_4":    ["old_skool_string","rgbmrgbw"],
+        "tree_3":    ["old_skool_string","rgbmrgbw"],
+        "tree_2":    ["old_skool_string","rgbmrgbw"],
+        "tree_1":    ["old_skool_string","rgbmrgbw"]
     },
     "scene_options": {
         "all_blinkers": {
@@ -115,10 +115,10 @@
     "tuning": {
         "star_edge": {"color_balance": [0.5,0.5,0.5], "desaturation": 10},
         "star_fold": {"color_balance": [0.5,0.5,0.5], "desaturation": 10},
-        "tree_4":    {"color_balance": [0.95,1.0,0.95], "desaturation": 0},
-        "tree_3":    {"color_balance": [0.95,1.0,0.95], "desaturation": 0},
-        "tree_2":    {"color_balance": [0.95,1.0,0.95], "desaturation": 0},
-        "tree_1":    {"color_balance": [0.95,1.0,0.95], "desaturation": 0}
+        "tree_4":    {"color_balance": [0.95,1.0,0.95], "desaturation": 30},
+        "tree_3":    {"color_balance": [0.95,1.0,0.95], "desaturation": 30},
+        "tree_2":    {"color_balance": [0.95,1.0,0.95], "desaturation": 30},
+        "tree_1":    {"color_balance": [0.95,1.0,0.95], "desaturation": 30}
     },
     "color_palettes": {
         "red":      [[255,0,0]],
