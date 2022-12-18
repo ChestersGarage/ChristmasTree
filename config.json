@@ -14,10 +14,10 @@
     "string_scenes": {
         "star_edge": ["static","simplestar_edge"],
         "star_fold": ["static","off"],
-        "tree_4":    ["chase","rwgw"],
-        "tree_3":    ["chase","rwgw"],
-        "tree_2":    ["chase","rwgw"],
-        "tree_1":    ["chase","rwgw"]
+        "tree_4":    ["chase","rwgwbw"],
+        "tree_3":    ["chase","rwgwbw"],
+        "tree_2":    ["chase","rwgwbw"],
+        "tree_1":    ["chase","rwgwbw"]
     },
     "scene_options": {
         "all_blinkers": {
@@ -234,6 +234,14 @@
             [255,0,0],
             [255,255,255],
             [0,255,0],
+            [255,255,255]
+        ],
+        "rwgwbw": [
+            [255,0,0],
+            [255,255,255],
+            [0,255,0],
+            [255,255,255],
+            [0,0,255],
             [255,255,255]
         ],
         "rygb": [
