@@ -12,7 +12,7 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["static","simplestar_edge"],
+        "star_edge": ["fireflies","24x64"],
         "star_fold": ["static","off"],
         "tree_4":    ["ever_fade","rwgwb"],
         "tree_3":    ["ever_fade","rwgwb"],
