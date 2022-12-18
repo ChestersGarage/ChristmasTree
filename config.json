@@ -13,7 +13,7 @@
     },
     "string_scenes": {
         "star_edge": ["fireflies","24x64"],
-        "star_fold": ["static","off"],
+        "star_fold": ["static","north_star"],
         "tree_4":    ["ever_fade","rwgwb"],
         "tree_3":    ["ever_fade","rwgwb"],
         "tree_2":    ["ever_fade","rwgwb"],
