@@ -12,12 +12,12 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["fireflies","sabers"],
-        "star_fold": ["static","north_star"],
-        "tree_4":    ["old_skool_string","sabers"],
-        "tree_3":    ["old_skool_string","sabers"],
-        "tree_2":    ["old_skool_string","sabers"],
-        "tree_1":    ["old_skool_string","sabers"]
+        "star_edge": ["ever_fade","48x32"],
+        "star_fold": ["pew_pew","sabers"],
+        "tree_4":    ["ever_change","rygbm"],
+        "tree_3":    ["ever_change","rygbm"],
+        "tree_2":    ["ever_change","rygbm"],
+        "tree_1":    ["ever_change","rygbm"]
     },
     "scene_options": {
         "all_blinkers": {
