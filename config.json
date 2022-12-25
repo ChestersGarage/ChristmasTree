@@ -14,10 +14,10 @@
     "string_scenes": {
         "star_edge": ["fireflies","basic8"],
         "star_fold": ["static","north_star"],
-        "tree_4":    ["old_skool_string","white"],
-        "tree_3":    ["old_skool_string","white"],
-        "tree_2":    ["old_skool_string","white"],
-        "tree_1":    ["old_skool_string","white"]
+        "tree_4":    ["old_skool_string","rg"],
+        "tree_3":    ["old_skool_string","rg"],
+        "tree_2":    ["old_skool_string","rg"],
+        "tree_1":    ["old_skool_string","rg"]
     },
     "scene_options": {
         "all_blinkers": {
