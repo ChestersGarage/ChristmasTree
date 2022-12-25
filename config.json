@@ -14,10 +14,10 @@
     "string_scenes": {
         "star_edge": ["twinkling_stars","twinkling_stars"],
         "star_fold": ["water_ripples","water_ripples"],
-        "tree_4":    ["old_skool_string","rgrwrgrb"],
-        "tree_3":    ["old_skool_string","rgrwrgrb"],
-        "tree_2":    ["old_skool_string","rgrwrgrb"],
-        "tree_1":    ["old_skool_string","rgrwrgrb"]
+        "tree_4":    ["chase","48x32"],
+        "tree_3":    ["chase","48x32"],
+        "tree_2":    ["chase","48x32"],
+        "tree_1":    ["chase","48x32"]
     },
     "scene_options": {
         "all_blinkers": {
