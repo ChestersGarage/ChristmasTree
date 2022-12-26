@@ -14,10 +14,10 @@
     "string_scenes": {
         "star_edge": ["static","wl_edge"],
         "star_fold": ["static","north_star"],
-        "tree_4":    ["water_ripples","24x64"],
-        "tree_3":    ["water_ripples","24x64"],
-        "tree_2":    ["water_ripples","24x64"],
-        "tree_1":    ["water_ripples","24x64"]
+        "tree_4":    ["water_ripples","blue_to_white"],
+        "tree_3":    ["water_ripples","blue_to_white"],
+        "tree_2":    ["water_ripples","blue_to_white"],
+        "tree_1":    ["water_ripples","blue_to_white"]
     },
     "scene_options": {
         "all_blinkers": {
