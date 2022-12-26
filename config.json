@@ -12,12 +12,12 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["static","wl_edge"],
+        "star_edge": ["static","plaid_edge"],
         "star_fold": ["static","north_star"],
-        "tree_4":    ["old_skool_string","rwgw"],
-        "tree_3":    ["old_skool_string","rwgw"],
-        "tree_2":    ["old_skool_string","rwgw"],
-        "tree_1":    ["old_skool_string","rwgw"]
+        "tree_4":    ["old_skool_string","rwgwb"],
+        "tree_3":    ["old_skool_string","rwgwb"],
+        "tree_2":    ["old_skool_string","rwgwb"],
+        "tree_1":    ["old_skool_string","rwgwb"]
     },
     "scene_options": {
         "all_blinkers": {
