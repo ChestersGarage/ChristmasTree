@@ -12,7 +12,7 @@
         "tree_1":    50
     },
     "string_scenes": {
-        "star_edge": ["twinkling_stars","twinkling_stars"],
+        "star_edge": ["fireflies","rgbmrgbw"],
         "star_fold": ["pew_pew","sabers"],
         "tree_4":    ["old_skool_string","old_string4x5"],
         "tree_3":    ["old_skool_string","old_string4x5"],
