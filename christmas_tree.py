@@ -1,6 +1,6 @@
 """
-The LED strings are split out per string for more flexibility.
-In particualr, the star has two sections:
+The LED strings are addressed individually for more flexibility.
+In particular, the star has two sections:
     Edge: The LEDs which make the outline and center of the star
     Fold: The LEDs which line the center of the star points, where a paper star would be folded when cutting the shape.
 The tree has 4 strings of 50 LEDs, which should be placed on the tree like regular Christmas lights.
@@ -33,7 +33,13 @@ class GracefulKiller():
 # Set up an instance of the selected scene for each LED string
 for string_label in _config['led_layout']['strings']:
     string_scene = __import__( _config['string_scenes'][string_label][0] )
-    globals()[string_label] = string_scene.Scene( string_label, _config['frame_rate'], _config['led_layout'][string_label], _config['color_palettes'][_config['string_scenes'][string_label][1]], _config['scene_options'][_config['string_scenes'][string_label][0]] )
+    globals()[string_label] = string_scene.Scene(
+                                string_label,
+                                _config['frame_rate'],
+                                _config['led_layout'][string_label],
+                                _config['color_palettes'][_config['string_scenes'][string_label][1]],
+                                _config['scene_options'][_config['string_scenes'][string_label][0]]
+                              )
 
 # Mark the beginning of operation from the highest resolution*, non-varying** time source
 last_frame = monotonic_ns()
@@ -49,10 +55,16 @@ while not killer.kill_now:
         for led_value in raw_led_values:
             #print (led_value[0])
             #exit(0)
+            # Desaturate the colors
+            # Takes the highest of the RGB values and applies the desaturation value as a percentage
             desat_led_values = []
             desat_incr = int(max(led_value) * _config['tuning'][string_label]['desaturation'] / 100)
             #print(desat_incr)
             desat_led_values.extend([
+                # Now apply the desaturation value to each pixel
+                # We also have correction for the individual colors
+                # This is based on testing LED color brightness at raw maximum output levels and adjusting for a clean neutral white.
+                # These adjustments allow the user control called "color_balance" to be realtively equal effect between colors.
                 int(led_value[0] + desat_incr if (led_value[0] + desat_incr) <= 255 else 255),
                 int(led_value[1] + (int(desat_incr*0.90)) if (led_value[1] + (int(desat_incr*0.90))) <= 255 else 255),
                 int(led_value[2] + (int(desat_incr*0.75)) if (led_value[2] + (int(desat_incr*0.75))) <= 255 else 255)
@@ -61,6 +73,7 @@ while not killer.kill_now:
             #print(desat_led_values)
             #exit()
             temp_led_values.append([
+                # User control of color correction
                 int(desat_led_values[0] * _config['tuning'][string_label]['color_balance'][0]),
                 int(desat_led_values[1] * _config['tuning'][string_label]['color_balance'][1]),
                 int(desat_led_values[2] * _config['tuning'][string_label]['color_balance'][2])
@@ -86,8 +99,9 @@ while not killer.kill_now:
 
     # Note the time and update the LEDs.
     last_frame = monotonic_ns()
-    xmas_tree.put_pixels(led_colors,0)
+    xmas_tree.put_pixels(led_colors)
 
 # Shut off the LEDs before we go
+# Hardcoded 265 here, which is how many LEDs are in my entire system
 led_colors = [[0,0,0]] * 265
-xmas_tree.put_pixels(led_colors,0)
+xmas_tree.put_pixels(led_colors)
